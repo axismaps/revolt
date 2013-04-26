@@ -1,0 +1,3387 @@
+{
+   "4\/6\/1760":{
+      "DATE":"1760-1761",
+      "TEXT":"&quot;These circumstances show the great extent of the conspiracy, the strict correspondence which had been carried on by the Coromantins in every quarter of the island, and their almost incredible secrecy in the forming of their plan of insurrection; for it appeared in evidence, that the first eruption in St. Mary's, was a matter preconcerted, and known to all the chief men in the different districts; and the secret was probably confided to some hundreds, for several months before the blow was struck.&quot; --Planter and historian Edward Long, History of Jamaica (1774)",
+      "IMAGE":"Soulevement des Negres 1759.jpg"
+   },
+   "4\/7\/1760":{
+      "DATE":"April 7, 1760",
+      "TEXT":"&quot;Two Coromantee Negroes, Tacky and Jamaica, on Frontier Estate (belonging to Ballard Beckford, Esq;) having long been concerting a Rebellion with three other Chieftains of their country, who were each of them to have an Estate for his good Services, they fixed on Easter Monday Night for their rising.&quot; -- Letter from a Gentleman at St. Mary, 14 April 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;It is believed that the plan was laid for a general insurrection all over the Island by the Corromantee Negroes who are by much the most numerous &amp; resolute; the time fix'd was the Witsun Hollidays but very fortunately the Negroes in St. Marys particularly those upon the Estate that now belongs to Crookshank Mr Bayly's &amp; Mr Ballard Beckfords under the Command of on Tackey a very resolute Fellow broke out in the Easter Hollidays, before the others were quite ripe, owing to Tackeys getting Drunk, &amp; committed sev.l Murders...&quot; --Francis Treble to Caleb Dickinson, 2 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Having at Midnight assembled about 90 others, at Mr. Bayly Estate, Trinity (from Esher, Whitehall, Ballard Valley, and other Plantations) they marched to Port Maria&quot; -- Letter from a Gentleman at St. Mary, 14 April 1760",
+      "STEPS":[
+         {
+            "ID":"1",
+            "TYPE":"Conspiracy",
+            "NAME":"Frontier",
+            "VALUE":"5",
+            "UNITS":"Rebel conspirators",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3756",
+                  "LON":"-76.8998"
+               }
+            ],
+            "TEXT":"Conspirators on Frontier estate decide to launch the revolt."
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Trinity",
+            "VALUE":"100",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3646",
+                  "LON":"-76.913"
+               }
+            ],
+            "TEXT":"Rebels gather at Trinity estate."
+         }
+      ]
+   },
+   "4\/8\/1760":{
+      "DATE":"April 8, 1760",
+      "TEXT":"&quot;Having at Midnight assembled about 90 others, at Mr. Bayly Estate, Trinity (from Esher, Whitehall, Ballard Valley, and other Plantations) they marched to Port Maria ... Killing the Centinel at the Fort, [they] took from thence four Barrels of Powder, a Keg of Musket Balls, and all the Small Arms in the Fort&quot;-- Letter from a Gentleman at St. Mary, 14 April 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Being by this time joined by a number of their countrymen from the neighboring plantations, they marched up the high road that led to the interior parts of the country, carrying death and desolation as they went.&quot;  --Bryan Edwards, History of the West Indies &lt;br \/&gt;&lt;br \/&gt; &quot;&quot;At Day Light they appeared at Ballard Valley, towards whom Mr. Bayly approached, intending to expostulate with them, but firing five Shot at him he retreated, and both he and Mr. Cruikshank narrowly escaped with their Lives; they then fell upon the Overseer, Mr. McPherson, whom they killed, with three other white Men -- --Letter from a Gentleman at St. Mary, 14 April 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;At Ballard's Valley they surrounded the overseer's house about four in the morning, in which finding all the White servants in bed, they butchered every one of them in the most savage manner, and literally drank their blood mixed with rum.&quot; --Bryan Edwards, History of the West Indies &lt;br \/&gt;&lt;br \/&gt; &quot;They went to Esher, and there killed Mr. Norris, the Overseer, a Surveyor, named Castillo, a young Lad, named Gordon, and two other white Men...&quot; --Letter from a Gentleman at St. Mary, 14 April 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;[Zachary Bayly] rode round to all the different plantations in the neighborhood, giving them notice of their danger, and sending all the Whites to the place of rendezvous.  By this measure he had collected before noon about 130 Whites and trusty Blacks, tolerably armed; whom he then led in pursuit of the rebels.&quot; --Bryan Edwards, History of the West Indies &lt;br \/&gt;&lt;br \/&gt;  &quot;...Thence they marched to Whitehall, where they killed one white Man, and then proceeded to Haywood Hall, where they burnt a Cane Piece, and the Wind Mill, and at Eleven sat down to regale themselves, in the Road to Ballard Valley... Mr. Bayly... attacked them, killed eight, and took four, the rest retreating into the wood, where they rendezvoused.&quot; --Letter from a Gentleman at St. Mary's, 14 April 1760&quot; &lt;br \/&gt;&lt;br \/&gt; The rebels were &quot;found at Haywood-Hall, roasting an ox by the flames of the buildings, which they had set on fire.  The Whites attacked them with great fury, killed eight or nine on the spot, took several of them prisoners, and drove the rest into the woods, where they acted afterwards wholly on the defensive.&quot; --Bryan Edwards, History of the West Indies",
+      "STEPS":[
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Ft. Haldane",
+            "VALUE":"100",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3646",
+                  "LON":"-76.913"
+               },
+               {
+                  "LAT":"18.3776",
+                  "LON":"-76.8905"
+               }
+            ],
+            "TEXT":"Rebels attack Ft. Haldane, killing the sentinel and acquiring arms and ammunition."
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Trinity",
+            "VALUE":"100",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3776",
+                  "LON":"-76.8905"
+               },
+               {
+                  "LAT":"18.3646",
+                  "LON":"-76.913"
+               }
+            ],
+            "TEXT":"Rebels return to Trinity for more arms and reinforcements"
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Ballard's Valley",
+            "VALUE":"400",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3646",
+                  "LON":"-76.913"
+               },
+               {
+                  "LAT":"18.3435",
+                  "LON":"-76.9176"
+               }
+            ],
+            "TEXT":"Rebels march up the main road to upcountry plantations"
+         },
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Ballard's Valley",
+            "VALUE":"400",
+            "UNITS":"Rebel force",
+            "TEXT":"Rebels kill more than twelve whites and about thirty non-whites at Ballard's Valley plantation. ",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3435",
+                  "LON":"-76.9176"
+               },
+               {
+                  "LAT":"18.2809",
+                  "LON":"-76.8675"
+               }
+            ]
+         },
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Esher",
+            "TEXT":"At Esher, rebels kill the overseer, a surveyor, and three other white men",
+            "LOC":[
+               {
+                  "LAT":"18.2809",
+                  "LON":"-76.8675"
+               }
+            ]
+         },
+         {
+            "ID":"2",
+            "TYPE":"Militia",
+            "NAME":"Ballard's Valley",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3003",
+                  "LON":"-76.8929"
+               },
+               {
+                  "LAT":"18.3435",
+                  "LON":"-76.9176"
+               }
+            ],
+            "TEXT":"Zachary Bayly raises the militia from the surrounding estates"
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Whitehall",
+            "VALUE":"400",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3435",
+                  "LON":"-76.9176"
+               },
+               {
+                  "LAT":"18.3254",
+                  "LON":"-76.9168"
+               }
+            ],
+            "TEXT":"Rebels advance from Ballard's Valley to Whitehall before gathering at Heywood Hall."
+         },
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Whitehall",
+            "TEXT":"Rebels kill a white man at Whitehall plantation.",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3254",
+                  "LON":"-76.9168"
+               },
+               {
+                  "LAT":"18.3386",
+                  "LON":"-76.9084"
+               }
+            ]
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Heywood Hall",
+            "VALUE":"400",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3386",
+                  "LON":"-76.9084"
+               }
+            ],
+            "TEXT":"St. Mary's rebellion reaches peak strength"
+         },
+         {
+            "ID":"2",
+            "TYPE":"Clash",
+            "NAME":"Heywood Hall",
+            "TEXT":"Zachary Bayly leads militia counterattack at Heywood Hall ",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3435",
+                  "LON":"-76.9084"
+               },
+               {
+                  "LAT":"18.3386",
+                  "LON":"-76.9084"
+               }
+            ]
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Into the woods",
+            "VALUE":"300",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3386",
+                  "LON":"-76.9084"
+               },
+               {
+                  "LAT":"18.3329",
+                  "LON":"-76.874"
+               }
+            ],
+            "TEXT":"Rebels retreat into the surrounding wood"
+         }
+      ]
+   },
+   "4\/9\/1760":{
+      "DATE":"April 9, 1760",
+      "TEXT":"Lt Gov. Henry Moore &quot;had ordered a Detachment consisting of three Officers and sixty private Men from his Majesty's 74th Regiment, then Quartered in this Town, to March directly to their Assistance, and to take their Rout by the Road leading to Saint Mary's over Archer's Ridge, and that another Detachment of the same force from his Majesty's 49th Regiment had been ordered from Port Royal to March through Liguania by the Road lately cut from thence to that Parish.&quot; --Minutes of the Jamaica Council, 10 April 1760",
+      "STEPS":[
+         {
+            "ID":"3",
+            "TYPE":"Army",
+            "NAME":"Foot of Guy's Hill",
+            "TEXT":"Lt. Gov. Henry Moore dispatches detachments of the 74th Regiment from Spanish Town to St. Mary's parish",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.9961",
+                  "LON":"-76.9558"
+               },
+               {
+                  "LAT":"18.3022",
+                  "LON":"-76.9918"
+               }
+            ]
+         },
+         {
+            "ID":"4",
+            "TYPE":"Army",
+            "NAME":"St. John's Parish",
+            "TEXT":"Moore dispatches detachments of the 74th Regiment to St.John's parish.",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.9961",
+                  "LON":"-76.9558"
+               },
+               {
+                  "LAT":"18.1474",
+                  "LON":"-77.1592"
+               }
+            ]
+         },
+         {
+            "ID":"5",
+            "TYPE":"Army",
+            "NAME":"Wagwater",
+            "TEXT":"Moore dispatches detachments of the 49th Regiment from Port Royal to St. Mary's.",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.9362",
+                  "LON":"-76.8382"
+               },
+               {
+                  "LAT":"18.1961",
+                  "LON":"-76.8073"
+               }
+            ]
+         },
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Scot's Hall & Crawford Town",
+            "TEXT":"Moore calls upon the maroons, obliged by the treaty of 1739 to help suppress slave revolts",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.183",
+                  "LON":"-76.8286"
+               },
+               {
+                  "LAT":"18.1851",
+                  "LON":"-76.6841"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/10\/1760":{
+      "DATE":"April 10, 1760",
+      "TEXT":"Moore has sent &quot;Express's to the Commanding Officers of Crawford Town, Nanny town and Scotts Hall with Orders to March immediately with a Company from such places to their Relief.&quot;  --Minutes of the Jamaica Council, 10 April 1760",
+      "STEPS":[
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Into the woods",
+            "TEXT":"Scott's Hall Maroons patrol the woods",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.183",
+                  "LON":"-76.8286"
+               },
+               {
+                  "LAT":"18.3386",
+                  "LON":"-76.9084"
+               }
+            ]
+         },
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Into the woods",
+            "TEXT":"Crawford Town Maroons patrol the woods",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1851",
+                  "LON":"-76.6841"
+               },
+               {
+                  "LAT":"18.3385",
+                  "LON":"-76.9085"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/11\/1760":{
+      "DATE":"April 11, 1760",
+      "TEXT":"Militia from surrounding plantations gather at Ballard's Valley",
+      "STEPS":[
+         {
+            "ID":"2",
+            "TYPE":"Militia",
+            "NAME":"Ballard's Valley",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3435",
+                  "LON":"-76.9176"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "4\/12\/1760":{
+      "DATE":"April 12, 1760",
+      "TEXT":"&quot;Captain Rigby, of the Regulars, arrived on Saturday Noon at Downs Cove (where the Rebels had burnt some Houses but three Hours before) and was there joined by Lieutenant Forsyth and his Detachment, by the Crawford Town Negroes, and by Captain Hynes; the latter is a brave Volunteer, who has headed a Party of stout Negroes; here they had Information that the Rebels were very near them, in order to meet with whom they agreed to divide, one Detachment going to Carlton Wood House...&quot; &lt;br \/&gt;&lt;br \/&gt; &quot;Lieutenant Forsyth staid at [Downs's Cove], where the Rebels came down in the Night, attacked his Party, killed the Centinel of the advanced Guard, and wounded Lieutenant Bevill, and one Man of the 49th. In this Action the Rebels had three killed, and Tacky, their leader, wounded... &quot; &lt;br \/&gt;&lt;br \/&gt; &quot;On Saturday Morning, the 12th Captain Hynes, joined by the Crawford Town Negroes, under Messieurs Sweigle and Mosely, went into the Wood, and at Noon came up with the Rebels, who were very advantageously posted, in a rocky gully, between two steep Hills; as soon as they discovered Captain Hynes Party, the ascended one Hill, where they were immediately attacked very briskly for an Hour, defeated and pursued, and had two Men and two Women killed, and two Women and a Child taken, with their Baggage, and one Keg of Powder, and two Guns. Captain Hynes had only two Men wounded, and continued the Pursuit of the Rebels, scouring the Woods to Friendship Estate, where he and Mr. Sweigle, with their parties, staid last Night. They are to go again into the Woods this Morning.&quot; --Letter from a Gentleman at St. Mary, 14 April 1760",
+      "STEPS":[
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Downs's Cove",
+            "TEXT":"Rebels burn houses in the area around Downs's Cove",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               }
+            ]
+         },
+         {
+            "ID":"5",
+            "TYPE":"Army",
+            "NAME":"Downs's Cove",
+            "LOC":[
+               {
+                  "LAT":"18.1961",
+                  "LON":"-76.8073"
+               },
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               }
+            ],
+            "TEXT":"Units of the 49th Regiment take a position at Downs's Cove"
+         },
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Downs's Cove",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3385",
+                  "LON":"-76.9085"
+               },
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               }
+            ],
+            "TEXT":"Army units, militia, and maroons assemble at Downs's Cove before dividing up to continue their pursuit"
+         },
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Downs's Cove",
+            "TEXT":"The rebels British attack soldiers stationed at Downs's Cove, killing one and wounding another",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               }
+            ]
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Gully in the woods",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               },
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               }
+            ],
+            "TEXT":"Rebels withdraw to a position at a rocky gully in the nearby woods"
+         },
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Gully in the woods",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               },
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               }
+            ],
+            "TEXT":"Maroons and militia pursue rebels from Downs's Cove to the rocky gully"
+         },
+         {
+            "ID":"6",
+            "TYPE":"Clash",
+            "NAME":"Gully in the woods",
+            "TEXT":"Maroons and mercenary militia Capt. Hynes attacks rebels with a party of armed and loyal slaves",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/13\/1760":{
+      "DATE":"April 13, 1760",
+      "TEXT":"Maroons pursue rebels through the woods near Friendship estate",
+      "STEPS":[
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Woods near Friendship",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               },
+               {
+                  "LAT":"18.3263",
+                  "LON":"-76.8568"
+               }
+            ],
+            "TEXT":"Militia track rebels to the area around Friendship estate"
+         },
+         {
+            "ID":"2",
+            "TYPE":"Militia",
+            "NAME":"Woods near Friendship",
+            "TEXT":"Units of the 74th regiment take a position at Nonsuch estate",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               },
+               {
+                  "LAT":"18.3262",
+                  "LON":"-76.8569"
+               }
+            ]
+         },
+         {
+            "ID":"3",
+            "TYPE":"Army",
+            "NAME":"Nonsuch",
+            "TEXT":"British forces patrol the woods for rebels",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3022",
+                  "LON":"-76.9918"
+               },
+               {
+                  "LAT":"18.3004",
+                  "LON":"-76.8932"
+               }
+            ]
+         },
+         {
+            "ID":"5",
+            "TYPE":"Army",
+            "NAME":"Edge of the woods",
+            "TEXT":null,
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3566",
+                  "LON":"-76.8444"
+               },
+               {
+                  "LAT":"18.3471",
+                  "LON":"-76.8672"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/14\/1760":{
+      "DATE":"April 14, 1760",
+      "TEXT":"&quot;On Wednesday Morning an Express arrived, informing that the Regulars having lined the Outside of the Wood where the Rebels were posted, Mr. Charles Sweigle and his Party, joined by the other parties from the free Negroe Towns, went into the Woods on Monday Morning, and came up with the Rebels about Eleven o'Clock, in a rocky Valley, whom they attacked with great Impetuosity, totally routed them, killed their Leaders, Tacky and Jamaica, and took all their Baggage and Stores, with four Half Barrels of gunpowder. Seventeen Pair of Ears are brought in, and so many taken Prisoners, that is believed not above eleven escaped in Flight: These are now Pursued by Trelawny Town Negroes.&quot; Letter from a Gentleman at St. Mary, 14 April 1760 &lt;br \/&gt;&lt;br \/&gt;  &quot;The maroons of Scots-Hall, having got sight of their main body, forced them to an engagement; the rebels soon gave way, and Tacky, their leader, having separated from the rest, was closely pursued by lieut. Davy of the Marons, who fired at him whilst they were both running a full speed, and shot him dead.&quot; Edward Long, History of Jamaica (1774)  &lt;br \/&gt;&lt;br \/&gt; ",
+      "STEPS":[
+         {
+            "ID":"6",
+            "TYPE":"Maroons",
+            "NAME":"Rocky valley",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3263",
+                  "LON":"-76.8568"
+               },
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               }
+            ],
+            "TEXT":"Maroons pursue rebels to a rocky valley in the woods"
+         },
+         {
+            "ID":"2",
+            "TYPE":"Militia",
+            "NAME":"Rocky valley",
+            "TEXT":"Militia pursue rebels to the rocky valley",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3386",
+                  "LON":"-76.9084"
+               },
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               }
+            ]
+         },
+         {
+            "ID":"1",
+            "TYPE":"Clash",
+            "NAME":"Rocky valley",
+            "TEXT":"Pitched battle in a rocky valley upriver from Downs's Cove. Rebel leaders Tacky and Jamaica killed",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               }
+            ]
+         },
+         {
+            "ID":"1",
+            "TYPE":"Rebels",
+            "NAME":"Into the woods",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3402",
+                  "LON":"-76.8547"
+               },
+               {
+                  "LAT":"18.3471",
+                  "LON":"-76.8672"
+               }
+            ],
+            "TEXT":"Defeated rebels disperse"
+         }
+      ]
+   },
+   "4\/15\/1760":{
+      "DATE":"April 15, 1760",
+      "TEXT":"On Tuesday Evening a young Man was shot at, as he passed by some Negro Huts, in Kingston, Savannah; which informing the Guard of, a File of Men immediately marched thither, when several Negroes jumped over the Fence, and made their Escape: One, however, was seized, and, on searching his Hut, was found a Sword of an extraordinary Size and Weight, the Hilt covered with black Velvet, and studded with Brass nails, and under the Velvet a Parrotred Feather; which, it seems, is with the Coromantees, the Banner of War. This Sword, we are assured, as been seen at Spring Path the three Sundays last past: And it has been observed, that the Coromantee Negroes, about Kingston, have been very audacious since the Account came of the Insurrection in St. Mary's. --Letter from Kingston, 19 April 1760, Pennsylvania Gazette",
+      "STEPS":[
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Kingston",
+            "VALUE":"5",
+            "UNITS":"Rebel conspirators",
+            "TEXT":"Reported conspiracy in Kingston",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9757",
+                  "LON":"-76.7875"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/17\/1760":{
+      "DATE":"April 17, 1760",
+      "TEXT":"&quot;Upon [Lt. Gov. Moore's] application to Vice Admiral Cotes for a Vessell to carry round Stores and Provision for the great number of People which were then Assembled in the parish of Saint Mary on Account of this unhappy event, the Admiral had immediately fitted and manned a small vessel which he vicutaled from his own Ship for the greater expedition, and sent her round to Anotto Bay on the North side of the Island, and that his Majesty's Ship Lively had since been sent round with a fresh supply of Provisions and Warlike stores, and that the Admiral had wrote word to the Lieutenant Governor that another of his majesty's Ships should be kept ready to sail at a moments warning, and that if it should be necessary to order all the Troops from Port Royal into the heart of the Country, the marines from on board his Majestys Ship Marlborough should be landed at Port Royal and do Duty there.&quot; --Minutes of the Jamaica Council, 17 April 1760",
+      "STEPS":[
+         {
+            "ID":"8",
+            "TYPE":"Navy",
+            "NAME":"Pt. Royal Harbor to Pt. Maria Bay via Morant Point",
+            "TEXT":"HMS Port Antonio dispatched to St. Mary's parish with arms and stores",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9176",
+                  "LON":"-76.7946"
+               },
+               {
+                  "LAT":"17.9091",
+                  "LON":"-76.1585"
+               }
+            ]
+         },
+         {
+            "ID":"9",
+            "TYPE":"Navy",
+            "NAME":"Pt. Royal Harbor to Pt. Maria Bay via Morant Point",
+            "TEXT":"HMS Lively dispatched to Port Maria",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9176",
+                  "LON":"-76.7946"
+               },
+               {
+                  "LAT":"17.9092",
+                  "LON":"-76.1586"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/24\/1760":{
+      "DATE":"April 24, 1760",
+      "TEXT":"HMS Port Antonio arrives at Port Maria",
+      "STEPS":[
+         {
+            "ID":"8",
+            "TYPE":"Navy",
+            "NAME":"Pt. Maria",
+            "TEXT":null,
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9091",
+                  "LON":"-76.1585"
+               },
+               {
+                  "LAT":"18.3742",
+                  "LON":"-76.886"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/25\/1760":{
+      "DATE":"April 25, 1760",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"8",
+            "TYPE":"Navy",
+            "NAME":"Pt. Maria Bay to Anotto Bay",
+            "TEXT":"HMS Port Antonio sails from Port Maria to Anotto Bay",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3742",
+                  "LON":"-76.886"
+               },
+               {
+                  "LAT":"18.2756",
+                  "LON":"-76.7761"
+               }
+            ]
+         }
+      ]
+   },
+   "4\/26\/1760":{
+      "DATE":"April 26, 1760",
+      "TEXT":"HMS Lively arrives at Port Maria",
+      "STEPS":[
+         {
+            "ID":"9",
+            "TYPE":"Navy",
+            "NAME":"Pt. Maria",
+            "TEXT":null,
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9092",
+                  "LON":"-76.1586"
+               },
+               {
+                  "LAT":"18.3742",
+                  "LON":"-76.886"
+               }
+            ]
+         }
+      ]
+   },
+   "5\/3\/1760":{
+      "DATE":"May 3, 1760",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Spanish Town",
+            "VALUE":"1",
+            "UNITS":"Judicial execution",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9945",
+                  "LON":"-76.9559"
+               }
+            ],
+            "TEXT":"Executions of St. Mary's rebels"
+         }
+      ]
+   },
+   "5\/14\/1760":{
+      "DATE":"May 14, 1760",
+      "TEXT":"HMS Port Antonio returns with British army units to Port Royal",
+      "STEPS":[
+         {
+            "ID":"8",
+            "TYPE":"Navy",
+            "NAME":"Pt. Royal Harbor",
+            "TEXT":null,
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9176",
+                  "LON":"-76.7946"
+               }
+            ]
+         }
+      ]
+   },
+   "5\/21\/1760":{
+      "DATE":"May 21, 1760",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Spanish Town",
+            "VALUE":"5",
+            "UNITS":"Judicial executions",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9945",
+                  "LON":"-76.9559"
+               }
+            ],
+            "TEXT":"Further executions of St. Mary's rebels"
+         }
+      ]
+   },
+   "5\/22\/1760":{
+      "DATE":"May through June",
+      "TEXT":"&quot;Four different Conspiracys among the Slaves had been discovered in the Parishes of Clarendon, Saint Johns, Saint Dorothy's and Saint Thomas in the East, which were intended to have been carried into immediate Execution, but were happily frustrated by the Vigilance of the Officers in those Quarters, and several Negroes who had attempted to raise Seditions there, had been taken and executed.&quot; Lt. Gov. Henry Moore, 24 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;In the parish of St. Thomas in the East, a Negroe, named Caffee, who had been pressed by some Coromantins there to join with them in rebelling, and destroying the estates and white inhabitants, declined at first being concerned; but recollecting that some advantages might be gained to himself by a thorough knowledge of their intentions, he afterwards pretended to have thought better of their proposals, and, professing his zeal to embrace them, he associated at their private cabals from time to time, till he became master of the whole secret, which he took the first opportunity to discover, and most of the conspirators were apprehended.&quot; --Edward Long, History of Jamaica (1774) &lt;br \/&gt;&lt;br \/&gt; In the Vale of Luidas, in St. John's, the Coromantins had agreed to rise, ravage the estates, and murder the white men there; they fixed a certain day for commencing hostilities, when they were to break open the house at Langher's plantation, and seize the fire arms lodged there; after which, they were to slay all the Whites they could meet with, fire the houses and cane-pieces, and lay all the country waste.  Three Negroes, who were privy to this machination, disclosed it to their overseer, in consequence of which, the ringleaders were taken up, and upon conviction, executed; others, who turned evidence, were transported off the island thus the whole of this bloody scheme was providentially frustrated. --Edward Long, History of Jamaica (1774)",
+      "STEPS":[
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Manchioneal",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.0341",
+                  "LON":"-76.278"
+               }
+            ],
+            "TEXT":"Conspiracy reported in St. Thomas in the East"
+         },
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Langher's, Luidas Vale",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.1679",
+                  "LON":"-77.1875"
+               }
+            ],
+            "TEXT":"Conspiracy reported in St. John's"
+         },
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Clarendon",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.7756",
+                  "LON":"-77.2731"
+               }
+            ],
+            "TEXT":"Conspiracy reported in Clarendon"
+         },
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Kelly's Cocoa Walk",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.0128",
+                  "LON":"-77.1451"
+               }
+            ],
+            "TEXT":"Conspiracy reported in St. Dorothy's"
+         }
+      ]
+   },
+   "5\/25\/1760":{
+      "DATE":"May 25, 1760",
+      "TEXT":"&quot;Soon affter midnight, Mesr: Say, Brown Walker &amp; Rumbold Call'd me up and told me off Mr: Smit at Capt: Forests being Murdered by the Negores: Capt:=hoar Sadly Chopp'd &amp;c. Capt: George Richardson and Tho: Barnes &amp;c. Running to the Bay on Foot, a Narrow escape they had. When we reached Col:Barcly's I gallop'd back to Egypt, and Secured my Keys, writings &amp;c. had beffore my house in my Fright, being those Who had Call'd me were some without Cloaths, and made [___] Backward setting enough should probably be Murdered in a Short Time, &amp;c.&amp;c.&quot; --Thomas Thistlewood diary, 26 May 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;When Martial Law was taken off, &amp; almost every part of the Island seem'd quiet, an Insurrection broke out in the Parish of Westmoreland at an Estate belonging to Mr. Forrest.  The agent for the Estate (Smith), a White Woman, the overseer, the Book keeper, Hoare a Captain of a Ship, his nephew &amp; another Captain of a ship one Richardson were setting at Supper Witsun Evening, &amp; the first intimation they had was a volley of small arms being fir'd in at the window by w.ch Smith was shot dead, the others attempted to make their escape, but the Negroes rush'd in upon them, &amp; Murdered them all, Except Richardson who owes his Escape to his agility.&quot;-- Francis Treble, 2 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Before a body could be Collected together their number increas'd to three or four hundr'd as a Number joined them from different Estates and was pursuing on to Forrest Estate to distroy it and march't up to Mr. Crawford's house that joines sd. Estate in order to kill &amp; distroy what Whites was there but Crawford's negroe refused to join them &amp; protected their master upon which they marcht to Delve Estate belonging to Woodcock where they did much damage killd what whites they could meet but by this time they were followed by a number of whites upon which they took to two Estates in the Mountains Call'd Moreland belonging to Mr. Willms &amp; Jones the Latter of which they have intirely ruined and at which place they have made a stand &amp; repulsed our parties &amp; beat them of several times owing to their advantageous situation and having arms and ammunition in plenty.&quot; Leonard Stedman, 7 June 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Masemure",
+            "VALUE":"174",
+            "UNITS":"Rebel force",
+            "TEXT":"Uprising in Westmoreland parish, where rebels begin by killing several people on Arthur Forrest's Masemure estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               }
+            ]
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"The Delve",
+            "VALUE":"200",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               },
+               {
+                  "LAT":"18.2935",
+                  "LON":"-78.2954"
+               }
+            ],
+            "TEXT":"Rebels proceed to Delve estate"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Moreland",
+            "VALUE":"240",
+            "UNITS":"Rebel force",
+            "TEXT":"Rebels proceed to Moreland estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2935",
+                  "LON":"-78.2954"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         }
+      ]
+   },
+   "5\/26\/1760":{
+      "DATE":"May 26, 1760",
+      "TEXT":"&quot;Mr. Macfarlane came to us in a great hurry and gave us a distressing message: that Negros had broken out in rebellion against the white people not far from here, and they had gruesomely murdered many, and that all the white people in this parish were going to rifle practice...&quot; --Moravian diary, Mesopotamia estate, 26 May 1760 &lt;br \/&gt;&lt;br \/&gt;  &quot;They have been joined by the Negroes of the sev.l adjacent Estates &amp; tis said they are 900 Strong, but this is not certain as we are reciv.g frequent Contradictory acc.ots, by an Express just now come in we hear they are got into Hanover.&quot; --Francis Treble, 2, June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Immediately upon receiving an Express from Westmoreland that a Rebellion was broke out there... a Quantity of Arms and Ammunition was dispatched for the use of the Militia in those Quarters... The Number of Slaves in Rebellion increasing, Two Detachments of Sixty Men each from His Majesty's 49th Regiment were sent down, the first under the Command of Captain Crean, the Second under Lieut. Forsith and another detachment of Twenty-five Men was sent to Saint Elizabeth's, the Inhabitants there being very apprehensive that the Slaves of several Estates in that parish had an intention of Rising and joining those in the Neighboring Parish of Westmoreland.  These Detachments were all sent on board His Majesty's Ships to the place of their destination by Rear Admiral Homes, who upon the Lieutenant Governor's application to him for that purpose, not only forwarded them with all the dispatch possible, but directed one hundred Marines from on board the Cambridge to be likewise sent down with order to land and joyn the other Troops there assembled.  The Seamen from the Ships were order'd likewise to be landed if their Assistance should be required by the Inhabitants.&quot; --Minutes of the Jamaica Council, 14 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;The Soldiers were Soon dispatched after the rebellious Negroes: Sambo &amp; Mitilia killed at Egypt.&quot; --Thistlewood diary, 26 May 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"The Delve",
+            "VALUE":"200",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               }
+            ],
+            "TEXT":"Risings on multiple estates, including The Delve..."
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Moreland",
+            "VALUE":"510",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Moreland"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"New Hope",
+            "VALUE":"13",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2661",
+                  "LON":"-78.2684"
+               }
+            ],
+            "TEXT":"New Hope"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Old Hope",
+            "VALUE":"22",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2589",
+                  "LON":"-78.2669"
+               }
+            ],
+            "TEXT":"Old Hope"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"The Retrieve",
+            "TEXT":"The Retrieve",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2851",
+                  "LON":"-78.2545"
+               }
+            ]
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Campbleton",
+            "VALUE":"14",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.371",
+                  "LON":"-78.3141"
+               }
+            ],
+            "TEXT":"Campbelton"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Fish River",
+            "VALUE":"10",
+            "UNITS":"Rebel force",
+            "TEXT":"Fish River",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3661",
+                  "LON":"-78.3261"
+               }
+            ]
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Moreland to Rebel's Barricade",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               },
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ],
+            "TEXT":"From their base at Moreland rebels begin to gather at a mountain encampment"
+         },
+         {
+            "ID":"12",
+            "TYPE":"Militia",
+            "NAME":"Salt River to Masemure",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.216",
+                  "LON":"-78.1035"
+               },
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               }
+            ],
+            "TEXT":"Militia assembles at Salt River and marches to Masemure"
+         },
+         {
+            "ID":"12",
+            "TYPE":"Clash",
+            "NAME":"Masemure",
+            "VALUE":"17",
+            "UNITS":"Rebels captured",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               },
+               {
+                  "LAT":"18.2935",
+                  "LON":"-78.2954"
+               }
+            ],
+            "TEXT":"Militia engages rebels at Masemure"
+         },
+         {
+            "ID":"12",
+            "TYPE":"Clash",
+            "NAME":"Moreland",
+            "VALUE":"17",
+            "UNITS":"Rebels captured",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2935",
+                  "LON":"-78.2954"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Militia engages rebels at Moreland"
+         },
+         {
+            "ID":"13",
+            "TYPE":"Army",
+            "NAME":"Savanna La Mar",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2085",
+                  "LON":"-78.1347"
+               },
+               {
+                  "LAT":"18.2459",
+                  "LON":"-78.2"
+               }
+            ],
+            "TEXT":"British forces dispatched from Savanna La Mar to Masemure via Egypt"
+         },
+         {
+            "ID":"13",
+            "TYPE":"Clash",
+            "NAME":"Egypt",
+            "VALUE":"2",
+            "UNITS":"Suspected rebels killed",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2459",
+                  "LON":"-78.2"
+               },
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               }
+            ],
+            "TEXT":"Suspected rebels killed at Egypt estate"
+         },
+         {
+            "ID":"13",
+            "TYPE":"Army",
+            "NAME":"Masemure to Moreland",
+            "TEXT":"British forces march from Masemure to Moreland",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         },
+         {
+            "ID":"14",
+            "TYPE":"Army",
+            "NAME":"Lucea to Jerusalem",
+            "TEXT":"British forces dispatched from Lucea to Jerusalem estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.4581",
+                  "LON":"-78.1616"
+               },
+               {
+                  "LAT":"18.3292",
+                  "LON":"-78.2341"
+               }
+            ]
+         },
+         {
+            "ID":"15",
+            "TYPE":"Army",
+            "NAME":"Montego Bay to Jerusalem",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.483",
+                  "LON":"-77.9193"
+               },
+               {
+                  "LAT":"18.3292",
+                  "LON":"-78.2341"
+               }
+            ],
+            "TEXT":"British forces dispatched from Montego Bay to Jerusalem estate"
+         }
+      ]
+   },
+   "5\/27\/1760":{
+      "DATE":"May 27, 1760",
+      "TEXT":null,
+      "IMAGE":"Photo of Hills above Moreland",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Rebel's Barricade",
+            "VALUE":"1000",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ],
+            "TEXT":"Rebels erect a fortified encampment"
+         },
+         {
+            "ID":"12",
+            "TYPE":"Militia",
+            "NAME":"Woods near Moreland",
+            "TEXT":"Militia and soldiers hunt rebels in the area around Moreland estate",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         }
+      ]
+   },
+   "5\/28\/1760":{
+      "DATE":"May 28, 1760",
+      "TEXT":"",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Rebel's Barricade",
+            "VALUE":"1000",
+            "UNITS":"Rebel force",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ],
+            "TEXT":"Rebels coalesce at their mountain stronghold, later marked as the Rebel's Barricade on Henry Moore's map of 1763"
+         }
+      ]
+   },
+   "5\/29\/1760":{
+      "DATE":"May 29, 1760",
+      "TEXT":"&quot;They took 60 Stand of Arms from Forrest's Estate &amp; some few from the other Estates they thought proper to visit &amp; 50 from the Westmoreland Militia a party of whom they defeated &amp; took their arms w.ch they very imprudently left behind when they ran, for none of them were taken &amp; but a few kill'd. The Negroes have no notion of Prisoners, they give no quarter.&quot; Francis Treble, 12 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;All the Afternoon and Night being under dreadfful apprhensions, as Mr: Joseph Johnson  x told me for god's Sake to take care off my Self, and Col: Barclay told me we had but bad Success, being defeated and Some off our people kill'd From which perceive our Negroes have good intelligence being greatly Elevated and ready to rise now we are in the most danger... &quot;About 2 P.M. a Mulatto Boy and 2 Negroe Men Boys Come running from Jacobffield, the late Mr: Allen's, and reported (that Some Negroes Come with a Shout and ffired 4 or 5 guns and began to Tear the great House in pieces) beffore they Escaped.&quot; --Thomas Thistlewood diary, 29 May 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;A party of militia, who were sent to attack them, very narrowly escaped being all cut off.  The men were badly disciplined, having been hastily collected; and falling into an ambuscade, they were struck with terror at the dismal yells, and the multitude of their assailants.  The whole party was thrown into the utmost confusion, and routed, notwithstanding every endeavour of their officers; each strove to shift for himself, and whilst they ran different ways, scarcely knowing what they were about, several were butchered, others broke their limbs over precipices, and the rest with difficulty found their way back again.&quot; --Edward Long, History of Jamaica (1774)  &lt;br \/&gt;&lt;br \/&gt; &quot;About 2 P.M. a Mulatto Boy and 2 Negroe Men Boys Come running from Jacobffield, the late Mr: Allen's, and reported (that Some Negroes Come with a Shout and ffired 4 or 5 guns and began to Tear the great House in pieces) beffore they Escaped.&quot; --Thomas Thistlewood diary, 29 May 1760",
+      "STEPS":[
+         {
+            "ID":"12",
+            "TYPE":"Clash",
+            "NAME":"Rebel's Barricade",
+            "TEXT":"Rebel's repulse militia attack on the barricaded encampment",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               },
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ]
+         },
+         {
+            "ID":"12",
+            "TYPE":"Militia",
+            "NAME":"Moreland",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Militia retreat to Moreland estate"
+         },
+         {
+            "ID":"16",
+            "TYPE":"Clash",
+            "NAME":"Jacobfield",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3094",
+                  "LON":"-78.1853"
+               }
+            ],
+            "TEXT":"Rising on Jacobfield estate"
+         },
+         {
+            "ID":"17",
+            "TYPE":"Militia",
+            "NAME":"Jacobfield",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.216",
+                  "LON":"-78.1035"
+               },
+               {
+                  "LAT":"18.3094",
+                  "LON":"-78.1853"
+               }
+            ],
+            "TEXT":"Militia suppress the outbreak on Jacobfield estate"
+         }
+      ]
+   },
+   "5\/30\/1760":{
+      "DATE":"May 30, 1760",
+      "TEXT":"&quot;I went to visit the Negroes in their Houses [where] I found also 7 of the wild Negroes, whereof one of the chiefs, is nam'd Acompong, who is a Captain of one of the 5 Towns, wch is call'd after him.  His Br. Cudjoe is Coll. Of another.  I have been told that in the 5 Towns, wch they, are above 1500 free Negroes, who lead an orderly Life, &amp; have cultivated their own Land.  Their Officers or Governors who are call'd Captains have a Pension from the Government.  Capn Acampong's Dress was an embroidered Waistcoat, gold Lace around his Hat, a silver chain abt. His Neck to wch was hung a silver Medal wherein, on one side was King George ye 2nd's Picture and on the other his Commission with this subscription Captain Acampong.  He had Ear Rings &amp; on each of his Fingers 5, 6, or 7 Rings of silver &amp; on his Feet some Iron Rings, he goes barefooted.&quot;-- Zacharias George Caries Diary, 27 March 1755",
+      "STEPS":[
+         {
+            "ID":"18",
+            "TYPE":"Maroons",
+            "NAME":"Trelawney Town",
+            "LOC":[
+               {
+                  "LAT":"18.3423",
+                  "LON":"-77.7599"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Cudjoe's Trelawney Town maroons join with British forces"
+         },
+         {
+            "ID":"19",
+            "TYPE":"Maroons",
+            "NAME":"Furry Town",
+            "LOC":[
+               {
+                  "LAT":"18.3628",
+                  "LON":"-77.8066"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Captain Furry's maroons join with British forces"
+         },
+         {
+            "ID":"20",
+            "TYPE":"Maroons",
+            "NAME":"Accompong Town",
+            "LOC":[
+               {
+                  "LAT":"18.2196",
+                  "LON":"-77.7479"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Accompong's maroons join with British forces"
+         },
+         {
+            "ID":"21",
+            "TYPE":"Army",
+            "NAME":"Savanna La Mar by sea",
+            "TEXT":"British army reinforcements dispatched to Westmoreland parish by sea",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9868",
+                  "LON":"-76.8654"
+               },
+               {
+                  "LAT":"18.2018",
+                  "LON":"-78.1345"
+               }
+            ]
+         },
+         {
+            "ID":"22",
+            "TYPE":"Navy",
+            "NAME":"Savanna La Mar Harbor",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9204",
+                  "LON":"-76.8527"
+               },
+               {
+                  "LAT":"18.1977",
+                  "LON":"-78.1348"
+               }
+            ],
+            "TEXT":"Naval reinforcements dispatched to Westmoreland parish"
+         },
+         {
+            "ID":"23",
+            "TYPE":"Army",
+            "NAME":"Spanish Town to Lacovia via Black River",
+            "TEXT":"British army units dispatched to St. Elizabeth parish by sea",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9868",
+                  "LON":"-76.8654"
+               },
+               {
+                  "LAT":"18.0186",
+                  "LON":"-77.8463"
+               }
+            ]
+         },
+         {
+            "ID":"23",
+            "TYPE":"Army",
+            "NAME":"Lacovia",
+            "TEXT":"Army units deploy at Lacovia",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.0186",
+                  "LON":"-77.8463"
+               },
+               {
+                  "LAT":"18.0861",
+                  "LON":"-77.7611"
+               }
+            ]
+         }
+      ]
+   },
+   "5\/31\/1760":{
+      "DATE":"May 31, 1760",
+      "TEXT":"I found the Women and Children on board the Ships, the Men gathered all in a heap at Savannah La Mar, in the utmost Confusion, all the White Men were drawn from the Windward part of the Parish, although they told me they apprehended the Negroes that way would break out into Rebellion.&quot; --Testimony of John Venn, 3 December 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;The Number of North America Flags of Truce Vessels that have lately been brought into this Port by our Men of Warr added to the Force's the Country have been obliged to Employ against the Rebellious Negroes...&quot; --Foord &amp; Delpratt to Samuel Munkley &amp; Co, 12 June 1760",
+      "STEPS":[
+         {
+            "ID":"21",
+            "TYPE":"Army",
+            "NAME":"Moreland",
+            "TEXT":"Army reinforcements arrive at Moreland estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2018",
+                  "LON":"-78.1345"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/2\/1760":{
+      "DATE":"June 2, 1760",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"20",
+            "TYPE":"Maroons",
+            "NAME":"Rebel's Barricade",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               },
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ],
+            "TEXT":"Maroons surround the rebel encampment"
+         },
+         {
+            "ID":"21",
+            "TYPE":"Clash",
+            "NAME":"Rebel's Barricade",
+            "TEXT":"Allied British forces kill scores of rebels and suffer light casualties in a coordinated attack.  Combined forces overtake the rebel base.",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               },
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ]
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Into the woods",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               },
+               {
+                  "LAT":"18.3223",
+                  "LON":"-78.2439"
+               }
+            ],
+            "TEXT":"Rebel encampment dispersed"
+         },
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Kingston",
+            "VALUE":"2",
+            "UNITS":"Judicial executions",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9642",
+                  "LON":"-76.7916"
+               }
+            ],
+            "TEXT":"Executions of Kingston conspirators"
+         }
+      ]
+   },
+   "6\/3\/1760":{
+      "DATE":"June 3, 1760",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"24",
+            "TYPE":"Navy",
+            "NAME":"Bluefields Bay",
+            "TEXT":"HMS Harwich deployed to Westmoreland parish",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9204",
+                  "LON":"-76.8527"
+               },
+               {
+                  "LAT":"18.1597",
+                  "LON":"-78.0335"
+               }
+            ]
+         },
+         {
+            "ID":"25",
+            "TYPE":"Navy",
+            "NAME":"Savanna La Mar Harbor",
+            "TEXT":"HMS Port Royal deployed to Westmoreland parish, awaits the convoy to North America and the United Kingdom",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9204",
+                  "LON":"-76.8527"
+               },
+               {
+                  "LAT":"18.2032",
+                  "LON":"-78.1109"
+               }
+            ]
+         },
+         {
+            "ID":"26",
+            "TYPE":"Navy",
+            "NAME":"Savanna La Mar Harbor",
+            "TEXT":"HMS Viper deployed to Westmoreland parish",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9204",
+                  "LON":"-76.8527"
+               },
+               {
+                  "LAT":"18.2032",
+                  "LON":"-78.1109"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Army",
+            "NAME":"Savanna La Mar to Moreland via Egypt",
+            "TEXT":"Army reinforcements from the 49th regiment arrive in Westmoreland parish after suppressing insurrection in St. Mary's parish",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2018",
+                  "LON":"-78.1345"
+               },
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/4\/1760":{
+      "DATE":"June 4, 1760",
+      "TEXT":"&quot;Our party has taken and kill'd about two hundred, what they bring in a Live We Burn &amp; some we hang in Gebbits.  They say the Rebells are now drove to their Last Shift, their Ammunition being almost expended, That they have been already obligd to make slugs of Dollars &amp; pieces of 8 to fire &amp; provision so scarce among them that we have found them [roast] our whites as they kill them &amp; they in that deplorable Condition that we find daily there woman &amp; Children hanging to prevent there coming in.  But notwithstanding they daily do as would the men could they have the least hope of a pardon.  Coll. Sprague with his Regulars and our party have at last [driven] them from poor Mr. Jones Moreland Mountains.&quot; --Leonard Stedman, 17 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;When a Negroe belonging * Will Rickett's estate, Norward P.M. Was going to be burnt at the bay, he told Mr: Thomlinson's Junr: Bookkeeper, that iff he would lett him Escape (he being off his guard) that he would give him 14 pistoles, all the money he had by him, and make him Overseer off Midgeham: this Negroe altho' burnt by degrees with a Slow ffire made  at a distance ffrom him, Never fflinched, moved a Foot, nor groan'd or Cried oh.&quot; --Thomas Thistlewood diary, 4 June 1760",
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Savanna La Mar",
+            "VALUE":"1",
+            "UNITS":"Judicial execution",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2088",
+                  "LON":"-78.1345"
+               }
+            ],
+            "TEXT":"Executions of Westmoreland rebels at Savanna la Mar"
+         }
+      ]
+   },
+   "6\/5\/1760":{
+      "DATE":"June 5, 1760",
+      "TEXT":"&quot;On Thursday Afternoon two Negroes, named Quaco and Anthony, concerned in the late Insurrection in St. Mary, were executed at Spring Path, according to Sentence: The former was burnt at a Stake, and the latter hanged; his Head cut off and fixed on a Pole on the Greenwich Road. Four Negroe Women, named Sappho, Princess, Sylvia and Doll, who it appeared had some Knowledge of the Conspiracy, were conducted to the Place of Execution, with Halters round their Necks; and, after Quaco and Anthony were executed, were reconveyed to Goal, from whence they are to be transported from this Island, and to suffer Death if they return.&quot; --Letter from Kingston, Jamaica, 14 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Hear yesterday a Soldier was Shot by the Rebellious Negroes, and one of the Militia, Named Daniel Lauder.&quot; --Thomas Thistlewood diary, 6 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;[Six] Taken by Capt. Quashy &amp; his Party under the Command of John Kelly&quot; --List of Rebels Kill'd and Taken, 27 June 1760",
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Kingston",
+            "VALUE":"1",
+            "UNITS":"Judicial execution",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9642",
+                  "LON":"-76.7916"
+               }
+            ],
+            "TEXT":"Executions of St. Mary's rebels at Kingston"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Woods near Moreland Hill",
+            "TEXT":"Rebels ambush parties of militia and soldiers",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3223",
+                  "LON":"-78.2439"
+               }
+            ]
+         },
+         {
+            "ID":"20",
+            "TYPE":"Maroons",
+            "NAME":"Woods near Moreland Hill",
+            "TEXT":"Maroons attack a party of rebels, capturing several",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":null,
+                  "LON":null
+               }
+            ]
+         }
+      ]
+   },
+   "6\/6\/1760":{
+      "DATE":"June 6, 1760",
+      "TEXT":"&quot;By Capt. Furry &amp; Quashy &amp; their Party under Scott &amp; Kelly&quot; --List of Rebels Kill'd and Taken, 27 June 1760",
+      "STEPS":[
+         {
+            "ID":"20",
+            "TYPE":"Clash",
+            "NAME":"Woods near Moreland Hill",
+            "TEXT":"Maroons kill and capture scores of rebels",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3225",
+                  "LON":"-78.2441"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/7\/1760":{
+      "DATE":"June 7, 1760",
+      "TEXT":" &quot;John Hawker [in the Hanover party, not yet dead but supposed to be mortally wounded],&quot; A List of White People kill'd, 7 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;It is said that Salt Spring Negroes in hanover, refused to work and that a Company off Soldiers is gone there.&quot; --Thomas Thistlewood diary, 9 June 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Woods near Moreland Hill",
+            "TEXT":"Rebels ambush parties of militia and soldiers",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3221",
+                  "LON":"-78.2437"
+               }
+            ]
+         },
+         {
+            "ID":"28",
+            "TYPE":"Rebels",
+            "NAME":"Salt Spring",
+            "TEXT":"Work stoppage on Salt Spring estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3704",
+                  "LON":"-78.2722"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Army",
+            "NAME":"Salt Spring",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               },
+               {
+                  "LAT":"18.3704",
+                  "LON":"-78.2722"
+               }
+            ],
+            "TEXT":"Company of soldiers deploys to Salt Spring estate"
+         }
+      ]
+   },
+   "6\/8\/1760":{
+      "DATE":"June 8, 1760",
+      "TEXT":"&quot;It is said, the Rebellious Negroes took Jerusalem Plantation yesterday&quot; -- Thomas Thistlewood diary, 9 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;They being now too much dispers'd a Large body of them went to Pennent's [Jerusalem] Estate where finding no whites they examin'd the negroes for Arms &amp; Ammunition and find.g none &amp; sd. Negroes refusing to join them, they pull'd down the dwelling house and pull'd down Mr. Wallace Estate call'd Glascow...&quot; -- Leonard Steadman, 17 June 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Jerusalem",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3223",
+                  "LON":"-78.2439"
+               },
+               {
+                  "LAT":"18.3292",
+                  "LON":"-78.2341"
+               }
+            ],
+            "TEXT":"Rebels converge on Jerusalem estate"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Jerusalem",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3292",
+                  "LON":"-78.2341"
+               },
+               {
+                  "LAT":"18.3556",
+                  "LON":"-78.2042"
+               }
+            ],
+            "TEXT":"Rebels sack Jerusalem and threaten Glascow estate"
+         }
+      ]
+   },
+   "6\/9\/1760":{
+      "DATE":"June 9, 1760",
+      "TEXT":"&quot;As good fortune would have it there being a number of Sailors &amp; white people on [Glascow] Estate, and they with the Negroes made such a noise &amp; squablle Scare'd them so that they never offer'd to do any Mischief.&quot; -- Leonard Steadman, 17 June 1760 &lt;br \/&gt;&lt;br \/&gt; Spanish Town execution: &quot;On Monday a Negroe Fellow was hanged on the Gallows, near this Town, for endeavouring to seduce several other Slaves into Rebellion.&quot; St. Jago de la Vega, 14 June 1760",
+      "STEPS":[
+         {
+            "ID":"29",
+            "TYPE":"Clash",
+            "NAME":"Glascow",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3556",
+                  "LON":"-78.2042"
+               }
+            ],
+            "TEXT":"Rebels repelled from Glascow estate"
+         },
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Spanish Town",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.995",
+                  "LON":"-76.9554"
+               }
+            ],
+            "TEXT":"Execution at Spanish Town"
+         }
+      ]
+   },
+   "6\/10\/1760":{
+      "DATE":"June 10, 1760",
+      "TEXT":"&quot;Colonel Spragge is encamped at George Williams Estate [Moreland], with the Regulars and Militia: from whence Parties are daily sent out after the Rebellious Negroes, who never stand above one Fire before they run into the Woods.&quot; --Letter from a Gentleman at Savanna-la-Mar, 10 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;In the evening a great noise came from this estate. The Rebels told a man nearby that they wanted to visit him this evening etc. His poor wife hurried to Mesopotamia with her children, negroes and best household goods to take refuge. At this time, however, 40 of the rebels were killed and 50 were taken captive.&quot; --Moravian diary, Mesopotamia, 10 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;They were afraid of Biscany Negroes &amp; were obliged to March the Militia to that Plantation &amp; secure the Driver &amp; other of the Ringleaders wch quieted them. If they had [risen] in all probability Barton Isle Negroes woo.d have follow'd their Example.&quot; --Francis Treble, 12 June 1760",
+      "STEPS":[
+         {
+            "ID":"30",
+            "TYPE":"Clash",
+            "NAME":"Mountains near Mesopotamia",
+            "TEXT":"Reports of good progress against the rebels",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3124",
+                  "LON":"-78.2489"
+               }
+            ]
+         },
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Biscany",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.1029",
+                  "LON":"-77.7264"
+               }
+            ],
+            "TEXT":"Militia investigate a rumor of revolt at Biscany estate"
+         }
+      ]
+   },
+   "6\/11\/1760":{
+      "DATE":"June 11, 1760",
+      "TEXT":"British forces re-take Jerusalem estate",
+      "STEPS":[
+         {
+            "ID":"14",
+            "TYPE":"Army",
+            "NAME":"Jerusalem",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3292",
+                  "LON":"-78.2341"
+               }
+            ],
+            "TEXT":"Rebels sighted near Glascow estate and ambushed by maroons"
+         },
+         {
+            "ID":"20",
+            "TYPE":"Clash",
+            "NAME":"Woods near Glascow",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3499",
+                  "LON":"-78.2"
+               }
+            ],
+            "TEXT":"Rebels withdraw to area near Cabritto River Road"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Near Cabritto River Road",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3556",
+                  "LON":"-78.2042"
+               },
+               {
+                  "LAT":"18.3522",
+                  "LON":"-78.1684"
+               }
+            ],
+            "TEXT":"Maroons hunt rebels near the Cabritto River Road"
+         },
+         {
+            "ID":"20",
+            "TYPE":"Maroons",
+            "NAME":"Near Cabritto River Road",
+            "TEXT":null,
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3499",
+                  "LON":"-78.2"
+               },
+               {
+                  "LAT":"18.3524",
+                  "LON":"-78.1685"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/12\/1760":{
+      "DATE":"June 12, 1760",
+      "TEXT":"&quot;There's scarsely a day passes but some of the Negroes are Executed. We had Two that were hung up in Chains alive &amp; starv'd to Death, they hung a great while one of them kept his Speech &amp; [Lived] 9 days &amp; a few Hours. I don't think this Death is so Cruel as people imagine...&quot; Francis Treble, 12 June 1760",
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Kingston",
+            "VALUE":"2",
+            "UNITS":"Judicial Executions",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9642",
+                  "LON":"-76.7916"
+               }
+            ],
+            "TEXT":"Continued executions of St. Mary's rebels"
+         }
+      ]
+   },
+   "6\/13\/1760":{
+      "DATE":"mid-June, 1760",
+      "TEXT":"&quot;We are informed, that the Rebels have left that Parish, and were in Hanover a few Days ago, going, as was imagined, to St. James.&quot; Letter from a Gentleman from Westmoreland, 28 June 1760  &lt;br \/&gt;&lt;br \/&gt; &quot;During these transactions an Attempt was made by the slaves of several Estates in Hanover and Saint James, to rise and joyn those already in Rebellion.  Their Plot was discovered the day before it was to be carried into Execution and the Principal Persons concern'd in it were taken and Executed.&quot; Minutes of the Jamaica Council, 14 July 1760 &lt;br \/&gt;&lt;br \/&gt;  &quot;A fresh insurrection happened in St. James's, which threatened to become very formidable, had it not been for the activity of brigadier Witter of the militia, and lieut. Colonel Spragge of the 49th, who dispersed the insurgents, and took several prisoners; but the rest escaped, and, uniting with the stragglers of the other defeated parties, formed a large gang...&quot; Edward Long, History of Jamaica (1774)",
+      "STEPS":[
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Hanover",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3696",
+                  "LON":"-78.1553"
+               }
+            ],
+            "TEXT":"Conspiracy in parishes of Hanover and St. James"
+         },
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"St. James",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3851",
+                  "LON":"-77.917"
+               }
+            ],
+            "TEXT":"Conspiracy in parishes of Hanover and St. James"
+         },
+         {
+            "ID":"30",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland mountains",
+            "TEXT":"Westmoreland rebels killed and captured by militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3167",
+                  "LON":"-78.2358"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/15\/1760":{
+      "DATE":"June 15, 1760",
+      "TEXT":"Militia search for rebels in the mountains near Mesopotamia estate",
+      "STEPS":[
+         {
+            "ID":"30",
+            "TYPE":"Militia",
+            "NAME":"Mesopotamia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.287",
+                  "LON":"-78.1044"
+               },
+               {
+                  "LAT":"18.3289",
+                  "LON":"-78.0264"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "6\/16\/1760":{
+      "DATE":"June 16, 1760",
+      "TEXT":"Rebels captured and killed by loyal armed slaves",
+      "STEPS":[
+         {
+            "ID":"30",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland mountains",
+            "TEXT":"Body of rebels begins a retreat from Westmoreland parish",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3167",
+                  "LON":"-78.2358"
+               }
+            ]
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Westmoreland mountains",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3362",
+                  "LON":"-78.2157"
+               },
+               {
+                  "LAT":"18.3419",
+                  "LON":"-77.8551"
+               }
+            ],
+            "TEXT":"Rebels begin a passage through the foothills to St. Elizabeth parish"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Foothills to St. Elizabeth",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3419",
+                  "LON":"-77.8551"
+               },
+               {
+                  "LAT":"18.1968",
+                  "LON":"-77.8576"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "6\/18\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;We had this day accounts that 1500 of the rebelious Negros were together in the woods.&quot; Moravian diary, Bogue estate, 18 June 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"St. Elizabeth parish",
+            "VALUE":"1500",
+            "UNITS":"Rumored rebels",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1968",
+                  "LON":"-77.8576"
+               }
+            ],
+            "TEXT":"Rebels begin to gather in St. Elizabeth parish"
+         },
+         {
+            "ID":"31",
+            "TYPE":"Clash",
+            "NAME":"Paul Island",
+            "TEXT":"Two rebels killed by enslaved watchmen on Paul Island estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2689",
+                  "LON":"-78.186"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/20\/1760":{
+      "DATE":"",
+      "TEXT":"Brigadier General Norwood Witter &quot;continued for the most part at Mooreland in a most wretched hovel, for about eight or nine Weeks there he sent out parties, killed and brought in a great number of the Rebells.&quot; Testimony of John Venn, 3 December 1760 &lt;br \/&gt;&lt;br \/&gt; Reports of more than one hundred rebels killed or captured: &lt;br \/&gt;&lt;br \/&gt; &quot;By Forrests &amp; Pennant's Watchmen&quot; &lt;br \/&gt;&lt;br \/&gt;&quot;Surrendered to the Hanover Party&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;Surrendered to the Hanover Party &amp; deliver'd to the Proprietor Geo. Williams by Mr. Witter&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;By the Hanover Party&quot; &lt;br \/&gt;&lt;br \/&gt;&quot;By the Regulars and Maroons&quot; &lt;br \/&gt;&lt;br \/&gt;&quot;By George Goodin's People&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;By Campbleton &amp; Orange Bay black Shot&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;By Christopher Cooks Hanover&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;At Deas's &amp; Pennants&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;By Mr Jones's Party&quot;&lt;br \/&gt;&lt;br \/&gt;&quot;By the King's Negroes&quot;&lt;br \/&gt;&lt;br \/&gt;List of Rebels Kill'd and Taken, 27 June 1760",
+      "STEPS":[
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Masemure",
+            "TEXT":"Two rebels killed at Masemure by enslaved watchmen",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"King's Valley",
+            "TEXT":"Rebel killed at King's Valley estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3345",
+                  "LON":"-78.192"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Hanover parish",
+            "TEXT":"Four rebels captured by the Hanover militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3645",
+                  "LON":"-78.2248"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Hanover parish",
+            "TEXT":"Seventeen rebels captured by the Hanover militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Hanover parish",
+            "TEXT":"Twelve rebels killed and five captured by the Hanover militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3385",
+                  "LON":"-78.2899"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Fourteen rebels killed and six captured by soldiers and maroons",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3274",
+                  "LON":"-78.248"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"One rebels killed and three captured by plantation workers",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.2703",
+                  "LON":"-78.2377"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Hanover parish",
+            "TEXT":"Three rebels killed and fifteen captured by Black Shot",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3463",
+                  "LON":"-78.2703"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Hanover parish",
+            "TEXT":"Two rebels captured by the Hanover militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3745",
+                  "LON":"-78.2107"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"King's Valley",
+            "TEXT":"Five rebels captured at King's Valley by Westmoreland militia",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3345",
+                  "LON":"-78.192"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Rebels captured by Westmoreland militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3052",
+                  "LON":"-78.2612"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Three rebels killed and five captured by Black Shot",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.324",
+                  "LON":"-78.2135"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/22\/1760":{
+      "DATE":"",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Three blacks killed and five captured by black soldiers and militia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3346",
+                  "LON":"-78.2483"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Other reports of rebels killed and captured by Hanover militia between June 7 and June 22",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ]
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Masemure",
+            "VALUE":"2",
+            "UNITS":"Summary executions",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2739",
+                  "LON":"-78.2185"
+               }
+            ],
+            "TEXT":"Summary executions at Masemure estate"
+         },
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Crawford's",
+            "VALUE":"1",
+            "UNITS":"Summary execution",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2924",
+                  "LON":"-78.1975"
+               }
+            ],
+            "TEXT":"Summary execution at Crawford's estate"
+         },
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Spanish Town",
+            "VALUE":"1",
+            "UNITS":"Judicial execution",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.995",
+                  "LON":"-76.9554"
+               }
+            ],
+            "TEXT":"Summary execution at Mesopotamia estate"
+         },
+         {
+            "ID":"25",
+            "TYPE":"Navy",
+            "NAME":"Savanna la Mar Harbor",
+            "TEXT":"Convoy sails for North America and the United Kingdom",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2032",
+                  "LON":"-78.1109"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/25\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;There was no Meeting. The white people from this Estate went after the rebels and various negroes had to bring them Provisions.&quot; Moravian diary, Mesopotamia estate, 24-25 June 1760",
+      "STEPS":[
+         {
+            "ID":"32",
+            "TYPE":"Rebels",
+            "NAME":"Peter's Plain",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3336",
+                  "LON":"-78.2202"
+               },
+               {
+                  "LAT":"18.3281",
+                  "LON":"-78.1696"
+               }
+            ],
+            "TEXT":"Combined British forces attempt to drive rebels out of the Westmoreland mountains"
+         }
+      ]
+   },
+   "6\/26\/1760":{
+      "DATE":"",
+      "TEXT":"Preventive deployments of soldiers from Spanish Town to St. Thomas in the Vale",
+      "STEPS":[
+         {
+            "ID":"33",
+            "TYPE":"Army",
+            "NAME":"St. Thomas in the Vale",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.9961",
+                  "LON":"-76.9556"
+               },
+               {
+                  "LAT":"18.2014",
+                  "LON":"-77.0083"
+               }
+            ],
+            "TEXT":"Kingston militia deployed to St. Thomas in the East"
+         },
+         {
+            "ID":"34",
+            "TYPE":"Militia",
+            "NAME":"St. Thomas in the East",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.965",
+                  "LON":"-76.7246"
+               },
+               {
+                  "LAT":"17.8834",
+                  "LON":"-76.4023"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "6\/27\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;The People fir'd some Muskets ashore as an alarm , Do. sent all our Boats Mann'd &amp; Arm'd &amp; sent an Officer with a Party of 12 Seamen to guard a Plantation that the Rebelious Negroes had been seen in, AM, the Pinnace return'd with one Woman Prisoner...&quot; HMS Harwich Master's Log, 27 June 1760 &lt;br \/&gt;&lt;br \/&gt;&quot;And from the best accounts a great number dead of their Wounds in the Woods, many have destroyed themselves, several drove over Precipices and a least 150 stole into their respective Estates.  A great Number of Arms are taken and broke.&quot; List of Rebels Kill'd and Taken, 27 June 1760",
+      "STEPS":[
+         {
+            "ID":"24",
+            "TYPE":"Navy",
+            "NAME":"Jacobfield",
+            "TEXT":"Sailors deployed from HMS Harwich to defend Jacobfield estate",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1597",
+                  "LON":"-78.0335"
+               },
+               {
+                  "LAT":"18.3094",
+                  "LON":"-78.1853"
+               }
+            ]
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Westmoreland woods and mountains",
+            "VALUE":"150",
+            "UNITS":"Rebel surrenders",
+            "TEXT":"Various reports of rebel deaths, suicides, and surrenders during the month of June",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3167",
+                  "LON":"-78.2358"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/28\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Three rebellious Negroes have been this Week executed near this Town: Two of them had endeavoured to foment [sic] an Insurrection in Louidas, but were happily discovered.&quot; St. Jago de la Vega, 28 June 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Mr. Macfarlane... told Gandrup that they had taken rebels captive every day, and that their feet were so wretchedly cut up and ripped...&quot; Moravian diary, Mesopotamia, 28 June 1760",
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Spanish Town",
+            "VALUE":"3",
+            "UNITS":"Judicial executions",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.995",
+                  "LON":"-76.9554"
+               }
+            ],
+            "TEXT":"Execution of the Louidas Vale conspirators at Spanish Town"
+         },
+         {
+            "ID":"30",
+            "TYPE":"Clash",
+            "NAME":"Near Mesopotamia",
+            "VALUE":"10",
+            "UNITS":"blacks killed",
+            "TEXT":"Rebels killed and captured by militia in the area around Mesopotamia estate",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.2869",
+                  "LON":"18.2869"
+               }
+            ]
+         }
+      ]
+   },
+   "6\/30\/1760":{
+      "DATE":"Throughout June 1760",
+      "TEXT":"Four white men killed in rebel ambushes during the month of June",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland woods and mountains",
+            "VALUE":"4",
+            "UNITS":"white men killed",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3167",
+                  "LON":"-78.2358"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "7\/1\/1760":{
+      "DATE":"",
+      "TEXT":"Rebels sighted at Paul Island estate",
+      "STEPS":[
+         {
+            "ID":"35",
+            "TYPE":"Rebels",
+            "NAME":"Paul Island",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2689",
+                  "LON":"-78.186"
+               }
+            ],
+            "TEXT":"Rebels ambush parties of militia and soldiers in the woods"
+         },
+         {
+            "ID":"36",
+            "TYPE":"Rebels",
+            "NAME":"Woods by Rutherford's",
+            "VALUE":"1",
+            "UNITS":"white man killed",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.2724",
+                  "LON":"-78.2364"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "7\/2\/1760":{
+      "DATE":"",
+      "TEXT":"HMS Viper and HMS Harwich return to Port Royal",
+      "STEPS":[
+         {
+            "ID":"24",
+            "TYPE":"Navy",
+            "NAME":"Port Royal",
+            "TEXT":null,
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.1597",
+                  "LON":"-78.0335"
+               },
+               {
+                  "LAT":"17.9195",
+                  "LON":"-76.8526"
+               }
+            ]
+         }
+      ]
+   },
+   "7\/3\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Wager or Apongo, took, and Carried by prizoner, this Evening: he was the King off the Rebells: but despised off late since wounded.&quot; Thomas Thistlewood diary, 3 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;We also heard that they captured the head ringleader of the rebels.&quot; Moravian diary, Mesopotamia, 5 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Had Advice that great numbers of Slaves daily surrendered in Westmoreland and that a Party had brought in Wager the Chief of the Insurgents &amp; who had been the principal Person on Capt. Forrest's Estate.&quot; Lt. Gov. Henry Moore, 8 July 1760",
+      "STEPS":[
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Rebel leader Wager aka Apongo captured",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.2808",
+                  "LON":"-78.2296"
+               }
+            ]
+         }
+      ]
+   },
+   "7\/4\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Received Advice of a Conspiracy at Bath and the Country adjacent. No Ship ready to Sail to Port Morant harbour, but a Detachment of Marines went up in a hired Vessel the 5th.&quot; --Adm. Charles Holmes, 25 July 1760",
+      "STEPS":[
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"Bath, St. Thomas in the East",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"-78.2296",
+                  "LON":"-76.3444"
+               }
+            ],
+            "TEXT":"Conspiracy at Bath and along the Plantain Garden River, St. Thomas in the East"
+         },
+         {
+            "ID":"37",
+            "TYPE":"Navy",
+            "NAME":"Port Morant Harbor",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.946",
+                  "LON":"-76.8407"
+               },
+               {
+                  "LAT":"17.8846",
+                  "LON":"-76.3197"
+               }
+            ],
+            "TEXT":"Deatchment of marines sent from Pt. Royal to suppress conspiracy in St. Thomas in the East"
+         },
+         {
+            "ID":"37",
+            "TYPE":"Navy",
+            "NAME":"Bath, St. Thomas in the East",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.8846",
+                  "LON":"-76.3197"
+               },
+               {
+                  "LAT":"-78.2296",
+                  "LON":"-76.3444"
+               }
+            ],
+            "TEXT":"Marines deploy at Bath"
+         }
+      ]
+   },
+   "7\/5\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Several Negroes belonging to Cocoa Walk Plantation, in St. Dorothy, have been found guilty of Rebellion, four whereof have been this Week executed, and six ordered for Transportation.&quot; --St. Jago de la Vega, 5 July 1760",
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Spanish Town",
+            "VALUE":"4",
+            "UNITS":"Judicial executions",
+            "TEXT":"Executions and Transportations of the St. Dorothy conspirators at Spanish Town",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.995",
+                  "LON":"-76.9554"
+               }
+            ]
+         }
+      ]
+   },
+   "7\/12\/1760":{
+      "DATE":"July 1760",
+      "TEXT":"&quot;Col: Spragg's off with the heads off the Rebell's who ffall into his hands immediately, he Says he is Sent to destroy the Rebells, &amp; destroy them he will to the utmost off his power.&quot; Diary of Thomas Thistlewood, 17 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Advices received this Week from Westmoreland, convey the agreeable News of the Rebellion being almost entirely suppressed there, 80 of the Rebels have voluntarily surrendered themselves; and, in order to obtain their Pardon, brought in Prisoners Wager, their Chief Coromantee Commander, and 3 others of their Seducers, the Ringleaders. The Remainder, a few desperate Villains excepted, are expected soon to come in, being quite tired out with Fatigue, Famine, and Dissention among themselves.&quot; St. Jago de la Vega, 12 July 1760, Pennsylvania Gazette &lt;br \/&gt;&lt;br \/&gt; &quot;The daily advantages gain'ed over the Rebells were so considerable, that they were soon reduc'd to great distress and by the last Expresses from Westmoreland it appear'd that out of the formidable number which shew'd themselves at first in Rebellion no more than Seventy were supposed to be remaining.&quot; Lt. Gov. Henry Moore, 14 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;From St. Thomas in the East, we have Advice, that 19 Rebels have been executed there this Week, and that everything remains quiet in that Part.&quot; Letter from St. Jago de la Vega, 12 July 1760",
+      "STEPS":[
+         {
+            "ID":"27",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3167",
+                  "LON":"-78.2358"
+               }
+            ],
+            "TEXT":"British forces suppress the Westmoreland rebellion"
+         },
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Manchioneal",
+            "VALUE":"19",
+            "UNITS":"Judicial executions",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.0341",
+                  "LON":"-76.278"
+               }
+            ],
+            "TEXT":"Executions of St. Thomas East conspirators at Manchioneal"
+         }
+      ]
+   },
+   "7\/14\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Had Advice that the two Chiefs of the Rebels in St. Thomas in the East were destroyed viz. Akim in a fit of Despair had hanged himself and Pompey was shot dead by a Party sent out to catch him.&quot; Lt. Gov. Henry Moore, 16 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;On Monday the 14th Instant, Capt. Trower and Capt. Sweigle, with the Moroons under their Command, fell in with Pompey, in the Woods near Berratt Plantation: He endeavoured precipitately to make his Escape, but was shot dead by one of the Party, and his Head brought to Morant Bay. This Fellow had great Influence over a Number of Negroes in Plantain Garden River. &quot; Extract of a Letter from St. Thomas in the East, 19 July 1760",
+      "STEPS":[
+         {
+            "ID":"20",
+            "TYPE":"Clash",
+            "NAME":"Woods near Berratt Plantation",
+            "VALUE":"2",
+            "UNITS":"rebel leaders killed",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.947",
+                  "LON":"-76.4263"
+               }
+            ],
+            "TEXT":"Suppression of the St. Thomas in the East conspirators: death of leaders Akim and Pompey"
+         }
+      ]
+   },
+   "7\/18\/1760":{
+      "DATE":"",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Savanna La Mar",
+            "TEXT":"Rebel leader Davie executed at Savanna la Mar",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2088",
+                  "LON":"-78.1345"
+               }
+            ]
+         }
+      ]
+   },
+   "8\/3\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Wager the King off the Rebells to Capt: Forest's is to hang in Chains 3 days, then be took down and burnt... asked Wager iff he knew any off our Negroes, he said he knew Lewie &amp; Wished him good bye.&quot; Thistlewood diary, 29 July 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Apongo died beffore his 3 days expired.&quot; Thistlewood diary, 3 August 1760",
+      "STEPS":[
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Savanna La Mar",
+            "TEXT":"Wager, \"King of the rebels,\" aka Apongo, executed at Savanna la Mar",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2088",
+                  "LON":"-78.1345"
+               }
+            ]
+         },
+         {
+            "ID":"10",
+            "TYPE":"Slave Court",
+            "NAME":"Savanna La Mar",
+            "TEXT":"Execution of Addison's Coffee at Savanna la Mar",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2088",
+                  "LON":"-78.1345"
+               }
+            ]
+         }
+      ]
+   },
+   "8\/16\/1760":{
+      "DATE":"August, 1760",
+      "TEXT":"&quot;Accounts from Westmoreland that many of the Rebellious Negroes are dailey killed, taken and found dead in the Woods, that their number is now so reduced, and those which remain so dispirited for want of Chiefs to animate them to desperate Attempts that no further danger or distress is apprehended from them, therefore thought it advisable to summon the Gentlemen of the Council to meet me on Monday next that Martial Law may be taken off.&quot; --Henry Moore, 20 August 1760 &lt;br \/&gt;&lt;br \/&gt; It is Said damon (who Shot Mr: Smith) lead a Party, who have 12 guns, one got up about the Barracks..&quot; Thistlewood diary, 16 August 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;Simon Said to have 21 [Negroes] and &amp; guns with him.&quot; Diary of Thomas Thistlewood, 24 August 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;The head of the Rebels now left is one Simon who has sent word that if he live till the Dry weather comes in not one mill shall work the next Crop for He will burn all, but it is hoped He will not be long before he is taken.&quot; --Mary Barclay, 30 August 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Westmoreland Barracks",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3083",
+                  "LON":"-77.8475"
+               }
+            ],
+            "TEXT":"First reports of Simon's gang"
+         }
+      ]
+   },
+   "8\/30\/1760":{
+      "DATE":"",
+      "TEXT":"One of Simon's gang sighted near Styx Bridge",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Styx Bridge",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3083",
+                  "LON":"-77.8475"
+               },
+               {
+                  "LAT":"18.2226",
+                  "LON":"-78.1645"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "9\/10\/1760":{
+      "DATE":"September, 1760",
+      "TEXT":"&quot;One of the James Negores nam'd Natt, as Come in and Says the rest with Simon, &amp;c. are gone to high Windward.&quot; Thistlewood diary, 21 September 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;...the rebelling negroes had begun again to murder people gruesomely and that they were not far from here on their way to St. Elizabeth.&quot; Moravian diary, 25 September 1760 &lt;br \/&gt;&lt;br \/&gt; &quot;This whole land is again in alarm because of the rebelling negroes; some of them were arming themselves up on a mountain that was close to the sea.&quot; Moravian diary, Carmel, 30 September 1760  ",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.2226",
+                  "LON":"-78.1645"
+               },
+               {
+                  "LAT":"18.1968",
+                  "LON":"-77.659"
+               }
+            ],
+            "TEXT":"Simon's gang treks through the mountains toward St. Elizabeth parish, raiding estates along the way"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1968",
+                  "LON":"-77.659"
+               },
+               {
+                  "LAT":"18.1449",
+                  "LON":"-77.7962"
+               }
+            ],
+            "TEXT":"Simon's gang raids estates as it marches through the mountains"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1449",
+                  "LON":"-77.7962"
+               },
+               {
+                  "LAT":"18.1201",
+                  "LON":"-77.7364"
+               }
+            ],
+            "TEXT":"Simon's gang raids estates in St. Elizabeth"
+         }
+      ]
+   },
+   "10\/1\/1760":{
+      "DATE":"",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"27",
+            "TYPE":"Army",
+            "NAME":"Mountain near Mesopotamia",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.287",
+                  "LON":"-78.1044"
+               },
+               {
+                  "LAT":"18.3038",
+                  "LON":"-78.0372"
+               }
+            ],
+            "TEXT":"British soldiers pursue rebels through the mountains of Westmoreland parish"
+         }
+      ]
+   },
+   "10\/2\/1760":{
+      "DATE":"October, 1760",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"38",
+            "TYPE":"Militia",
+            "NAME":"Spanish Town",
+            "TEXT":"Jamaica Assembly resolves to hire mercenary William Hynes",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"17.9961",
+                  "LON":"-76.9556"
+               }
+            ]
+         }
+      ]
+   },
+   "10\/8\/1760":{
+      "DATE":"October, 1760",
+      "TEXT":"&quot;This week many ware in great fear &amp; all in Arms on the fresh Accounts of the Rebels being mov'd up to this Parrish.&quot; Moravian diary, Bogue, 8 October 1760 ",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Barbadoes Valley Cockpits",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1201",
+                  "LON":"-77.7364"
+               }
+            ],
+            "TEXT":"Simon's gang occupies Barbadoes Valley Cockpits"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Casement's Woods",
+            "LOC":[
+               {
+                  "LAT":null,
+                  "LON":null
+               },
+               {
+                  "LAT":"18.0747",
+                  "LON":"-77.6195"
+               }
+            ],
+            "TEXT":"Rebels occupy Casement's Woods"
+         }
+      ]
+   },
+   "10\/21\/1760":{
+      "DATE":"",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Ipswich",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.1201",
+                  "LON":"-77.7364"
+               },
+               {
+                  "LAT":"18.1249",
+                  "LON":"-77.7207"
+               }
+            ],
+            "TEXT":"Rebels attack and burn Ipswich estate"
+         },
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Wallis's and Mass's",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1723",
+                  "LON":"-77.6296"
+               }
+            ],
+            "TEXT":"Rebels attack Wallis and Mass estates"
+         }
+      ]
+   },
+   "11\/1\/1760":{
+      "DATE":"November, 1760",
+      "TEXT":"Rebels occupy Montes de las Uvas",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Montes de las Uves",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.0853",
+                  "LON":"-77.6999"
+               },
+               {
+                  "LAT":"18.0502",
+                  "LON":"-77.6246"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "11\/2\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Last Sunday in Island there was a big commotion because of the rebelling Negroes. They killed some of the rebels, cut their heads off and stuck them on poles. They captured one of them alive and then hung him the next day.&quot; Moravian diary, Carmel estate, 4 November 1760",
+      "STEPS":[
+         {
+            "ID":"39",
+            "TYPE":"Clash",
+            "NAME":"Island",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1747",
+                  "LON":"-77.6725"
+               }
+            ],
+            "TEXT":"Militia kill several rebels near Island estate in St. Elizabeth parish"
+         }
+      ]
+   },
+   "11\/7\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Mr. Brooks rode through here this morning with 12 men, molattos and negroes, in order to catch some savage negroes who they had seen around. They came back in the evening. They had found a cave in a cliff on our land where they [the &quot;savage negroes&quot;] had stopped for a while, but they had already moved on.&quot; Moravian diary, Carmel, 7 November 1760",
+      "STEPS":[
+         {
+            "ID":"39",
+            "TYPE":"Militia",
+            "NAME":"Carmel Swamp",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.0669",
+                  "LON":"-77.6919"
+               },
+               {
+                  "LAT":"18.0853",
+                  "LON":"-77.6999"
+               }
+            ],
+            "TEXT":"Militia pursue rebels near Carmel estate"
+         }
+      ]
+   },
+   "11\/5\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Mr: Jones's Overseer Shot at yesterday as he was going up to Westmoreland, Simon and his gang, Supposed to be return'd there... An Acct: Come Down off a Rebellion off [___] duckhams Negroes; &amp;c happily Stopped.&quot; --Thistlewood diary, 5 November 1760",
+      "STEPS":[
+         {
+            "ID":"40",
+            "TYPE":"Rebels",
+            "NAME":"Westmoreland parish",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3113",
+                  "LON":"-78.2973"
+               }
+            ],
+            "TEXT":"Rumors of Simon's gang in Westmoreland"
+         },
+         {
+            "ID":"41",
+            "TYPE":"Rebels",
+            "NAME":"Duckham's",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3347",
+                  "LON":"-78.0728"
+               }
+            ],
+            "TEXT":"Rumored Rising at Duckham's estate"
+         }
+      ]
+   },
+   "12\/23\/1760":{
+      "DATE":"",
+      "TEXT":"&quot;Last night a party of the rebelling Negroes in [Montes de las Uves] (which is about 3 miles from Carmel) had burned down a house at Mr. Thomas Durrants and shot a white man. [Mr. Brooks] begged us to keep our watch in good order, because they think that the above-mentioned negroes are staying around hear in our bushes.&quot; Moravian diary, Carmel estate, 24 December 1760",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Mount de las Uves, Thomas Durrant's",
+            "VALUE":"1",
+            "UNITS":"white man killed",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.0503",
+                  "LON":"-77.6469"
+               }
+            ],
+            "TEXT":"Rebels attack Thomas Durrant's house"
+         }
+      ]
+   },
+   "1\/2\/1761":{
+      "DATE":"",
+      "TEXT":"&quot;The Negroes off Five Estates in St: James's had Agreed to rise this Christmas, but discover'd by Accident and luckily prevented, &amp; the Cheiff hands Concern'd Seiz'd.&quot; Thistlewood diary, 2 January 1761",
+      "STEPS":[
+         {
+            "ID":"7",
+            "TYPE":"Conspiracy",
+            "NAME":"St. James parish",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.4028",
+                  "LON":"-77.8218"
+               }
+            ],
+            "TEXT":"Reported Conspiracies in St. James's parish"
+         }
+      ]
+   },
+   "1\/5\/1761":{
+      "DATE":"",
+      "TEXT":"&quot;Had been this Night of the Rebbels all round the plantation, who early in the morning ware Discover'd by several of our Negros who immediatly ware form'd in Companys &amp; sent in persuit of them but found nothing except whare they had lodg'd near [?] from whence brack'd them into the River.&quot; Moravian diary, Bogue, 5 January 1761",
+      "STEPS":[
+         {
+            "ID":"42",
+            "TYPE":"Rebels",
+            "NAME":"Bogue",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1351",
+                  "LON":"-77.6289"
+               },
+               {
+                  "LAT":"18.1315",
+                  "LON":"-77.6443"
+               }
+            ],
+            "TEXT":"Band of rebels sighted near The Bogue, St. Elizabeth"
+         },
+         {
+            "ID":"43",
+            "TYPE":"Militia",
+            "NAME":"Riverside near Bogue",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1314",
+                  "LON":"-77.6443"
+               },
+               {
+                  "LAT":"18.1055",
+                  "LON":"-77.5993"
+               }
+            ],
+            "TEXT":"Armed slaves sent in pursuit of rebels"
+         }
+      ]
+   },
+   "1\/10\/1761":{
+      "DATE":"January, 1761",
+      "TEXT":"Simon's gang occupies the Carpenter's Mountains, using Mile Gully as a stronghold",
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Rebels",
+            "NAME":"Mile Gulley, Carpenter's Mountains",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1592",
+                  "LON":"-77.614"
+               },
+               {
+                  "LAT":"18.1056",
+                  "LON":"-77.5045"
+               }
+            ],
+            "TEXT":"Militia party formed by Messrs. Scott and Gregg tracks rebels to Mile Gully"
+         },
+         {
+            "ID":"44",
+            "TYPE":"Militia",
+            "NAME":"Mile Gulley",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"17.9896",
+                  "LON":"-77.3658"
+               },
+               {
+                  "LAT":"18.1056",
+                  "LON":"-77.5045"
+               }
+            ],
+            "TEXT":null
+         }
+      ]
+   },
+   "1\/26\/1761":{
+      "DATE":"Late January, 1761",
+      "TEXT":null,
+      "STEPS":[
+         {
+            "ID":"11",
+            "TYPE":"Clash",
+            "NAME":"Mile Gulley",
+            "TEXT":"Rebel leader Simon reportedly captured or killed",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1056",
+                  "LON":"-77.5045"
+               }
+            ]
+         }
+      ]
+   },
+   "1\/28\/1761":{
+      "DATE":"",
+      "TEXT":"[Mr. Brooks] told him... that they were chasing some of the rebels near Black River and that they had shot some of them dead etc. Two of the rebel Captains are said to be shot.&quot; Moravian diary, Carmel, 28 January 1760",
+      "STEPS":[
+         {
+            "ID":"45",
+            "TYPE":"Clash",
+            "NAME":"near Black River",
+            "TEXT":"Party of rebels attacked by militia near Black River in St. Elizabeth; two rebel captains reportedly among the dead.",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.0766",
+                  "LON":"-77.721"
+               }
+            ]
+         }
+      ]
+   },
+   "3\/16\/1761":{
+      "DATE":"",
+      "TEXT":"&quot;Two Negroes with guns, pretending to be Cudjoes people, Come yesterday to Mr: Thos: Torrents, but he suspecting them to Rebells, order'd one off them to be Siez'd, upon which he resisted, Kill'd one off Mr: Torrents dogs with his Cutlass, snap't his piece at mr : Torrent, and made his escape ffrom 4 Armed Negroes.&quot; Thistlewood diary, 16 March 1761",
+      "STEPS":[
+         {
+            "ID":"46",
+            "TYPE":"Rebels",
+            "NAME":"Robin's River (Thomas Torrent's)",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.1353",
+                  "LON":"-77.9952"
+               }
+            ],
+            "TEXT":"Rebels pretending to be maroons conduct reconnaissance near Robin's River estate"
+         }
+      ]
+   },
+   "4\/13\/1761":{
+      "DATE":"",
+      "TEXT":"&quot;A Rebell Negroe kill'd not far from Glascow Estate lately, (one off those who was at Mr: Thos: Torrent's) and the other took by his Negroes affter a desparate engagement with two negroes and another took in Saint Elizabeths, both brought to the Bay.&quot; Thomas Thistlewood diary, 13 April 1760",
+      "STEPS":[
+         {
+            "ID":"47",
+            "TYPE":"Clash",
+            "NAME":"near Glascow, Westmoreland",
+            "TEXT":"Rebels disguised as maroons attacked by armed slaves",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3558",
+                  "LON":"-78.2042"
+               }
+            ]
+         }
+      ]
+   },
+   "5\/19\/1761":{
+      "DATE":"May, 1761",
+      "TEXT":"&quot;It is Said, 30 Arm'd Rebells are now in possesion off Moses's Mountain Estate again&quot; Thomas Thistlewood diary, 19 May 1761",
+      "STEPS":[
+         {
+            "ID":"48",
+            "TYPE":"Rebels",
+            "NAME":"Jerusalem",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.3292",
+                  "LON":"-78.2341"
+               }
+            ],
+            "TEXT":"Reports that rebels have retaken Jerusalem estate"
+         }
+      ]
+   },
+   "6\/4\/1761":{
+      "DATE":"June, 1761",
+      "TEXT":"&quot;It is Said Simon and his gang, is at Moreland, Mr: Cope and a ffew more Troopers gone there.&quot; Thomas Thistlewood dary, 4 June 1761",
+      "STEPS":[
+         {
+            "ID":"49",
+            "TYPE":"Rebels",
+            "NAME":"Moreland",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Simon's gang rumored to be at Moreland"
+         }
+      ]
+   },
+   "6\/19\/1761":{
+      "DATE":"",
+      "TEXT":"&quot;A Report that either Simon or Damon is took, and had to Spanish Town.&quot; Thomas Thistlewood diary, 19 June 1760",
+      "STEPS":[
+         {
+            "ID":"27",
+            "TYPE":"Army",
+            "NAME":"Moreland",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3111",
+                  "LON":"-78.2971"
+               }
+            ],
+            "TEXT":"Simon, or Damon, again reported to be captured at Moreland"
+         }
+      ]
+   },
+   "9\/28\/1761":{
+      "DATE":"September, 1761",
+      "TEXT":"&quot;Some off the Rebells lately Come up with, 15 I think, according to a Letter Mr: Cope Shew'd me ffrom Mr: Wm: Lewis. and parties going out.&quot; Thomas Thistlewood diary, 28 September 1761",
+      "STEPS":[
+         {
+            "ID":"50",
+            "TYPE":"Militia",
+            "NAME":"Westmoreland parish",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.3167",
+                  "LON":"-78.2358"
+               }
+            ],
+            "TEXT":"Militia parties pursue scattered bands of rebels"
+         }
+      ]
+   },
+   "10\/3\/1761":{
+      "DATE":"",
+      "TEXT":"&quot;It Seems in the Rebellion, that the Treasurer off the Rebells Was Catch'd, (Come down to buy powder &amp;c.) by three off the Retrieve Negroes, Who brought him to Mr: McCloud, who ffound 70 Doubloons on him, 2 off Which he gave the Negroes Who took him, and kept 68 himselff = &pound;323. a ffine prize.&quot; Thomas Thistlewood diary, 3 October 1761",
+      "STEPS":[
+         {
+            "ID":"51",
+            "TYPE":"Clash",
+            "NAME":"Retrieve",
+            "TEXT":"Loyal slaves said to have captured a rebel \"treasurer\" near Retrieve estate",
+            "CERTAINTY":"1",
+            "LOC":[
+               {
+                  "LAT":"18.2851",
+                  "LON":"-78.2545"
+               }
+            ]
+         }
+      ]
+   },
+   "10\/14\/1761":{
+      "DATE":"October, 1761",
+      "TEXT":"&quot;Heard that the negroes in Westmoreland had rebelled again and had murdered one white man gruesomely. Some of them are already captured and imprisoned.&quot; Moravian diary, Carmel estate 14 October 1761",
+      "STEPS":[
+         {
+            "ID":"52",
+            "TYPE":"Clash",
+            "NAME":"Westmoreland parish",
+            "TEXT":"Isolated bands of rebels continue to operate in Westmoreland parish. One white man is killed in mid-October, 1761.",
+            "CERTAINTY":"0",
+            "LOC":[
+               {
+                  "LAT":"18.317",
+                  "LON":"-78.236"
+               }
+            ]
+         }
+      ]
+   }
+}

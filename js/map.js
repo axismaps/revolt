@@ -4,12 +4,13 @@ var jsonUrl = "data/json/revolt.json";
 
 var map,
 	mapData,
+	mapLayers,
 	dateRange = [Infinity,-Infinity];
 
 function initialize() {
 	map = L.map('map').setView([18.188, -77.363], 10);
 	L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {maxZoom: 13, minZoom: 8} ).addTo(map);
-	
+	mapLayers = L.layerGroup().addTo(map);
 	loadMapData();
 	
 	$(window).resize( resize );
@@ -56,6 +57,8 @@ function gotoDay( date ){
 	var i = -1,
 		markers = {};
 		
+	mapLayers.clearLayers();
+		
 	doStep();
 	
 	function doStep(){
@@ -70,19 +73,22 @@ function gotoDay( date ){
 			marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
 				icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } ),
 				onEnd: function(){
-					//map.removeLayer(this);
-					doStep();
+					setTimeout( doStep, 3000 );
 				},
 				interval: 15
 			} );
 			
 			if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
-				map.removeLayer( markers[ step.ID ] );
+				mapLayers.removeLayer( markers[ step.ID ] );
 				
 			markers[ step.ID ] = marker;
-			map.addLayer(marker);
+			mapLayers.addLayer(marker);
 			
-			var poly = L.polylineTracer( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ] ).addTo(map);
+			var poly = L.polylineTracer( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
+				color: "#82322d",
+				weight: 15
+			} )
+			mapLayers.addLayer(poly);
 		} else {
 			console.log("static");
 			
@@ -91,9 +97,9 @@ function gotoDay( date ){
 			} );
 			
 			if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
-				map.removeLayer( markers[ step.ID ] );
+				mapLayers.removeLayer( markers[ step.ID ] );
 				
-			map.addLayer( marker );
+			mapLayers.addLayer( marker );
 			setTimeout( doStep, 5000 );
 		}
 	}

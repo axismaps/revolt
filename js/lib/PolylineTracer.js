@@ -9,7 +9,7 @@ L.PolylineTracer = L.Polyline.extend({
 	
 	options: {
 		length: "100%",
-		distance: 10,
+		distance: 20,
 		interval: 15,
 		autoStart: true,
 		onEnd: function(){}
@@ -70,12 +70,11 @@ L.PolylineTracer = L.Polyline.extend({
 	
 	_updatePath: function(){
 		L.Polyline.prototype._updatePath.call(this);
-
+		
+		this._totalLength = this._path.getTotalLength();
 		this._tracerLength = this._getTracerLength();
-
 		this._metersPerPixel = this._totalDistance / this._totalLength;
 		this._offset = this._progress * this._totalLength;
-		
 		this._path.setAttribute( "stroke-dasharray", this._tracerLength + " " + this._totalLength );
 		this._path.setAttribute( "stroke-dashoffset", -(this._offset - this._tracerLength) );
 	}		

@@ -23,7 +23,7 @@ L.AnimatedMarker = L.Marker.extend({
    // } else {
       // Chunk up the lines into options.distance bits
       this._latlngs = this._chunk(latlngs);
-      this.options.distance = 10;
+      this.options.distance = 20;
       this.options.interval = 30;
     //}
 

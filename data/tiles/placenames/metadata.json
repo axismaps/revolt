@@ -1,0 +1,11 @@
+{
+  "name": "placenames",
+  "version": "1.0.0",
+  "description": "",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "7",
+  "maxzoom": "12",
+  "bounds": "-78.58732777,17.54813770,-75.92608088,18.67269002",
+  "profile": "mercator"
+}

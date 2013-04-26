@@ -1,0 +1,11 @@
+{
+  "name": "terrain",
+  "version": "1.0.0",
+  "description": "",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "7",
+  "maxzoom": "12",
+  "bounds": "-78.51610313,17.48739835,-76.03699991,18.68894971",
+  "profile": "mercator"
+}

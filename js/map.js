@@ -3,18 +3,42 @@ $(document).ready( initialize );
 var jsonUrl = "data/json/revolt.json";
 
 var map,
-	mapData,
 	mapLayers,
-	dateRange = [Infinity,-Infinity];
+	markers;
+	
+var mapData,
+	dateRange = [Infinity,-Infinity],
+	currentDay,
+	currentStep,
+	playTimer;
+	
+var playing = true;
 
 function initialize() {
 	map = L.map('map').setView([18.188, -77.363], 10);
-	L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {maxZoom: 13, minZoom: 8} ).addTo(map);
+	L.tileLayer('data/tiles/terrain/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} ).addTo(map);
 	mapLayers = L.layerGroup().addTo(map);
 	loadMapData();
 	
 	$(window).resize( resize );
 	resize();
+	
+	$( "#play" ).click( function(){ 
+		playing = true;
+		if ( !currentDay) gotoDay( $(".timeline-event").eq(0).attr("id").substr(1) );
+		else nextStep();
+	});
+	
+	$( "#stop" ).click( function(){ 
+		playing = false;
+		clearTimeout( playTimer );
+	});
+	
+	$( "#next" ).click( function(){ 
+		clearTimeout( playTimer );
+		if ( !currentDay) gotoDay( $(".timeline-event").eq(0).attr("id").substr(1) );
+		else nextStep();
+	});
 }
 
 function resize() {
@@ -39,10 +63,14 @@ function buildTimeline(){
 			dateString = ( date.getMonth() + 1 ) + "/" + date.getDate() + "/" + date.getFullYear();
 		var dayElement = $( "<div/>" )
 						.addClass( "timeline-day" )
-						.attr( "id" , "t" + i )
-						.click( function(){ gotoDay( $(this).attr("id").substr(1) ) } );
+						.attr( "id" , "t" + i );
 		if ( mapData[ dateString ] ){
-			dayElement.addClass( "timeline-event" );
+			mapData[ dateString ].ms = i;
+			dayElement
+				.addClass( "timeline-event" )
+				.click( function(){ 
+					gotoDay( $(this).attr("id").substr(1) );
+				});
 		}
 		timeline.append( dayElement );
 	}
@@ -50,57 +78,68 @@ function buildTimeline(){
 }
 
 function gotoDay( date ){
+	$( ".timeline-event.selected" ).removeClass( "selected" );
+	$( "#t" + date ).addClass( "selected" )
 	var d = new Date(parseInt(date)),
-		dateString = ( d.getMonth() + 1 ) + "/" + d.getDate() + "/" + d.getFullYear(),
-		day = mapData[ dateString ];
-		
-	var i = -1,
-		markers = {};
+		dateString = ( d.getMonth() + 1 ) + "/" + d.getDate() + "/" + d.getFullYear();
+	console.log("Date",dateString);
+	currentDay = mapData[ dateString ];
+	
+	currentStep = -1;
+	markers = {};
 		
 	mapLayers.clearLayers();
 		
-	doStep();
+	nextStep();
+}
+
+function nextStep(){
+	currentStep++;
+	console.log( "Step", currentStep );
 	
-	function doStep(){
-		i++;
-		console.log( "Step", i );
-		var step = day.STEPS[ i ],
-			marker;
-		if ( !step ) return;
-		if ( step.LOC.length > 1 ){
-			console.log("animated");
+	if ( !currentDay.STEPS || !currentDay.STEPS[ currentStep ] ) {
+		var index = $( "#t" + currentDay.ms ).index( ".timeline-event" ),
+			next = $( ".timeline-event" ).eq( index + 1 );
+		if ( next ) next.trigger("click");
+		return;
+	};
+	
+	var step = currentDay.STEPS[ currentStep ],
+		marker;
+		
+	if ( step.LOC.length > 1 ){
+		console.log("animated");
+		
+		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
+			icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } ),
+			onEnd: function(){
+				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
+			},
+			interval: 15
+		} );
+		
+		if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
+			mapLayers.removeLayer( markers[ step.ID ] );
 			
-			marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
-				icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } ),
-				onEnd: function(){
-					setTimeout( doStep, 3000 );
-				},
-				interval: 15
-			} );
+		markers[ step.ID ] = marker;
+		mapLayers.addLayer(marker);
+		
+		var poly = L.polylineTracer( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
+			color: "#82322d",
+			weight: 15
+		} )
+		mapLayers.addLayer(poly);
+	} else {
+		console.log("static");
+		
+		marker = L.marker( L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), {
+			icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } )
+		} );
+		
+		if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
+			mapLayers.removeLayer( markers[ step.ID ] );
 			
-			if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
-				mapLayers.removeLayer( markers[ step.ID ] );
-				
-			markers[ step.ID ] = marker;
-			mapLayers.addLayer(marker);
-			
-			var poly = L.polylineTracer( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
-				color: "#82322d",
-				weight: 15
-			} )
-			mapLayers.addLayer(poly);
-		} else {
-			console.log("static");
-			
-			marker = L.marker( L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), {
-				icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } )
-			} );
-			
-			if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
-				mapLayers.removeLayer( markers[ step.ID ] );
-				
-			mapLayers.addLayer( marker );
-			setTimeout( doStep, 5000 );
-		}
+		mapLayers.addLayer( marker );
+		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	}
 }

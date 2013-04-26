@@ -42,7 +42,7 @@ div.timeline-event {
 	background-color: #c0b6ad;
 }
 
-div.timeline-event:hover {
+div.timeline-event:hover, div.timeline-event.selected {
 	background-color: #faf7f2;
 	width: 7px;
 	height: 7px;
@@ -54,4 +54,10 @@ div.timeline-event:hover {
 .map-marker {
 	border-radius: 50%;
 	background-color: #82322d;
+}
+
+/* LEAFLET OVERRIDES */
+
+.leaflet-container {
+	background-color: #f4e9d7;
 }

@@ -1,3 +1,11 @@
+var icons = {
+	Militia: "images/militia.png",
+	Maroons: "images/maroons.png",
+	Navy: "images/navy.png",
+	Army: "images/regulars.png",
+	Rebels: "images/rebels.png",
+}
+
 $(document).ready( initialize );
 
 var jsonUrl = "data/json/revolt.json";
@@ -12,11 +20,11 @@ var mapData,
 	currentStep,
 	playTimer;
 	
-var playing = true;
+var playing = false;
 
 function initialize() {
 	map = L.map('map').setView([18.188, -77.363], 10);
-	L.tileLayer('data/tiles/terrain/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} ).addTo(map);
+	L.tileLayer('data/tiles/placenames/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} ).addTo(map);
 	mapLayers = L.layerGroup().addTo(map);
 	loadMapData();
 	
@@ -98,6 +106,7 @@ function nextStep(){
 	console.log( "Step", currentStep );
 	
 	if ( !currentDay.STEPS || !currentDay.STEPS[ currentStep ] ) {
+		// TO DO: still need to pause & show text even if !currentDay.STEPS
 		var index = $( "#t" + currentDay.ms ).index( ".timeline-event" ),
 			next = $( ".timeline-event" ).eq( index + 1 );
 		if ( next ) next.trigger("click");
@@ -109,10 +118,14 @@ function nextStep(){
 		
 	if ( step.LOC.length > 1 ){
 		console.log("animated");
-		
+
 		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
-			icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } ),
+			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } ),
 			onEnd: function(){
+				marker.bindPopup( getPopupContent(step) );
+				if ( step.VALUE ){
+					marker.openPopup();
+				}
 				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 			},
 			interval: 15
@@ -133,13 +146,39 @@ function nextStep(){
 		console.log("static");
 		
 		marker = L.marker( L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), {
-			icon: L.divIcon( { className: "map-marker", iconSize: L.point(20,20) } )
+			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } )
 		} );
 		
 		if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
 			mapLayers.removeLayer( markers[ step.ID ] );
 			
 		mapLayers.addLayer( marker );
+		marker.bindPopup( getPopupContent(step) );
+		if ( step.VALUE ){
+			marker.openPopup();
+		}
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
+	}
+}
+
+function getPopupContent( step ){
+	var div = $( "<div class='popup-name'>" );
+	div.append( "<p>" + step.NAME + "</p>" );
+	if ( step.VALUE ){
+		var val = Math.max( 1, Math.round(step.VALUE / 100) ),
+			dudes = $( "<div class='dudes'/>" );
+		for ( var i = 0; i < val; i ++ ){
+			dudes.append( "<div class='dude'/>" );
+		}
+		div.append( dudes );
+	}
+	return div[0].outerHTML;
+}
+
+function getDayBounds( day ){
+	var steps = day.STEPS;
+	if ( !steps ) return null;
+	for ( var i = 0; i < steps.length; i++ ){
+		
 	}
 }

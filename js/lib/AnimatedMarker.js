@@ -12,7 +12,7 @@ L.AnimatedMarker = L.Marker.extend({
     autoStart: true,
     // callback onend
     onEnd: function(){},
-    clickable: false
+    clickable: true
   },
 
   initialize: function (latlngs, options) {

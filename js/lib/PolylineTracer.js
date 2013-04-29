@@ -1,5 +1,7 @@
 L.PolylineTracer = L.Polyline.extend({
 	initialize: function(latlngs, options) {
+		options.dashArray = undefined;	// disable dashArray option; the dash array is used for animation
+		
 		L.Polyline.prototype.initialize.call(this, latlngs, options);
 		
 		this._progress = 0;
@@ -23,7 +25,22 @@ L.PolylineTracer = L.Polyline.extend({
 		}
 	},
 	
-	animate: function(){
+	start: function(){
+		this._step();
+	},
+	
+	stop: function(){
+		if ( this._timer ) clearTimeout( this._timer );
+	},
+	
+	finish: function(){
+		this.stop();
+		this._progress = 1;
+		this._offset = this._progress * this._totalLength;
+		this._path.setAttribute( "stroke-dashoffset", -(this._offset - this._tracerLength) );
+	},
+	
+	_step: function(){
 		var self = this,
 			speed = this.options.interval;
 			
@@ -38,17 +55,9 @@ L.PolylineTracer = L.Polyline.extend({
 				self._progress = 1;
 				self.options.onEnd.apply(self, Array.prototype.slice.call(arguments));
 			} else {
-				self.animate();
+				self._step();
 			}
 		}, speed);
-	},
-	
-	start: function(){
-		this.animate();
-	},
-	
-	stop: function(){
-		if ( this._timer ) clearTimeout( this._timer );
 	},
 	
 	_getTotalDistance: function(){

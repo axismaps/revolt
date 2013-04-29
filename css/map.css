@@ -56,6 +56,23 @@ div.timeline-event:hover, div.timeline-event.selected {
 	background-color: #82322d;
 }
 
+/* MAP POPUPS */
+
+.popup-name p {
+	margin: 0 5px;
+}
+
+.popup-name p, .dudes, .dude {
+	display: inline-block;
+}
+
+.dude {
+	width: 4px;
+	height: 10px;
+	margin: 0 1px;
+	background-color: #ccc;
+}
+
 /* LEAFLET OVERRIDES */
 
 .leaflet-container {

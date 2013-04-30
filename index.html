@@ -15,14 +15,19 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 	<script src="js/lib/AnimatedMarker.js"></script>
+	<script src="js/lib/AnimatedLine.js"></script>
 	<script src="js/lib/PolylineTracer.js"></script>
 	<script src="js/map.js"></script>
 </head>
 <body>
 	<div id="side">
-		<p id="play">play</p>
-		<p id="stop">stop</p>
-		<p id="next">next</p>
+		<div id="controls">
+			<p id="prev">prev</p>
+			<p id="play">play</p>
+			<p id="next">next</p>
+		</div>
+		<p id="date"></p>
+		<div id="text"></div>
 	</div>
 	<div id="map" style="height: 100%"></div>
 	<div id="bottom"></div>

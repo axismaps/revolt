@@ -49,6 +49,15 @@ div.timeline-event:hover, div.timeline-event.selected {
 	margin: 1px;
 }
 
+#prev, #play, #next {
+	display: inline-block;
+}
+
+#text {
+	overflow-y: auto;
+	margin: 0 10px;
+}
+
 /* MAP MARKERS */
 
 .map-marker {

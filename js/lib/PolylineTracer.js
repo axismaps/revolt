@@ -12,7 +12,7 @@ L.PolylineTracer = L.Polyline.extend({
 	options: {
 		length: "100%",
 		distance: 20,
-		interval: 15,
+		interval: 10,
 		autoStart: true,
 		onEnd: function(){}
 	},

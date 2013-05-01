@@ -86,9 +86,12 @@ function nextStep(){
 			mapLayers.removeLayer( markers[ step.ID ] );
 			
 		mapLayers.addLayer( marker );
-		marker.bindPopup( getPopupContent(step) );
+		var popup = L.revoltPopup({closeButton:false}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
+		marker.on('click',function(){
+			popup.openOn(map);
+		});
 		if ( step.VALUE ){
-			marker.openPopup();
+			popup.openOn(map);
 		}
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	}

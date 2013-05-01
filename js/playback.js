@@ -51,9 +51,13 @@ function nextStep(){
 		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
 			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } ),
 			onEnd: function(){
-				marker.bindPopup( getPopupContent(step) );
+				//marker.bindPopup( getPopupContent(step) );
+				var popup = L.revoltPopup({closeButton:false}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
+				marker.on('click',function(){
+					popup.openOn(map);
+				});
 				if ( step.VALUE ){
-					marker.openPopup();
+					popup.openOn(map);
 				}
 				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 			},

@@ -1,4 +1,4 @@
-L.RevoltProbe = L.Popup.extend({
+L.RevoltPopup = L.Popup.extend({
 	_initLayout: function () {
 		var prefix = 'leaflet-popup',
 			containerClass = prefix + ' ' + this.options.className + ' leaflet-zoom-' +
@@ -21,9 +21,6 @@ L.RevoltProbe = L.Popup.extend({
 
 		this._contentNode = L.DomUtil.create('div', prefix + '-content', wrapper);
 		L.DomEvent.on(this._contentNode, 'mousewheel', L.DomEvent.stopPropagation);
-
-		this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
-		this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
 	},
 	
 	_updateLayout: function () {
@@ -67,11 +64,15 @@ L.RevoltProbe = L.Popup.extend({
 			L.DomUtil.setPosition(this._container, pos);
 		}
 
-		this._containerBottom = -offset.y - (animated ? 0 : pos.y);
-		this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x + (animated ? 0 : pos.x);
+		this._containerBottom = -offset.y - (animated ? 0 : pos.y) - 15;
+		this._containerLeft = offset.x + (animated ? 0 : pos.x);
 
 		//Bottom position the popup in case the height of the popup changes (images loading etc)
-		this._container.style.bottom = this._containerBottom + 'px';
+		this._container.style.top = this._containerBottom + 'px';
 		this._container.style.left = this._containerLeft + 'px';
 	}
 });
+
+L.revoltPopup = function(options,source){
+	return new L.RevoltPopup(options,source);
+};

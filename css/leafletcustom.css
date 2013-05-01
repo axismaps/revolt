@@ -1,3 +1,12 @@
 .leaflet-container {
 	background-color: #f4e9d7;
 }
+
+.leaflet-popup-content-wrapper {
+	background: rgba(50,50,50,.75);
+	box-shadow: none;
+	-webkit-border-radius: 0;
+	        border-radius: 0;
+	color: #f4e9d7;
+	font-weight: bold;
+}

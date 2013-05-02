@@ -35,12 +35,13 @@ function getPopupContent( step ){
 }
 
 function expandPopup( step, popup ){
-	if ( !step.VALUE || !popup._container ) return;
+	if ( !popup._container ) return;
 	$(".probe-units",popup._container).hide();
 	$(popup._container).mouseenter( function(event){
 		$(".probe-units",popup._container).show();
 	});
 	$(popup._container).mouseleave( function(event){
+		map.closePopup();
 		$(".probe-units",popup._container).hide();
 	});
 }

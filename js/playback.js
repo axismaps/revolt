@@ -14,6 +14,7 @@ function gotoDay( date ){
 	markers = {};
 		
 	mapLayers.clearLayers();
+	map.closePopup();
 	
 	$( "#text" ).html( currentDay.TEXT );
 	var b = getDayBounds( currentDay );
@@ -53,11 +54,15 @@ function nextStep(){
 		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
 			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } ),
 			onEnd: function(){
-				//marker.bindPopup( getPopupContent(step) );
 				var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
-				marker.on('click',function(){
-					popup.openOn(map);
-					expandPopup(step,popup);
+				marker.on('mouseover',function(){
+					if ( !map.hasLayer( popup ) ){
+						popup.openOn(map);
+						expandPopup(step,popup);
+					}
+				}).on('mouseout',function(event){
+					if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
+						map.closePopup();
 				});
 				if ( step.VALUE ){
 					popup.openOn(map);
@@ -91,10 +96,14 @@ function nextStep(){
 			
 		mapLayers.addLayer( marker );
 		var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(step) );
-		expandPopup(step,popup);
-		marker.on('click',function(){
-			popup.openOn(map);
-			expandPopup(step,popup);
+		marker.on('mouseover',function(){
+			if ( !map.hasLayer( popup ) ){
+				popup.openOn(map);
+				expandPopup(step,popup);
+			}
+		}).on('mouseout',function(event){
+			if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
+				map.closePopup();
 		});
 		if ( step.VALUE ){
 			popup.openOn(map);

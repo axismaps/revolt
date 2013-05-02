@@ -3,17 +3,24 @@
 .popup-name p {
 	margin: 0 5px;
 	font-weight: bold;
+	line-height: 26px;
 }
 
 .popup-name p, .dudes, .dude {
 	display: inline-block;
+	vertical-align: middle;
+	height: 26px;
 }
 
 .dude {
-	width: 4px;
-	height: 10px;
-	margin: 0 1px;
-	background-color: #ccc;
+	width: 8px;
+	margin: 0px;
+	background-image: url(../images/troop.png);
+}
+
+.dudes {
+	margin-left: 10px;
+	float: right;
 }
 
 .probe-units {

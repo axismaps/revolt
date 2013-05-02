@@ -1,7 +1,7 @@
 var playing = false,
 	currentDay,
 	currentStep,
-	playTimer;;
+	playTimer;
 
 function gotoDay( date ){
 	$( ".timeline-event.selected" ).removeClass( "selected" );
@@ -11,7 +11,9 @@ function gotoDay( date ){
 	console.log("Date",dateString);
 	currentDay = mapData[ dateString ];
 	currentStep = -1;
+	finishAnimations();
 	markers = {};
+	lines = [];
 		
 	mapLayers.clearLayers();
 	map.closePopup();
@@ -35,6 +37,7 @@ function nextStep(){
 	currentStep++;
 	console.log( "Step", currentStep );
 	
+	finishAnimations();
 	map.closePopup();
 	
 	if ( !currentDay.STEPS ){
@@ -46,19 +49,26 @@ function nextStep(){
 	}
 	
 	var step = currentDay.STEPS[ currentStep ],
-		marker;
-		
+		marker,
+		icon;
+	
+	if ( step.TYPE != "Clash" ){
+		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels1, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [90,90] } );
+	} else {
+		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels1, iconSize: [70,80], iconAnchor: [45,65] } );
+	}
+
 	if ( step.LOC.length > 1 ){
 		console.log("animated");
-
+		
 		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
-			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } ),
+			icon: icon,
 			onEnd: function(){
-				var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
+				var popup = L.revoltPopup({closeButton:false, className: this.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( this.getLatLng() ).setContent( getPopupContent(this.step) );
 				marker.on('mouseover',function(){
 					if ( !map.hasLayer( popup ) ){
 						popup.openOn(map);
-						expandPopup(step,popup);
+						expandPopup(this.step,popup);
 					}
 				}).on('mouseout',function(event){
 					if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
@@ -66,16 +76,17 @@ function nextStep(){
 				});
 				if ( step.VALUE ){
 					popup.openOn(map);
-					expandPopup(step,popup);
+					expandPopup(this.step,popup);
 				}
 				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 			},
 			interval: 10
 		} );
+		marker.step = step;
 		
 		if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
 			mapLayers.removeLayer( markers[ step.ID ] );
-			
+		
 		markers[ step.ID ] = marker;
 		mapLayers.addLayer(marker);
 	
@@ -83,28 +94,33 @@ function nextStep(){
 			color: colors[ step.TYPE ] || colors.Rebels,
 			weight: 15
 		} )
+		lines.push(poly);
 		mapLayers.addLayer(poly);
 	} else {
 		console.log("static");
 		
 		marker = L.marker( L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), {
-			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } )
+			icon: icon
 		} );
 		
 		if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )
 			mapLayers.removeLayer( markers[ step.ID ] );
 			
+		markers[ step.ID ] = marker;
+		marker.step = step;
 		mapLayers.addLayer( marker );
-		var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(step) );
+		
+		var popup = L.revoltPopup({closeButton:false, className: marker.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(marker.step) );
 		marker.on('mouseover',function(){
 			if ( !map.hasLayer( popup ) ){
 				popup.openOn(map);
-				expandPopup(step,popup);
+				expandPopup(marker.step,popup);
 			}
 		}).on('mouseout',function(event){
 			if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
 				map.closePopup();
 		});
+		
 		if ( step.VALUE ){
 			popup.openOn(map);
 			expandPopup(step,popup);
@@ -123,4 +139,14 @@ function getDayBounds( day ){
 		}
 	}
 	return L.latLngBounds( latlngs );
+}
+
+function finishAnimations(){
+	for ( var i in markers ){
+		if ( !markers[i].finished && markers[i].finish ) markers[i].finish();
+	}
+	for ( i in lines ){
+		if ( !lines[i].finished ) lines[i].finish();
+	}
+	clearTimeout(playTimer);	// prevent the onEnd callbacks from starting this timer
 }

@@ -31,17 +31,23 @@
 }
 
 .leaflet-popup.rebels .leaflet-popup-content-wrapper {
-	background: rgba(125,49,44,.75);
+	background: rgba(130,51,46,.75);
 }
 .leaflet-popup.militia .leaflet-popup-content-wrapper {
-	background: rgba(46,77,10,.75);
+	background: rgba(25,120,114,.75);
 }
 .leaflet-popup.maroons .leaflet-popup-content-wrapper {
-	background: rgba(91,42,92,.75);
+	background: rgba(94,45,95,.75);
 }
 .leaflet-popup.army .leaflet-popup-content-wrapper {
-	background: rgba(115,86,25,.75);
+	background: rgba(52,81,12,.75);
 }
 .leaflet-popup.navy .leaflet-popup-content-wrapper {
-	background: rgba(44,46,93,.75);
+	background: rgba(46,48,96,.75);
+}
+.leaflet-popup.conspiracy .leaflet-popup-content-wrapper {
+	background: rgba(167,143,14,.75);
+}
+.leaflet-popup.slave-court .leaflet-popup-content-wrapper {
+	background: rgba(157,86,28,.75);
 }

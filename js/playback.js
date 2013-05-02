@@ -34,6 +34,8 @@ function nextStep(){
 	currentStep++;
 	console.log( "Step", currentStep );
 	
+	map.closePopup();
+	
 	if ( !currentDay.STEPS ){
 		if ( playing ) playTimer = setTimeout( nextDay, 3000 );
 		return;
@@ -52,7 +54,7 @@ function nextStep(){
 			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } ),
 			onEnd: function(){
 				//marker.bindPopup( getPopupContent(step) );
-				var popup = L.revoltPopup({closeButton:false}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
+				var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
 				marker.on('click',function(){
 					popup.openOn(map);
 				});
@@ -86,7 +88,7 @@ function nextStep(){
 			mapLayers.removeLayer( markers[ step.ID ] );
 			
 		mapLayers.addLayer( marker );
-		var popup = L.revoltPopup({closeButton:false}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
+		var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(step) );
 		marker.on('click',function(){
 			popup.openOn(map);
 		});

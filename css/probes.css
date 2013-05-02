@@ -12,3 +12,19 @@
 	margin: 0 1px;
 	background-color: #ccc;
 }
+
+.leaflet-popup.rebels .leaflet-popup-content-wrapper {
+	background: rgba(125,49,44,.75);
+}
+.leaflet-popup.militia .leaflet-popup-content-wrapper {
+	background: rgba(46,77,10,.75);
+}
+.leaflet-popup.maroons .leaflet-popup-content-wrapper {
+	background: rgba(91,42,92,.75);
+}
+.leaflet-popup.army .leaflet-popup-content-wrapper {
+	background: rgba(115,86,25,.75);
+}
+.leaflet-popup.navy .leaflet-popup-content-wrapper {
+	background: rgba(44,46,93,.75);
+}

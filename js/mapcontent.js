@@ -15,6 +15,7 @@ var colors = {
 }
 
 function getPopupContent( step ){
+	var outer = $("<div>");
 	var div = $( "<div class='popup-name'>" );
 	div.append( "<p>" + step.NAME + "</p>" );
 	if ( step.VALUE ){
@@ -25,5 +26,21 @@ function getPopupContent( step ){
 		}
 		div.append( dudes );
 	}
-	return div[0].outerHTML;
+	outer.append(div);
+	if ( step.VALUE ){
+		units = "<div class='probe-units'>" + step.UNITS + ": " + step.VALUE + "</div>";
+		outer.append(units);
+	}
+	return outer.html();
+}
+
+function expandPopup( step, popup ){
+	if ( !step.VALUE || !popup._container ) return;
+	$(".probe-units",popup._container).hide();
+	$(popup._container).mouseenter( function(event){
+		$(".probe-units",popup._container).show();
+	});
+	$(popup._container).mouseleave( function(event){
+		$(".probe-units",popup._container).hide();
+	});
 }

@@ -57,9 +57,11 @@ function nextStep(){
 				var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
 				marker.on('click',function(){
 					popup.openOn(map);
+					expandPopup(step,popup);
 				});
 				if ( step.VALUE ){
 					popup.openOn(map);
+					expandPopup(step,popup);
 				}
 				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 			},
@@ -89,11 +91,14 @@ function nextStep(){
 			
 		mapLayers.addLayer( marker );
 		var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(step) );
+		expandPopup(step,popup);
 		marker.on('click',function(){
 			popup.openOn(map);
+			expandPopup(step,popup);
 		});
 		if ( step.VALUE ){
 			popup.openOn(map);
+			expandPopup(step,popup);
 		}
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	}

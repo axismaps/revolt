@@ -1,9 +1,15 @@
 var icons = {
-	Militia: "images/militia.png",
-	Maroons: "images/maroons.png",
-	Navy: "images/navy.png",
-	Army: "images/regulars.png",
-	Rebels: "images/rebels.png",
+	Militia1: "images/militia.png",
+	Maroons1: "images/maroons.png",
+	Navy1: "images/navy.png",
+	Army1: "images/regulars.png",
+	Rebels1: "images/rebels.png",
+	Militia0: "images/0militia.png",
+	Maroons0: "images/0maroons.png",
+	Navy0: "images/0navy.png",
+	Army0: "images/0regulars.png",
+	Rebels0: "images/0rebels.png",
+	Clash: "images/clash.png"
 }
 
 var colors = {

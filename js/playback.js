@@ -46,13 +46,20 @@ function nextStep(){
 	}
 	
 	var step = currentDay.STEPS[ currentStep ],
-		marker;
-		
+		marker,
+		icon;
+	
+	if ( step.TYPE != "Clash" ){
+		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [83,83] } );
+	} else {
+		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [70,80], iconAnchor: [45,65] } );
+	}
+	
 	if ( step.LOC.length > 1 ){
 		console.log("animated");
-
+		
 		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
-			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } ),
+			icon: icon,
 			onEnd: function(){
 				var popup = L.revoltPopup({closeButton:false, className: step.TYPE.toLowerCase()}).setLatLng( this.getLatLng() ).setContent( getPopupContent(step) );
 				marker.on('mouseover',function(){
@@ -88,7 +95,7 @@ function nextStep(){
 		console.log("static");
 		
 		marker = L.marker( L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), {
-			icon: L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [16,16] } )
+			icon: icon
 		} );
 		
 		if ( markers[ step.ID ] && map.hasLayer( markers[ step.ID ] ) )

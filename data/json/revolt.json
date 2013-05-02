@@ -392,6 +392,7 @@
             "ID":"5",
             "TYPE":"Army",
             "NAME":"Downs's Cove",
+            "CERTAINTY":"1",
             "LOC":[
                {
                   "LAT":"18.1961",

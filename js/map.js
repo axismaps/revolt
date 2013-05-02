@@ -1,6 +1,7 @@
 var map,
 	mapLayers,
-	markers;
+	markers,
+	lines;
 
 function setupMap(){
 	map = L.map('map').setView([18.188, -77.363], 10);

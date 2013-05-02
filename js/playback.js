@@ -107,7 +107,9 @@ function nextStep(){
 			mapLayers.removeLayer( markers[ step.ID ] );
 			
 		markers[ step.ID ] = marker;
+		marker.step = step;
 		mapLayers.addLayer( marker );
+		
 		var popup = L.revoltPopup({closeButton:false, className: marker.step.TYPE.toLowerCase()}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(marker.step) );
 		marker.on('mouseover',function(){
 			if ( !map.hasLayer( popup ) ){
@@ -118,7 +120,7 @@ function nextStep(){
 			if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
 				map.closePopup();
 		});
-		marker.step = step;
+		
 		if ( step.VALUE ){
 			popup.openOn(map);
 			expandPopup(step,popup);

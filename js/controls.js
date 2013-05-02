@@ -16,4 +16,16 @@ function setupControls(){
 		else if ( !currentDay.STEPS) nextDay();
 		else nextStep();
 	});
+	
+	$( ".basemap-link" ).click( function(){
+		if ( this.innerHTML == "Places Map" && !map.hasLayer( placesMap ) ){
+			map.removeLayer( terrainMap );
+			map.addLayer( placesMap, true );
+		} else if ( this.innerHTML == "Terrain Map" && !map.hasLayer( terrainMap ) ){
+			map.removeLayer( placesMap );
+			map.addLayer( terrainMap, true );
+		}
+		$( ".basemap-link.selected" ).removeClass("selected");
+		$(this).addClass("selected")
+	});	
 }

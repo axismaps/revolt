@@ -53,18 +53,18 @@ function nextStep(){
 		icon;
 	
 	if ( step.TYPE != "Clash" ){
-		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [83,83] } );
+		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels1, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [90,90] } );
 	} else {
-		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels, iconSize: [70,80], iconAnchor: [45,65] } );
+		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels1, iconSize: [70,80], iconAnchor: [45,65] } );
 	}
-	
+
 	if ( step.LOC.length > 1 ){
 		console.log("animated");
 		
 		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
 			icon: icon,
 			onEnd: function(){
-				var popup = L.revoltPopup({closeButton:false, className: this.step.TYPE.toLowerCase()}).setLatLng( this.getLatLng() ).setContent( getPopupContent(this.step) );
+				var popup = L.revoltPopup({closeButton:false, className: this.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( this.getLatLng() ).setContent( getPopupContent(this.step) );
 				marker.on('mouseover',function(){
 					if ( !map.hasLayer( popup ) ){
 						popup.openOn(map);
@@ -110,7 +110,7 @@ function nextStep(){
 		marker.step = step;
 		mapLayers.addLayer( marker );
 		
-		var popup = L.revoltPopup({closeButton:false, className: marker.step.TYPE.toLowerCase()}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(marker.step) );
+		var popup = L.revoltPopup({closeButton:false, className: marker.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(marker.step) );
 		marker.on('mouseover',function(){
 			if ( !map.hasLayer( popup ) ){
 				popup.openOn(map);

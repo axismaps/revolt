@@ -7,8 +7,8 @@ var map,
 
 function setupMap(){
 	map = L.map('map').setView([18.188, -77.363], 10);
-	placesMap = L.tileLayer('data/tiles/placenames/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} ).addTo(map);
-	terrainMap = L.tileLayer('data/tiles/terrain/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} );
+	placesMap = L.tileLayer('tiles/placenames/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} ).addTo(map);
+	terrainMap = L.tileLayer('tiles/terrain/{z}/{x}/{y}.png', {maxZoom: 12, minZoom: 7} );
 	mapLayers = L.layerGroup().addTo(map);
 }
 

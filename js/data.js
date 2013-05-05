@@ -1,4 +1,4 @@
-var jsonUrl = "data/json/revolt.json",
+var jsonUrl = "json/revolt.json",
 	mapData,
 	dateRange = [Infinity,-Infinity];
 

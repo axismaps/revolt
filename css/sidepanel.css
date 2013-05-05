@@ -8,7 +8,8 @@ div#side {
 }
 
 #controls{
-	margin-top: 10px;
+	margin: 10px 0;
+	cursor: pointer;
 }
 
 #controls div{
@@ -43,7 +44,14 @@ div#side {
 	background-image: url(../images/next.png);
 }
 
-#text {
+#date{
+	clear: both;
+	font: bold 18px / 40px 'PT Serif', serif;
+	color: #4d433e;
+}
+
+#text{
 	overflow-y: auto;
-	margin: 0 10px;
+	font-style: italic;
+	font-size: 14px;
 }

@@ -18,6 +18,7 @@ function gotoDay( date ){
 	mapLayers.clearLayers();
 	map.closePopup();
 	
+	$( "#date" ).html( currentDay.DATE );
 	$( "#text" ).html( currentDay.TEXT );
 	var b = getDayBounds( currentDay );
 	if ( b && auto_pan( b ) ) {

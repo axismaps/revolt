@@ -6,14 +6,6 @@ html, body {
 	font: 13px/18px 'PT Sans', sans-serif;
 }
 
-div#side {
-	float: left;
-	width: 240px;
-	height: 100%;
-	background-color: #f7f4ef;
-	border-right: 1px solid #4c433e;
-}
-
 div#bottom {
 	height: 60px;
 	margin-left: 240px;

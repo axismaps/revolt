@@ -1,5 +1,46 @@
-#prev, #play, #next {
-	display: inline-block;
+div#side {
+	float: left;
+	width: 200px;
+	height: 100%;
+	padding: 0 20px;
+	background-color: #f7f4ef;
+	border-right: 1px solid #4c433e;
+}
+
+#controls{
+	margin-top: 10px;
+}
+
+#controls div{
+	float: left;
+	background-color: #4d433e;
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	width: 55px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#controls #play{
+	width: 85px;
+	border-left: 1px solid #3c342c;
+	border-right: 1px solid #3c342c;
+}
+
+#controls #prev{
+	-webkit-border-radius: 5px 0px 0px 5px;
+	-moz-border-radius: 5px 0px 0px 5px;
+	border-radius: 5px 0px 0px 5px;
+	background-image: url(../images/prev.png);
+}
+
+#controls #next{
+	-webkit-border-radius: 0px 5px 5px 0px;
+	-moz-border-radius: 0px 5px 5px 0px;
+	border-radius: 0px 5px 5px 0px;
+	background-image: url(../images/next.png);
 }
 
 #text {

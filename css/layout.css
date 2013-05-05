@@ -19,7 +19,7 @@ div#map {
 
 #basemap-switcher {
 	position: absolute;
-	top: 0;
+	top: 45px;
 	right: 0;
 	width: 180px;
 	background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 100%);

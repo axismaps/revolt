@@ -1,21 +1,21 @@
 div#side {
 	float: left;
-	width: 200px;
+	width: 240px;
 	height: 100%;
-	padding: 0 20px;
 	background-color: #f7f4ef;
 	border-right: 1px solid #4c433e;
 }
 
 #controls{
-	margin: 10px 0;
+	padding: 10px 20px;
 	cursor: pointer;
+	height: 30px;
 }
 
 #controls div{
 	float: left;
 	background-color: #4d433e;
-	height: 30px;
+	height: inherit;
 	line-height: 30px;
 	color: white;
 	width: 55px;
@@ -46,12 +46,14 @@ div#side {
 
 #date{
 	clear: both;
-	font: bold 18px / 40px 'PT Serif', serif;
+	font: bold 18px / 50px 'PT Serif', serif;
 	color: #4d433e;
+	margin-left: 20px;
 }
 
 #text{
 	overflow-y: auto;
 	font-style: italic;
 	font-size: 14px;
+	padding: 0 20px;
 }

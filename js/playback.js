@@ -19,7 +19,7 @@ function gotoDay( date ){
 	map.closePopup();
 	
 	$( "#date" ).html( currentDay.DATE );
-	$( "#text" ).html( currentDay.TEXT );
+	$( "#text" ).html( currentDay.TEXT + "<br /><br />" );
 	var b = getDayBounds( currentDay );
 	if ( b && auto_pan( b ) ) {
 		playTimer = setTimeout( nextStep, 2500 );

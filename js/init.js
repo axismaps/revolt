@@ -4,6 +4,6 @@ function initialize() {
 	setupMap();
 	loadMapData();
 	setupControls();
-	$(window).resize( resize );
-	resize();	
+	$( window ).resize( resize );
+	resize();
 }

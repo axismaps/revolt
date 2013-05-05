@@ -52,7 +52,7 @@ function nextStep(){
 		marker,
 		icon;
 		
-	$( "#step" ).html( currentStep + " of " + currentDay.STEPS.length )
+	$( "#step" ).html( ( currentStep + 1 ) + " of " + currentDay.STEPS.length )
 	$( "#top b").html( step.TEXT );
 	
 	

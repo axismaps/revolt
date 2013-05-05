@@ -36,7 +36,6 @@ function nextDay(){
 
 function nextStep(){
 	currentStep++;
-	console.log( "Step", currentStep );
 	
 	finishAnimations();
 	map.closePopup();
@@ -52,6 +51,10 @@ function nextStep(){
 	var step = currentDay.STEPS[ currentStep ],
 		marker,
 		icon;
+		
+	$( "#step" ).html( currentStep + " of " + currentDay.STEPS.length )
+	$( "#top b").html( step.TEXT );
+	
 	
 	if ( step.TYPE != "Clash" ){
 		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels1, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [90,90] } );

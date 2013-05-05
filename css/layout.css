@@ -14,7 +14,7 @@ div#bottom {
 }
 
 div#map {
-	margin-left: 240px;
+	margin: 45px 0 0 240px;
 }
 
 #basemap-switcher {

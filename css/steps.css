@@ -1,0 +1,26 @@
+div#top{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 9;
+	width: 100%;
+	height: 44px;
+	border-bottom: 1px solid #4d433e;
+	background: #f7f4ef url(../images/hatching.png);
+	-webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+	box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+}
+
+#step{
+	float: left;
+	margin: 5px 10px;
+	padding-right: 10px;
+	border-right: 1px solid #4d433e;
+	text-align: center;
+	line-height: 34px;
+}
+
+#top{
+	line-height: 44px;
+}

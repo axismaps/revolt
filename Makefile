@@ -1,35 +1,37 @@
 build-dir =			Build/
 yui-jar =			tools/yuicompressor-2.4.8pre.jar
 
-html-replace =		$(build-dir)map.html
-html-prereq =		ie8.html \
-					index.html \
-					map.html \
+html-replace =		$(build-dir)index.html
+html-prereq =		index.html \
 
-dir-prereq =		data \
+dir-prereq =		json \
+					tiles \
 					images \
 					lib \
-					tiles \
 
 css-path =			css/
 css-build-path = 	$(build-dir)css/
-css-page-target =	$(css-build-path)vilnius.min.css
-css-page-prereq =	$(css-path)main.css
+css-page-target =	$(css-build-path)revolt.min.css
+css-page-prereq =	$(css-path)layout.css \
+					$(css-path)leafletcustom.css \
+					$(css-path)map.css \
+					$(css-path)probes.css \
+					$(css-path)sidepanel.css \
+					$(css-path)steps.css \
+					$(css-path)timeline.css \
 
-js-path =			com/
-js-build-path =		$(build-dir)com/
-js-page-target =	$(js-build-path)vilnius.min.js
-js-page-prereq =	$(js-path)category.js \
-					$(js-path)filter.js \
-					$(js-path)gallery.js \
-					$(js-path)intro.js \
+js-path =			js/
+js-build-path =		$(build-dir)js/
+js-page-target =	$(js-build-path)revolt.min.js
+js-page-prereq =	$(js-path)controls.js \
+					$(js-path)data.js \
+					$(js-path)init.js \
+					$(js-path)layout.js \
 					$(js-path)map.js \
-					$(js-path)place.js \
-					$(js-path)search.js \
-					$(js-path)time.js \
-					$(js-path)tours.js \
-					$(js-path)utility.js \
-					$(js-path)view.js \
+					$(js-path)mapcontent.js \
+					$(js-path)playback.js \
+					$(js-path)RevoltPopup.js \
+					$(js-path)timeline.js \
 	
 all: $(css-page-target) $(js-page-target)
 
@@ -42,7 +44,7 @@ install: copy-dir copy-html all
 	@cp $(css-page-target) $(css-build-path)$(css-build)
 	@cp $(js-page-target) $(js-build-path)$(js-build)
 	@echo "Linking to updated CSS and JavaScript…\t\c"
-	@sed -i.bak "s|\"com\/.*\.js\"|\"com\/$(js-build)\"|g" $(html-replace)
+	@sed -i.bak "s|\"js\/.*\.js\"|\"js\/$(js-build)\"|g" $(html-replace)
 	@sed -i.bak "s|\"css\/.*\.css\"|\"css\/$(css-build)\"|g" $(html-replace)
 	@sed -i.bak "$$!N; /^\(.*\)\n\1$$/!P; D" $(html-replace)
 	@rm $(css-page-target)

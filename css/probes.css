@@ -8,26 +8,26 @@
 
 .popup-name p, .dudes, .dude {
 	display: inline-block;
-	vertical-align: middle;
 	height: 26px;
+	vertical-align: middle;
 }
 
 .dude {
-	width: 8px;
 	margin: 0px;
+	width: 8px;
 	background-image: url(../images/troop.png);
 }
 
 .dudes {
-	margin-left: 10px;
 	float: right;
+	margin-left: 10px;
 }
 
 .probe-units {
+	margin-top: 10px;
+	padding-top: 10px;
 	border-top: 1px solid #f4e9d7;
 	font-style: italic;
-	padding-top: 10px;
-	margin-top: 10px;
 }
 
 .leaflet-popup.rebels .leaflet-popup-content-wrapper {

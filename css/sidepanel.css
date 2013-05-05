@@ -2,32 +2,32 @@ div#side {
 	float: left;
 	width: 240px;
 	height: 100%;
-	background-color: #f7f4ef;
 	border-right: 1px solid #4c433e;
+	background-color: #f7f4ef;
 }
 
 #controls{
 	padding: 7px 20px;
-	cursor: pointer;
 	height: 30px;
+	cursor: pointer;
 }
 
 #controls div{
 	float: left;
-	background-color: #4d433e;
-	height: inherit;
-	line-height: 30px;
-	color: white;
 	width: 55px;
-	text-align: center;
-	background-repeat: no-repeat;
+	height: inherit;
+	background-color: #4d433e;
 	background-position: center center;
+	background-repeat: no-repeat;
+	color: white;
+	text-align: center;
+	line-height: 30px;
 }
 
 #controls #play{
 	width: 85px;
-	border-left: 1px solid #3c342c;
 	border-right: 1px solid #3c342c;
+	border-left: 1px solid #3c342c;
 }
 
 #controls #prev{
@@ -46,14 +46,14 @@ div#side {
 
 #date{
 	clear: both;
-	font: bold 18px / 50px 'PT Serif', serif;
-	color: #4d433e;
 	margin-left: 20px;
+	color: #4d433e;
+	font: bold 18px / 50px 'PT Serif', serif;
 }
 
 #text{
 	overflow-y: auto;
+	padding: 0 20px;
 	font-style: italic;
 	font-size: 14px;
-	padding: 0 20px;
 }

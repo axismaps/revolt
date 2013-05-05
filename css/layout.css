@@ -1,16 +1,16 @@
 html, body {
+	overflow: hidden;
 	margin: 0;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 	font: 13px / 18px 'PT Sans', sans-serif;
 }
 
 div#bottom {
-	height: 60px;
-	margin-left: 240px;
-	background-color: #4c433e;
 	overflow-x: auto;
+	margin-left: 240px;
+	height: 60px;
+	background-color: #4c433e;
 }
 
 div#map {
@@ -19,23 +19,23 @@ div#map {
 
 #basemap-switcher {
 	position: absolute;
-	right: 0;
 	top: 0;
+	right: 0;
 	width: 180px;
+	background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(20%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0.75)));
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%);
+	background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%);
+	background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%);
+	background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%);
 	color: white;
-	background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(20%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0.75))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%); /* IE10+ */
-	background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 20%,rgba(0,0,0,0.5) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=1 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=1 );
 }
 
 #basemap-switcher p {
 	margin: 5px;
-	cursor: pointer;
 	text-align: right;
+	cursor: pointer;
 }
 
 span.basemap-link:hover, span.basemap-link.selected {

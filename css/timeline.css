@@ -4,9 +4,9 @@ div#timeline {
 
 div.timeline-day {
 	display: inline-block;
+	margin: 1px 2px;
 	width: 5px;
 	height: 5px;
-	margin: 1px 2px;
 	vertical-align: middle;
 	cursor: pointer;
 }
@@ -17,8 +17,8 @@ div.timeline-event {
 }
 
 div.timeline-event:hover, div.timeline-event.selected {
-	background-color: #faf7f2;
+	margin: 1px;
 	width: 7px;
 	height: 7px;
-	margin: 1px;
+	background-color: #faf7f2;
 }

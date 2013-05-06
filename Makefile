@@ -6,6 +6,7 @@ html-prereq =		index.html \
 
 dir-prereq =		json \
 					tiles \
+					media \
 					images \
 					lib \
 

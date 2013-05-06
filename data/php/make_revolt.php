@@ -1,5 +1,5 @@
 <?php
-	$mysqli = new mysqli( '127.0.0.1', 'root', '', 'revolt' );
+	$mysqli = new mysqli( '127.0.0.1', 'root', 'casey80', 'revolt' );
 	
 	if ($mysqli->connect_errno)
 	{
@@ -17,7 +17,7 @@
 		{
 			$date[ $row[ 'DATE' ] ] = array();
 			$date[ $row[ 'DATE' ] ][ 'DATE' ] = $row[ 'DATE_TEXT' ];
-			$date[ $row[ 'DATE' ] ][ 'TEXT' ] = htmlentities( $row[ 'TEXT' ] );
+			$date[ $row[ 'DATE' ] ][ 'TEXT' ] = str_replace( array( "&gt;", "&lt;" ), array( ">", "<" ), htmlentities( $row[ 'TEXT' ] ) );
 			if( $row[ 'IMAGE' ] != "" )
 			{
 				$date[ $row[ 'DATE' ] ][ 'IMAGE' ] = $row[ 'IMAGE' ];
@@ -55,14 +55,18 @@
 			unset( $row[ 'STEP' ] );
 			unset( $row[ 'UID' ] );
 			
+			$row[ 'ID' ] = intval( $row[ 'ID' ] );
+			$row[ 'CERTAINTY' ] = intval( $row[ 'CERTAINTY' ] );
+			$row[ 'VALUE' ] = intval( $row[ 'VALUE' ] );
+			
 			$loc = array();
-			array_push( $loc, array( "LAT" => $row[ 'LAT1' ], "LON" => $row[ 'LON1' ] ) );
+			array_push( $loc, array( floatval( $row[ 'LAT1' ] ), floatval( $row[ 'LON1' ] ) ) );
 			unset( $row[ 'LAT1' ] );
 			unset( $row[ 'LON1' ] );
 			
 			if( $row[ 'LAT2'] && $row[ 'LON2' ] )
 			{
-				array_push( $loc, array( "LAT" => $row[ 'LAT2' ], "LON" => $row[ 'LON2' ] ) );
+				array_push( $loc, array( floatval( $row[ 'LAT2' ] ), floatval( $row[ 'LON2' ] ) ) );
 				unset( $row[ 'LAT2' ] );
 				unset( $row[ 'LON2' ] );
 			}

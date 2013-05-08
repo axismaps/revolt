@@ -1,5 +1,6 @@
 div#timeline {
-	height: 10px;
+	height: 100%;
+	position: relative;
 }
 
 div.timeline-day {
@@ -21,4 +22,20 @@ div.timeline-event:hover, div.timeline-event.selected {
 	width: 7px;
 	height: 7px;
 	background-color: #faf7f2;
+}
+
+.month-label {
+	position: absolute;
+	margin: 0;
+	color: #c0b6ad;
+	font-size: 11px;
+	margin-left: 5px;
+}
+
+.timeline-divider {
+	width: 1px;
+	position: absolute;
+	background-color: #c0b6ad;
+	height: 50px;
+	bottom: 0;
 }

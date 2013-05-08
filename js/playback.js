@@ -65,7 +65,7 @@ function nextStep(){
 	if ( step.LOC.length > 1 ){
 		console.log("animated");
 		
-		marker = L.animatedMarker( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
+		marker = L.animatedMarker( [ L.latLng( step.LOC[0][0], step.LOC[0][1] ), L.latLng( step.LOC[1][0], step.LOC[1][1] ) ], {
 			icon: icon,
 			onEnd: function(){
 				var popup = L.revoltPopup({closeButton:false, className: this.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( this.getLatLng() ).setContent( getPopupContent(this.step) );
@@ -94,7 +94,7 @@ function nextStep(){
 		markers[ step.ID ] = marker;
 		mapLayers.addLayer(marker);
 	
-		var poly = L.animatedLine( [ L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), L.latLng( step.LOC[1].LAT, step.LOC[1].LON ) ], {
+		var poly = L.animatedLine( [ L.latLng( step.LOC[0][0], step.LOC[0][1] ), L.latLng( step.LOC[1][0], step.LOC[1][1] ) ], {
 			color: colors[ step.TYPE ] || colors.Rebels,
 			weight: 15
 		} )
@@ -103,7 +103,7 @@ function nextStep(){
 	} else {
 		console.log("static");
 		
-		marker = L.marker( L.latLng( step.LOC[0].LAT, step.LOC[0].LON ), {
+		marker = L.marker( L.latLng( step.LOC[0][0], step.LOC[0][1] ), {
 			icon: icon
 		} );
 		
@@ -139,7 +139,7 @@ function getDayBounds( day ){
 	var latlngs = [];
 	for ( var i = 0; i < steps.length; i++ ){
 		for ( var n = 0; n < steps[i].LOC.length; n++ ){
-			latlngs.push( L.latLng(steps[i].LOC[n].LAT,steps[i].LOC[n].LON) );
+			latlngs.push( L.latLng(steps[i].LOC[n][0],steps[i].LOC[n][1]) );
 		}
 	}
 	return L.latLngBounds( latlngs );

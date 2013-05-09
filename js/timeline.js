@@ -1,4 +1,5 @@
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var scrollInterval;
 function buildTimeline(){
 	$( "#bottom" ).append( "<div id='scroll-left'/>" ).append( "<div id='scroll-right'/>" )
 	var timeline = $( "<div id='timeline'></div>" ).width( 10 + 9*(dateRange[1] - dateRange[0])/86400000 ),
@@ -33,5 +34,22 @@ function buildTimeline(){
 				.css("top",25);
 			timeline.append(label);
 		}
+	}
+	
+	$( "#scroll-left" ).mousedown( function(){
+		scrollInterval = setInterval( function(){ scrollTimeline( "left" ); }, 50 );
+	});
+	$( "#scroll-right" ).mousedown( function(){
+		scrollInterval = setInterval( function(){ scrollTimeline( "right" ); }, 50 );
+	});
+	$( "#scroll-left, #scroll-right" ).mouseup( function(){ clearInterval( scrollInterval ) } );
+}
+
+function scrollTimeline( dir ){
+	var scroll = $( "#timeline-container" ).scrollLeft();
+	if ( dir == "left" ){
+		$( "#timeline-container" ).scrollLeft( Math.max( 0, scroll-20 ) );
+	} else {
+		$( "#timeline-container" ).scrollLeft( Math.max( $( "#timeline-container" ).width(), scroll+20 ) );
 	}
 }

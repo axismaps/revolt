@@ -50,6 +50,6 @@ function scrollTimeline( dir ){
 	if ( dir == "left" ){
 		$( "#timeline-container" ).scrollLeft( Math.max( 0, scroll-20 ) );
 	} else {
-		$( "#timeline-container" ).scrollLeft( Math.max( $( "#timeline-container" ).width(), scroll+20 ) );
+		$( "#timeline-container" ).scrollLeft( Math.min( $( "#timeline" ).width(), scroll+20 ) );
 	}
 }

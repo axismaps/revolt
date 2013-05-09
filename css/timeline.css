@@ -1,3 +1,9 @@
+div#timeline-container {
+	margin-left: 25px;
+	height: 100%;
+	overflow-x: auto;
+}
+
 div#timeline {
 	height: 100%;
 	position: relative;
@@ -38,4 +44,31 @@ div.timeline-event:hover, div.timeline-event.selected {
 	background-color: #c0b6ad;
 	height: 50px;
 	bottom: 0;
+}
+
+#track {
+	position: relative;
+	top: 10px;
+}
+
+#scroll-left, #scroll-right {
+	width: 35px;
+	background-position: 0 center;
+	background-repeat: no-repeat;
+	height: 100%;
+	cursor: pointer;
+}
+
+#scroll-left:hover, #scroll-right:hover {
+	background-position: -35px center;
+}
+
+#scroll-left {
+	float: left;
+	background-image: url(../images/scrollLeft.png);
+}
+
+#scroll-right {
+	float: right;
+	background-image: url(../images/scrollRight.png);
 }

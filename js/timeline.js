@@ -1,9 +1,10 @@
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 function buildTimeline(){
+	$( "#bottom" ).append( "<div id='scroll-left'/>" ).append( "<div id='scroll-right'/>" )
 	var timeline = $( "<div id='timeline'></div>" ).width( 10 + 9*(dateRange[1] - dateRange[0])/86400000 ),
-		track = $( "<div></div>" ).css( "width", "100%" ),
+		track = $( "<div id='track'></div>" ).css( "width", "100%" ),
 		month;
-	$( "#bottom" ).append( timeline.append(track) );
+	$( "#bottom" ).append( $( "<div id='timeline-container'>" ).append( timeline.append(track) ) );
 	for ( var i = dateRange[0]; i <= dateRange[1]; i += 86400000 ){
 		var date = new Date(i),
 			dateString = ( date.getMonth() + 1 ) + "/" + date.getDate() + "/" + date.getFullYear();

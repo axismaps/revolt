@@ -28,4 +28,11 @@ function setupControls(){
 		$( ".basemap-link.selected" ).removeClass("selected");
 		$(this).addClass("selected")
 	});	
+	
+	$( ".heading" ).click( function(){
+		if ( $(this).attr("id") == "date" ){
+			if ( $( "#text" ).height() ) $( "#text" ).height(0);
+			else $( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() );
+		}
+	});
 }

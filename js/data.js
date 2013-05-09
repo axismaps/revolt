@@ -10,5 +10,7 @@ function loadMapData() {
 			if ( Date.parse( i ) > dateRange[1] ) dateRange[1] = Date.parse( i );
 		}
 		buildTimeline();
+		nextDay();
+		resize();
 	});
 }

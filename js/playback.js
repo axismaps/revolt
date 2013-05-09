@@ -29,6 +29,10 @@ function gotoDay( date ){
 }
 
 function nextDay(){
+	if ( !currentDay ){
+		$( ".timeline-event" ).first().trigger("click");
+		return;
+	}
 	var index = $( "#t" + currentDay.ms ).index( ".timeline-event" ),
 		next = $( ".timeline-event" ).eq( index + 1 );
 	if ( next ) next.trigger("click");

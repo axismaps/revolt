@@ -38,6 +38,14 @@ function nextDay(){
 	if ( next ) next.trigger("click");
 }
 
+function previousDay(){
+	if ( !currentDay ) return;
+	var index = $( "#t" + currentDay.ms ).index( ".timeline-event" );
+	if ( index == 0 ) return;
+	var	prev = $( ".timeline-event" ).eq( index - 1 );
+	if ( prev ) prev.trigger("click");
+}
+
 function nextStep(){
 	currentStep++;
 	
@@ -137,6 +145,22 @@ function nextStep(){
 			expandPopup(step,popup);
 		}
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
+	}
+}
+
+function previousStep(){
+	if ( currentStep == 0 ){
+		previousDay();
+	} else {
+		console.log(currentStep);
+		goToStep( currentStep - 1 );
+	}
+}
+
+function goToStep(index){
+	gotoDay( currentDay.ms );
+	while (currentStep < index){
+		nextStep();
 	}
 }
 

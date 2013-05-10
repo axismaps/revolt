@@ -17,6 +17,11 @@ function setupControls(){
 		else nextStep();
 	});
 	
+	$( "#prev" ).click( function(){ 
+		clearTimeout( playTimer );
+		previousStep();
+	});
+	
 	$( ".basemap-link" ).click( function(){
 		if ( this.innerHTML == "Places Map" && !map.hasLayer( placesMap ) ){
 			map.removeLayer( terrainMap );

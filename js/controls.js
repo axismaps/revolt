@@ -32,7 +32,25 @@ function setupControls(){
 	$( ".heading" ).click( function(){
 		if ( $(this).attr("id") == "date" ){
 			if ( $( "#text" ).height() ) $( "#text" ).height(0);
-			else $( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() );
+			else if ( $( "#legend" ).height() ){
+				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() );
+			} else {
+				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() );
+			}
+		} else {
+			if ( $( "#legend" ).height() ){
+				$( "#legend" ).height(0);
+				if ( $( "#text" ).height() ){
+					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() );
+				}
+			} else {
+				$( "#legend" ).height("auto");
+				if ( $( "#text" ).height() ){
+					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() );
+				}
+			}
 		}
+		if ( $(this).prev().hasClass( "open" ) ) $(this).prev().removeClass( "open" );
+		else $(this).prev().addClass( "open" )
 	});
 }

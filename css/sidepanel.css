@@ -62,3 +62,22 @@ div#side {
 #text, #legend {
 	transition: height 0.25s;
 }
+
+#legend {
+	margin-left: 20px;
+}
+
+#legend > p { 
+	font-weight: bold;
+	border-top: 1px solid #4d433e;
+}
+
+#legend img { 
+	vertical-align: middle; 
+	margin-right: 5px;
+}
+
+#legend > div img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

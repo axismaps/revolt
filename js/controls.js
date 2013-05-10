@@ -1,13 +1,13 @@
 function setupControls(){
 	$( "#play" ).click( function(){ 
-		playing = true;
-		if ( !currentDay) gotoDay( $(".timeline-event").eq(0).attr("id").substr(1) );
-		else nextStep();
-	});
-	
-	$( "#stop" ).click( function(){ 
-		playing = false;
-		clearTimeout( playTimer );
+		if ( !playing ) {
+			playing = true;
+			if ( !currentDay) gotoDay( $(".timeline-event").eq(0).attr("id").substr(1) );
+			else nextStep();
+		} else {
+			playing = false;
+			clearTimeout( playTimer );
+		}
 	});
 	
 	$( "#next" ).click( function(){ 

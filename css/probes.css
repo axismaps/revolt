@@ -6,7 +6,7 @@
 	line-height: 26px;
 }
 
-.popup-name p, .dudes, .dude {
+.popup-name p, .dudes, .dude, .halfdude {
 	display: inline-block;
 	height: 26px;
 	vertical-align: middle;
@@ -16,6 +16,12 @@
 	margin: 0px;
 	width: 8px;
 	background-image: url(../images/troop.png);
+}
+
+.halfdude {
+	margin: 0px;
+	width: 4px;
+	background-image: url(../images/troops50.png);
 }
 
 .dudes {
@@ -50,4 +56,7 @@
 }
 .leaflet-popup.slave-court .leaflet-popup-content-wrapper {
 	background: rgba(157,86,28,.75);
+}
+.leaflet-popup.clash .leaflet-popup-content-wrapper {
+	background: rgba(77, 67, 62,.75)
 }

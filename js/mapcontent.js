@@ -23,7 +23,8 @@ var colors = {
 	Army: "#34510c",
 	Rebels: "#82332e",
 	Conspiracy: "#a78f0e",
-	"Slave Court": "#9d561c"
+	"Slave Court": "#9d561c",
+	Clash: "#4d433e"
 }
 
 function getPopupContent( step ){
@@ -31,11 +32,15 @@ function getPopupContent( step ){
 	var div = $( "<div class='popup-name'>" );
 	div.append( "<p>" + step.NAME + "</p>" );
 	if ( step.VALUE ){
-		var val = Math.max( 1, Math.round(step.VALUE / 100) ),
+		var val = Math.max( 1, Math.round(step.VALUE / 50) ),
 			dudes = $( "<div class='dudes'/>" );
-		for ( var i = 0; i < val; i ++ ){
-			dudes.append( "<div class='dude'/>" );
+		if ( val > 1 ){
+			for ( var i = 0; i < val; i += 2 ){
+				dudes.append( "<div class='dude'/>" );
+			}
 		}
+		console.log( val % 2 )
+		if ( val % 2 ) dudes.append( "<div class='halfdude'/>" );
 		div.append( dudes );
 	}
 	outer.append(div);

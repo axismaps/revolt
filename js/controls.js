@@ -38,20 +38,20 @@ function setupControls(){
 		if ( $(this).attr("id") == "date" ){
 			if ( $( "#text" ).height() ) $( "#text" ).height(0);
 			else if ( $( "#legend" ).height() ){
-				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() );
+				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() - 25 );
 			} else {
-				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() );
+				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25);
 			}
 		} else {
 			if ( $( "#legend" ).height() ){
 				$( "#legend" ).height(0);
 				if ( $( "#text" ).height() ){
-					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() );
+					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25 );
 				}
 			} else {
 				$( "#legend" ).height("auto");
 				if ( $( "#text" ).height() ){
-					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() );
+					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() - 25);
 				}
 			}
 		}

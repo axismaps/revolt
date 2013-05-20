@@ -87,7 +87,7 @@ function nextStep(){
 						expandPopup(this.step,popup);
 					}
 				}).on('mouseout',function(event){
-					if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
+					if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") && !$(event.originalEvent.relatedTarget).parents().hasClass("leaflet-popup-content-wrapper") )
 						map.closePopup();
 				});
 				if ( step.VALUE ){
@@ -136,7 +136,7 @@ function nextStep(){
 				expandPopup(marker.step,popup);
 			}
 		}).on('mouseout',function(event){
-			if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") )
+			if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") && !$(event.originalEvent.relatedTarget).parents().hasClass("leaflet-popup-content-wrapper") )
 				map.closePopup();
 		});
 		

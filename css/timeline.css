@@ -1,7 +1,7 @@
 div#timeline-container {
 	margin-left: 25px;
 	height: 100%;
-	overflow-x: auto;
+	overflow-x: hidden;
 }
 
 div#timeline {

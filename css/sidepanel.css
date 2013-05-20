@@ -4,7 +4,7 @@ div#side {
 	height: 100%;
 	border-right: 1px solid #4c433e;
 	background-color: #f7f4ef;
-	overflow-y: auto;
+	overflow-y: hidden;
 }
 
 #controls{
@@ -23,6 +23,10 @@ div#side {
 	color: white;
 	text-align: center;
 	line-height: 30px;
+}
+
+#controls div:hover {
+	background-color: #73655f;
 }
 
 #controls #play{
@@ -59,8 +63,7 @@ div#side {
 }
 
 .heading{
-	margin-left: 35px;
-	margin-right: 20px;
+	margin: 0 20px 10px 35px;
 	color: #4d433e;
 	font: bold 18px / 50px 'PT Serif', serif;
 }

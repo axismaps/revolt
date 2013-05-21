@@ -90,10 +90,9 @@ function nextStep(){
 					if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") && !$(event.originalEvent.relatedTarget).parents().hasClass("leaflet-popup-content-wrapper") )
 						map.closePopup();
 				});
-				if ( step.VALUE ){
-					popup.openOn(map);
-					expandPopup(this.step,popup);
-				}
+				popup.openOn(map);
+				expandPopup(this.step,popup);
+				
 				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 			},
 			interval: 10
@@ -140,10 +139,9 @@ function nextStep(){
 				map.closePopup();
 		});
 		
-		if ( step.VALUE ){
-			popup.openOn(map);
-			expandPopup(step,popup);
-		}
+		popup.openOn(map);
+		expandPopup(step,popup);
+		
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	}
 }

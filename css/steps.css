@@ -7,9 +7,20 @@ div#top{
 	height: 44px;
 	border-bottom: 1px solid #4d433e;
 	background: #f7f4ef url(../images/hatching.png);
-	-webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0 3px 5px rgba(0,0,0,0.25);
-	box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 5px 3px 5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 5px 3px 5px rgba(0,0,0,0.25);
+	box-shadow: 5px 3px 5px rgba(0,0,0,0.25);
+}
+
+div#top > div{
+	width: 100%;
+	height: 100%;
+	background: -moz-linear-gradient(left, rgba(247,244,239,1) 0%, rgba(247,244,239,0) 25%, rgba(247,244,239,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(247,244,239,1)), color-stop(25%,rgba(247,244,239,0)), color-stop(100%,rgba(247,244,239,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(247,244,239,1) 0%,rgba(247,244,239,0) 25%,rgba(247,244,239,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(247,244,239,1) 0%,rgba(247,244,239,0) 25%,rgba(247,244,239,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(247,244,239,1) 0%,rgba(247,244,239,0) 25%,rgba(247,244,239,0) 100%); /* IE10+ */
+	background: linear-gradient(to right, rgba(247,244,239,1) 0%,rgba(247,244,239,0) 25%,rgba(247,244,239,0) 100%); /* W3C */
 }
 
 #step{

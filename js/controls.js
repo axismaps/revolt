@@ -32,7 +32,11 @@ function setupControls(){
 		}
 		$( ".basemap-link.selected" ).removeClass("selected");
 		$(this).addClass("selected")
-	});	
+	});
+	
+	$( ".triangle" ).click( function(){
+		$(this).next().trigger("click");
+	});
 	
 	$( ".heading" ).click( function(){
 		if ( $(this).attr("id") == "date" ){

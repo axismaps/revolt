@@ -11,19 +11,23 @@ div#timeline {
 
 div.timeline-day {
 	display: inline-block;
-	margin: 1px 2px;
-	width: 5px;
-	height: 5px;
+	width: 9px;
+	height: 50px;
 	vertical-align: middle;
 	cursor: pointer;
 }
 
-div.timeline-event {
+div.timeline-event > div {
+	height: 5px;
+	width: 5px;
+	margin: 2px;
 	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
 	background-color: #c0b6ad;
 }
 
-div.timeline-event:hover, div.timeline-event.selected {
+div.timeline-day:hover > div, div.timeline-day.selected > div {
 	margin: 1px;
 	width: 7px;
 	height: 7px;
@@ -49,6 +53,7 @@ div.timeline-event:hover, div.timeline-event.selected {
 #track {
 	position: relative;
 	top: 10px;
+	z-index: 10;
 }
 
 #scroll-left, #scroll-right {

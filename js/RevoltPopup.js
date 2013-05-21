@@ -33,7 +33,7 @@ L.RevoltPopup = L.Popup.extend({
 		var width = container.offsetWidth;
 		width = Math.min(width, this.options.maxWidth);
 		width = Math.max(width, this.options.minWidth);
-
+	
 		style.width = (width + 1) + 'px';
 		style.whiteSpace = '';
 

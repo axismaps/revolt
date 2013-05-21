@@ -16,6 +16,7 @@ function buildTimeline(){
 			mapData[ dateString ].ms = i;
 			dayElement
 				.addClass( "timeline-event" )
+				.append( "<div>" )
 				.click( function(){ 
 					gotoDay( $(this).attr("id").substr(1) );
 				});

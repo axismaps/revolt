@@ -31,6 +31,7 @@ function getPopupContent( step ){
 	var outer = $("<div>");
 	var div = $( "<div class='popup-name'>" );
 	div.append( "<p>" + step.NAME + "</p>" );
+	
 	if ( step.VALUE ){
 		var val = Math.max( 1, Math.round(step.VALUE / 50) ),
 			dudes = $( "<div class='dudes'/>" );
@@ -39,10 +40,10 @@ function getPopupContent( step ){
 				dudes.append( "<div class='dude'/>" );
 			}
 		}
-		console.log( val % 2 )
 		if ( val % 2 ) dudes.append( "<div class='halfdude'/>" );
 		div.append( dudes );
 	}
+	
 	outer.append(div);
 	if ( step.VALUE ){
 		units = "<div class='probe-units'>" + step.UNITS + ": " + step.VALUE + "</div>";
@@ -53,6 +54,7 @@ function getPopupContent( step ){
 
 function expandPopup( step, popup ){
 	if ( !popup._container ) return;
+	$( ".dudes", popup._container ).css( "float", "right" );	// float style applied on add, otherwise width calculation is pooched in ff
 	$(".probe-units",popup._container).hide();
 	$(popup._container).mouseenter( function(event){
 		$(".probe-units",popup._container).show();

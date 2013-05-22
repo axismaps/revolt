@@ -1,5 +1,5 @@
 <?php
-	$mysqli = new mysqli( '127.0.0.1', 'root', 'casey80', 'revolt' );
+	$mysqli = new mysqli( '127.0.0.1', 'root', 'checkIt7', 'revolt' );
 	
 	if ($mysqli->connect_errno)
 	{

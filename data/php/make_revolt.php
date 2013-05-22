@@ -1,5 +1,5 @@
 <?php
-	$mysqli = new mysqli( '127.0.0.1', 'root', 'checkIt7', 'revolt' );
+	$mysqli = new mysqli( 'localhost', 'root', 'checkIt7', 'revolt' );
 	
 	if ($mysqli->connect_errno)
 	{
@@ -72,6 +72,8 @@
 			}
 			
 			$row[ "LOC" ] = $loc;
+			if ( $row[ 'TEXT' ] != "" )
+				$row[ 'INFO' ] = str_replace( array( "&gt;", "&lt;" ), array( ">", "<" ), htmlentities( $row[ 'TEXT' ] ) );
 			$row[ 'TEXT' ] = $date[ $d ][ 'STEPS' ][ $step ];
 			
 			$date[ $d ][ 'STEPS' ][ $step ] = $row;

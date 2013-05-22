@@ -45,8 +45,13 @@ function getPopupContent( step ){
 	}
 	
 	outer.append(div);
-	if ( step.VALUE ){
-		units = "<div class='probe-units'>" + step.UNITS + ": " + step.VALUE + "</div>";
+	if ( step.VALUE || step.INFO ){
+		var units = "";
+		if ( step.VALUE )
+			units += step.UNITS + ": " + step.VALUE;
+		if ( step.INFO )
+			units += ( units == "" ? "" : "<br/>" ) + step.INFO;
+		units = "<div class='probe-units'>" + units + "</div>";
 		outer.append(units);
 	}
 	return outer.html();

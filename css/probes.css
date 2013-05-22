@@ -33,6 +33,7 @@
 	padding-top: 10px;
 	border-top: 1px solid #f4e9d7;
 	font-style: italic;
+	max-width: 150px;
 }
 
 .leaflet-popup.rebels .leaflet-popup-content-wrapper {

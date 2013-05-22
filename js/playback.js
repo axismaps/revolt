@@ -77,7 +77,11 @@ function nextStep(){
 	if ( step.LOC.length > 1 ){
 		console.log("animated");
 		
-		marker = L.animatedMarker( [ L.latLng( step.LOC[0][0], step.LOC[0][1] ), L.latLng( step.LOC[1][0], step.LOC[1][1] ) ], {
+		var pts = [];
+		for ( var i = 0; i < step.LOC.length; i++ ){
+			pts.push( L.latLng( step.LOC[i][0], step.LOC[i][1] ) );
+		}
+		marker = L.animatedMarker( pts, {
 			icon: icon,
 			onEnd: function(){
 				var popup = L.revoltPopup({closeButton:false, className: this.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( this.getLatLng() ).setContent( getPopupContent(this.step) );
@@ -104,10 +108,7 @@ function nextStep(){
 		
 		markers[ step.ID ] = marker;
 		mapLayers.addLayer(marker);
-		var pts = [];
-		for ( var i = 0; i < step.LOC.length; i++ ){
-			pts.push( L.latLng( step.LOC[i][0], step.LOC[i][1] ) );
-		}
+		
 		var poly = L.animatedLine( pts, {
 			color: colors[ step.TYPE ] || colors.Rebels,
 			weight: 15

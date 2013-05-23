@@ -99,7 +99,7 @@ function nextStep(){
 				
 				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 			},
-			interval: 10
+			maxDuration: 5000
 		} );
 		marker.step = step;
 		
@@ -111,7 +111,8 @@ function nextStep(){
 		
 		var poly = L.animatedLine( pts, {
 			color: colors[ step.TYPE ] || colors.Rebels,
-			weight: 15
+			weight: 15,
+			maxDuration: 5000
 		} )
 		lines.push(poly);
 		mapLayers.addLayer(poly);

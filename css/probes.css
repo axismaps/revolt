@@ -6,6 +6,13 @@
 	line-height: 26px;
 }
 
+.popup-name p span {
+	font-size: 11px;
+	font-style: italic;
+	font-weight: normal;
+	line-height: 12px;
+}
+
 .popup-name p, .dudes, .dude, .halfdude {
 	display: inline-block;
 	height: 26px;

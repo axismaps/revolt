@@ -4,9 +4,11 @@ function setupControls(){
 			playing = true;
 			if ( !currentDay) gotoDay( $(".timeline-event").eq(0).attr("id").substr(1) );
 			else nextStep();
+			$(this).addClass("playing").html( "<b>PAUSE &nbsp;&nbsp;&nbsp;&nbsp;</b>");
 		} else {
 			playing = false;
 			clearTimeout( playTimer );
+			$(this).removeClass("playing").html( "<b>PLAY &nbsp;&nbsp;</b>");
 		}
 	});
 	
@@ -38,26 +40,13 @@ function setupControls(){
 		$(this).next().trigger("click");
 	});
 	
-	$( ".heading" ).click( function(){
-		if ( $(this).attr("id") == "date" ){
-			if ( $( "#text" ).height() ) $( "#text" ).height(0);
-			else if ( $( "#legend" ).height() ){
-				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() - 25 );
-			} else {
-				$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25);
-			}
+	$( "#legend-title" ).click( function(){
+		if ( $( "#legend" ).height() ){
+			$( "#legend" ).height(0);
+			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25 );
 		} else {
-			if ( $( "#legend" ).height() ){
-				$( "#legend" ).height(0);
-				if ( $( "#text" ).height() ){
-					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25 );
-				}
-			} else {
-				$( "#legend" ).height("auto");
-				if ( $( "#text" ).height() ){
-					$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() - 25);
-				}
-			}
+			$( "#legend" ).height("auto");
+			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() - 25);
 		}
 		if ( $(this).prev().hasClass( "open" ) ) $(this).prev().removeClass( "open" );
 		else $(this).prev().addClass( "open" )

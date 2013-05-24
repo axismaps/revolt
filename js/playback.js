@@ -69,7 +69,7 @@ function nextStep(){
 	
 	
 	if ( step.TYPE != "Clash" ){
-		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels1, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [90,90] } );
+		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels1, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [34,34] } );
 	} else {
 		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels1, iconSize: [40,60], iconAnchor: [25,55] } );
 	}
@@ -83,22 +83,7 @@ function nextStep(){
 		}
 		marker = L.animatedMarker( pts, {
 			icon: icon,
-			onEnd: function(){
-				var popup = L.revoltPopup({closeButton:false, className: this.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( this.getLatLng() ).setContent( getPopupContent(this.step) );
-				marker.on('mouseover',function(){
-					if ( !map.hasLayer( popup ) ){
-						popup.openOn(map);
-						expandPopup(this.step,popup);
-					}
-				}).on('mouseout',function(event){
-					if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") && !$(event.originalEvent.relatedTarget).parents().hasClass("leaflet-popup-content-wrapper") )
-						map.closePopup();
-				});
-				popup.openOn(map);
-				expandPopup(this.step,popup);
-				
-				if ( playing ) playTimer = setTimeout( nextStep, 3000 );
-			},
+			onEnd: function(){ createPopup(this) },	// mapcontent.js
 			maxDuration: 5000
 		} );
 		marker.step = step;
@@ -112,8 +97,11 @@ function nextStep(){
 		var poly = L.animatedLine( pts, {
 			color: colors[ step.TYPE ] || colors.Rebels,
 			weight: 15,
+			onEnd: function(){ createPopup(this) },
 			maxDuration: 5000
-		} )
+			
+		} );
+		poly.step = step;
 		lines.push(poly);
 		mapLayers.addLayer(poly);
 	} else {
@@ -130,19 +118,7 @@ function nextStep(){
 		marker.step = step;
 		mapLayers.addLayer( marker );
 		
-		var popup = L.revoltPopup({closeButton:false, className: marker.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( marker.getLatLng() ).setContent( getPopupContent(marker.step) );
-		marker.on('mouseover',function(){
-			if ( !map.hasLayer( popup ) ){
-				popup.openOn(map);
-				expandPopup(marker.step,popup);
-			}
-		}).on('mouseout',function(event){
-			if ( !$(event.originalEvent.relatedTarget).hasClass("leaflet-popup-content-wrapper") && !$(event.originalEvent.relatedTarget).parents().hasClass("leaflet-popup-content-wrapper") )
-				map.closePopup();
-		});
-		
-		popup.openOn(map);
-		expandPopup(step,popup);
+		createPopup(marker);
 		
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	}
@@ -174,6 +150,24 @@ function getDayBounds( day ){
 		}
 	}
 	return L.latLngBounds( latlngs );
+}
+
+function pauseAnimations(){
+	for ( var i in markers ){
+		if ( markers[i].stop ) markers[i].stop();
+	}
+	for ( i in lines ){
+		if ( lines[i].stop ) lines[i].stop();
+	}
+}
+
+function resumeAnimations(){
+	for ( var i in markers ){
+		if ( markers[i].start && !markers[i].finished ) markers[i].start();
+	}
+	for ( i in lines ){
+		if ( lines[i].start && !lines[i].finished ) lines[i].start();
+	}
 }
 
 function finishAnimations(){

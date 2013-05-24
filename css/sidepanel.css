@@ -33,6 +33,14 @@ div#side {
 	width: 85px;
 	border-right: 1px solid #3c342c;
 	border-left: 1px solid #3c342c;
+	background-image: url(../images/play.png);
+	background-repeat: no-repeat;
+	background-position: 60px 8px;
+}
+
+#controls #play.playing{
+	background-image: url(../images/pause.png);
+	background-position: 60px 9px;
 }
 
 #controls #prev{
@@ -106,6 +114,7 @@ div#side {
 #legend img { 
 	vertical-align: middle; 
 	margin-right: 5px;
+	margin-left: 9px;
 }
 
 #legend > div img {

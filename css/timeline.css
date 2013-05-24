@@ -77,3 +77,16 @@ div.timeline-day:hover > div, div.timeline-day.selected > div {
 	float: right;
 	background-image: url(../images/scrollRight.png);
 }
+
+#timeline-probe {
+	display: none;
+	position: absolute;
+	background: rgba(77, 67, 62,.75);
+	bottom: 59px;
+	margin: 0;
+	padding: 3px 7px;
+	color: #f4e9d7;
+	font-weight: bold;
+	white-space: nowrap;
+	z-index: 9999;
+}

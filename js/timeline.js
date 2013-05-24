@@ -19,7 +19,9 @@ function buildTimeline(){
 				.append( "<div>" )
 				.click( function(){ 
 					gotoDay( $(this).attr("id").substr(1) );
-				});
+				})
+				.mouseover( showTimelineProbe )
+				.mouseout( hideTimelineProbe );
 		}
 		track.append( dayElement );
 		if ( date.getMonth() != month ){
@@ -53,4 +55,19 @@ function scrollTimeline( dir ){
 	} else {
 		$( "#timeline-container" ).scrollLeft( Math.min( $( "#timeline" ).width(), scroll+20 ) );
 	}
+}
+
+function showTimelineProbe(e){
+	console.log(e);
+	var date = $(this).attr("id").substr(1),
+		d = new Date(parseInt(date)),
+		dateString = ( d.getMonth() + 1 ) + "/" + d.getDate() + "/" + d.getFullYear(),
+		day = mapData[ dateString ];
+	$( "#timeline-probe" ).html( day.DATE )
+		.show()
+		.css( "left", Math.min( e.pageX - $( "#timeline-probe" ).width() / 2, $(window).width() - $( "#timeline-probe" ).width() - 5 ) + "px" );
+}
+
+function hideTimelineProbe(){
+	$( "#timeline-probe" ).hide();
 }

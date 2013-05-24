@@ -71,7 +71,7 @@ function nextStep(){
 	if ( step.TYPE != "Clash" ){
 		icon = L.icon( { iconUrl: icons[ step.TYPE + step.CERTAINTY ] || icons.Rebels1, iconSize: parseInt(step.CERTAINTY) ? [16,16] : [90,90] } );
 	} else {
-		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels1, iconSize: [70,80], iconAnchor: [45,65] } );
+		icon = L.icon( { iconUrl: icons[ step.TYPE ] || icons.Rebels1, iconSize: [40,60], iconAnchor: [25,55] } );
 	}
 
 	if ( step.LOC.length > 1 ){

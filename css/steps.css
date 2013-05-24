@@ -10,6 +10,8 @@ div#top{
 	-webkit-box-shadow: 5px 3px 5px rgba(0,0,0,0.25);
 	-moz-box-shadow: 5px 3px 5px rgba(0,0,0,0.25);
 	box-shadow: 5px 3px 5px rgba(0,0,0,0.25);
+	line-height: 44px;
+	white-space: nowrap;
 }
 
 div#top > div{
@@ -30,8 +32,4 @@ div#top > div{
 	border-right: 1px solid #c0b6ac;
 	text-align: center;
 	line-height: 34px;
-}
-
-#top{
-	line-height: 44px;
 }

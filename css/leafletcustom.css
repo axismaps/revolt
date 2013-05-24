@@ -1,5 +1,6 @@
 .leaflet-container {
 	background-color: #f4e9d7;
+	font: 13px / 18px 'PT Sans', sans-serif;
 }
 
 .leaflet-popup-content-wrapper {
@@ -12,6 +13,3 @@
 .leaflet-popup-content {
 	margin: 8px 15px;
 }
-
-.leaflet-marker-pane { z-index: 7 }
-.leaflet-popup-pane { z-index: 6 }

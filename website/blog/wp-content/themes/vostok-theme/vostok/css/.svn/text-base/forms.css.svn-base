@@ -1,0 +1,43 @@
+/* forms.css */
+
+.input-text,
+textarea {
+	border: none;
+	font-size: 1em;
+	padding: .3em;
+}
+
+label {
+	font-size: 1em;
+	margin: 0 .5em;
+}
+
+#search-form label {
+	position: absolute;
+	top: -99999px;
+}
+
+p.input-submit {
+	text-align: right;
+}
+
+#commentform input {
+	width: 43%;
+}
+
+#commentform textarea {
+	font-size: 1em;
+	font-family: Helvetica, Arial, sans-serif;
+	width: 612px;
+}
+
+#commentform #submit-comment {
+  width: auto;
+	font-size: 17px;
+	height: 30px;
+}
+
+#search-form #submit {
+	padding: 1px 13px;
+	margin: 0 0 0 5px;
+}

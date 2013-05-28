@@ -1,0 +1,138 @@
+/* @override http://www.axismaps.com/blog/wp-content/themes/vostok-theme/vostok/css/type.css */
+
+/* type.css */
+
+#wrapper {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 15px;
+	line-height: 145%;
+}
+
+p {
+	margin: 1em 0;
+}
+
+h1 {
+	font-size: 25px;
+	font-weight: normal;
+}
+
+#header .description {
+	font-size: 13px;
+}
+
+#header a {
+	text-decoration: none;
+}
+
+a.back {
+	text-decoration: underline;
+}
+
+#search h2,
+.post h2,
+#comments h3,
+#commentform h3,
+.emptysearch,
+.error {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.post h2 a {
+	text-decoration: none;
+}
+
+.post h2 {
+  font-size: 22px;
+	line-height: 18px;
+	font-weight: bold;
+}
+
+.post h3 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 120%;
+}
+
+.post h4 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 120%;
+}
+
+.post h5 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 120%;
+}
+
+.post blockquote cite {
+	font-style: normal;
+}
+
+.date {
+	font-size: 13px;
+}
+
+.post .number-of-comments a {
+	text-decoration: underline;
+	font-size: 13px;
+}
+
+#comments {
+  font-size: 13px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+#comments h3 {
+	margin: 0 0 2em 0;	
+	font-size: 18px;
+}
+
+#commentform h3 {
+	margin: 0 0 1.5em 0;
+}
+
+#commentform p {
+  font-size: 13px;
+}
+
+.comment cite {
+	font-style: normal;
+}
+
+.comment cite a {
+	text-decoration: underline;
+}
+
+.pagination a {
+	text-decoration: underline;
+}
+
+#sidebar {
+  font-size: 13px;
+}
+
+#sidebar a {
+	text-decoration: none;
+}
+
+#footer {
+  font-size: 13px;
+}
+
+#footer a {
+	text-decoration: underline;
+}
+
+#footer p {
+	margin: 0;
+}

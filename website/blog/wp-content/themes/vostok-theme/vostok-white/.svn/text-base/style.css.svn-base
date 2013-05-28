@@ -1,0 +1,383 @@
+/* @override http://revolt.axismaps.com/blog/wp-content/themes/vostok-theme/vostok-white/style.css */
+
+/*  
+Theme Name: Vostok Theme - White
+Theme URI: http://www.vostoktheme.com/
+Description: A clean and elegant theme for Wordpress
+Version: 1.1
+Author: Javier Cañada, Rubén Lozano, Mark MacKay
+Template: vostok
+Author URI: http://www.vostoktheme.com/
+*/
+
+@import url("../vostok/style.css");
+
+
+html {
+	color: white;
+	background-color: #bfbfbf;
+	font: 16px/24px 'PT Sans', sans-serif !important;
+	margin: 0;
+	text-shadow: none !important;
+}
+
+body{
+	width: 950px;
+	background-color: #b3a99f;
+	margin: -15px auto 0;
+}
+
+.entry a{
+	color: #7a2210 !important;
+}
+	
+strong {
+	color: #333;
+}
+
+#header a:link,
+#header a:visited {
+	color: #312c24;
+	text-decoration: none;
+}
+
+pre {
+	background-color: rgba(232, 228, 216, 0.5);
+	color: black;
+	padding: 5px;
+	text-indent: 10px;
+}
+
+#wrapper {
+	width: 950px;
+	background-color: #b3a99f;
+}
+
+#content{
+	background-color: #b3a99f;
+}
+
+.back:link,
+.back:visited {
+	color: #f60;
+}
+
+.back:hover,
+.back:active,
+.back:focus {
+	color: #FFF;
+}
+
+.post {
+	background-color: #b3a99f;
+	border-bottom: 1px solid #ddd;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+#search h2,
+.emptysearch,
+.error {
+	color: #222;
+}
+
+.post h1 a:link,
+.post h1 a:visited {
+	color: #222;
+}
+
+.post h1 a:hover,
+.post h1 a:active,
+.post h1 a:focus {
+	color: #000;
+}
+
+.post blockquote {
+	background: #eee;
+}
+
+#wrapper .post img {
+  border: solid #ddd 1px; background-color: #fff; padding: 5px
+}
+
+.date {
+	color: #aaa;
+}
+
+.entry a:link,
+.comment a:link {
+	color: #0087C1;
+}
+
+.entry a:visited,
+.comment a:visited {
+	color: #0087C1;
+}
+
+.entry a:hover,
+.entry a:active,
+.entry a:focus,
+.comment a:hover,
+.comment a:active,
+.comment a:focus {
+	color: #000;
+}
+
+.post img {
+	border: none;
+}
+
+.post .number-of-comments a:link,
+.post .number-of-comments a:visited {
+	color: #333;
+}
+
+.post .number-of-comments a:hover,
+.post .number-of-comments a:active,
+.post .number-of-comments a:focus {
+	color: #000;
+}
+
+#comments h3,
+#commentform h3 {
+	color: #222;
+}
+
+.comment {
+	border-top: 1px solid #ddd;
+}
+
+.highlighted {
+	background: #fefefe;
+	border-top: 1px solid #e6e6e7;
+}
+
+.highlighted a:link,
+.highlighted a:visited {
+	color: #0087C1;
+}
+
+.comment cite {
+	color: #333;
+}
+
+.comment .moderation {
+	color: #333;
+}
+
+#commentform {
+	background: #fff;
+	border: 1px solid #ddd;
+
+}
+
+#commentform input#author, #commentform input#email, #commentform input#url, #commentform textarea {
+  border: 1px solid #ccc;
+}
+
+#commentform a:link,
+#commentform a:visited {
+	color: #0087C1;
+}
+
+#commentform a:hover,
+#commentform a:active,
+#commentform a:focus {
+	color: #CCC;
+}
+
+.pagination {
+	color: #0087C1;
+}
+.pagination a:link,
+.pagination a:visited {
+	color: #0087C1;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a:focus {
+	color: #000;
+}
+
+#sidebar {
+	color: #999;
+}
+
+#sidebar a:link,
+#sidebar a:visited {
+	color: #555;
+}
+
+#sidebar a:hover,
+#sidebar a:active,
+#sidebar a:focus {
+	color: #0087C1;
+}
+
+#sidebar #sb-2 a:link,
+#sidebar #sb-2 a:visited {
+	color: #555;
+}
+
+#sidebar #sb-2 a:hover,
+#sidebar #sb-2 a:active,
+#sidebar #sb-2 a:focus {
+	color: #0087C1;
+}
+
+#sidebar #sb-2 .input-text {
+  border: 1px solid #ccc;
+}
+
+#footer {
+	border-top: 1px solid #ddd;
+	color: #828282;
+}
+
+#footer a:link,
+#footer a:visited {
+	color: #0087C1;
+}
+
+#footer a:hover,
+#footer a:active,
+#footer a:focus {
+	color: #000;
+}
+
+#sidebar .email {
+	background: url(img/ico-mail.gif) 0 4px no-repeat;
+}
+
+#sidebar #rss li {
+	background: url(img/ico-rss.png) left center no-repeat;
+}
+
+/*AXIS MAPS CUSTOM*/
+.post h1{
+	line-height: 40px;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-left: 30px;
+	color: #222;
+	font-family: 'IM Fell DW Pica', serif;
+	background-color: #c0b6ac;
+	border-bottom: 1px solid #8b7b73;;
+}
+
+#comments{
+	padding: 10px;
+	margin: 20px;
+	background-color: #a69b90;
+}
+
+.comment{
+	background-color: #a69b90;
+	font: 16px/24px 'PT Sans', sans-serif;
+	color: white;
+}
+
+#commentform{
+	background-color: #eae6df;
+	margin: 20px;
+}
+
+#header{
+	border-top: 8px solid #887c71;
+	background-color: #c0b6ac;
+}
+
+.banner{
+	background: url(http://revolt.axismaps.com/images/header_full.png) no-repeat center bottom;
+	height: 95px;
+}
+
+.full.banner{
+	height: 265px;
+	background-position: center -7px;
+}
+
+.title{
+	font: 50px/40px 'IM Fell DW Pica', serif;
+	text-indent: 40px;
+	margin-top: -85px;
+	margin-bottom: 85px;
+	color: white;
+}
+
+.sub.title{
+	font-size: 25px;
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+#nav{
+	height: 30px;
+	font-weight: bold;
+	margin-left: 11px;
+}
+
+#nav .item{
+	float: left;
+	padding: 0 20px;
+	font-weight: bold;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+#nav .item a:hover, #nav .item.active{
+	color: #7a2210;
+}
+
+#nav .item.active{
+	background-color: #b3a99f;
+}
+
+#search{
+	position: absolute;
+	top: 0;
+	width: 205px;
+	margin-left: 716px;
+	background-color: #8b7b73;
+	height: 31px;
+	padding-left: 6px;
+}
+
+#search table.gsc-branding, #search td.gsc-clear-button{
+	display: none;
+}
+
+#search input.gsc-input{
+	width: 162px;
+	position: relative;
+	bottom: 5px;
+}
+
+#search input.gsc-search-button{
+	background: url(http://revolt.axismaps.com/images/search.png) no-repeat;
+	font-size: 0;
+	border: none;
+	width: 21px;
+	margin-left: -10px;
+	position: relative;
+	bottom: 5px;
+}
+
+#cse img{
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;	
+}
+
+.post:first-child{
+	margin-top: 10px;
+}
+
+.entry{
+	font: 16px/24px 'PT Sans', sans-serif;
+	color: white;
+}

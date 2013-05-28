@@ -1,0 +1,216 @@
+/* colors.css
+
+ Greys
+ --------------------------
+ Very Dark          #2F2F2F
+ Dark               #3C3C3C
+ Regular            #828282
+ Light              #999
+ Very light         #CCC
+
+ Others
+ --------------------------
+ blue               #09C
+ yellow             #F90
+ white              #FFF
+
+*/
+
+html, body {
+	background: #2F2F2F; }
+	
+strong {
+	color: #CCC;
+}
+
+#wrapper {
+	background: #2F2F2F;
+	color: #999;
+}
+
+#header a:link,
+#header a:visited {
+	color: #09C;
+}
+
+#header a:hover,
+#header a:active,
+#header a:focus {
+	color: #FFF;
+}
+
+.back:link,
+.back:visited {
+	color: #F90;
+}
+
+.back:hover,
+.back:active,
+.back:focus {
+	color: #FFF;
+}
+
+.post {
+	background: #3C3C3C;
+}
+
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+#search h2,
+.emptysearch,
+.error {
+	color: #CCC;
+}
+
+.post h2 a:link,
+.post h2 a:visited {
+	color: #CCC;
+}
+
+.post h2 a:hover,
+.post h2 a:active,
+.post h2 a:focus {
+	color: #F90;
+}
+
+.post blockquote {
+	background: #2F2F2F;
+}
+
+.date {
+	color: #828282;
+}
+
+.entry a:link,
+.comment a:link {
+	color: #F90;
+}
+
+.entry a:visited,
+.comment a:visited {
+	color: #F90;
+}
+
+.entry a:hover,
+.entry a:active,
+.entry a:focus,
+.comment a:hover,
+.comment a:active,
+.comment a:focus {
+	color: #FFF;
+}
+
+.post img {
+	border: 5px solid #FFF;
+}
+
+.post .number-of-comments a:link,
+.post .number-of-comments a:visited {
+	color: #CCC;
+}
+
+.post .number-of-comments a:hover,
+.post .number-of-comments a:active,
+.post .number-of-comments a:focus {
+	color: #F90;
+}
+
+#comments h3,
+#commentform h3 {
+	color: #CCC;
+}
+
+.comment {
+	border-top: 1px solid #3C3C3C;
+}
+
+.highlighted {
+	background: #3C3C3C;
+	border-top: 1px solid #2F2F2F;
+}
+
+.highlighted a:link,
+.highlighted a:visited {
+	color: #09C;
+}
+
+.comment cite {
+	color: #CCC;
+}
+
+.comment .moderation {
+	color: #FFF;
+}
+
+#commentform {
+	background: #3C3C3C;
+}
+
+#commentform a:link,
+#commentform a:visited {
+	color: #09C;
+}
+
+#commentform a:hover,
+#commentform a:active,
+#commentform a:focus {
+	color: #CCC;
+}
+
+.pagination {
+	color: #F90;
+}
+.pagination a:link,
+.pagination a:visited {
+	color: #F90;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a:focus {
+	color: #FFF;
+}
+
+#sidebar {
+	color: #828282;
+}
+
+#sidebar a:link,
+#sidebar a:visited {
+	color: #C4C4C4;
+}
+
+#sidebar a:hover,
+#sidebar a:active,
+#sidebar a:focus {
+	color: #F90;
+}
+
+#sidebar #sb-2 a:link,
+#sidebar #sb-2 a:visited {
+	color: #C4C4C4;
+}
+
+#sidebar #sb-2 a:hover,
+#sidebar #sb-2 a:active,
+#sidebar #sb-2 a:focus {
+	color: #F90;
+}
+
+#footer {
+	border-top: 1px solid #3C3C3C;
+	color: #828282;
+}
+
+#footer a:link,
+#footer a:visited {
+	color: #09C;
+}
+
+#footer a:hover,
+#footer a:active,
+#footer a:focus {
+	color: #FFF;
+}

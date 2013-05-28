@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+		<link href="main.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$( document ).ready( function()
+			{
+				var indent = false;
+				$( "h1, h2" ).each( function()
+				{
+					if( $( this ).is( "h1" ) )
+					{
+						$( "#contents" ).append( 
+							$( document.createElement( "li" ) )
+								.html( $( this ).html() )
+						);
+						indent = false;
+					}
+					else if( indent )
+					{
+						$( "#contents ul:last" ).append( 
+							$( document.createElement( "li" ) )
+								.html( $( this ).html() )
+						);
+					}
+					else
+					{
+						$( "#contents li:last" ).append(
+							$( document.createElement( "ul" ) )
+								.append(
+									$( document.createElement( "li" ) )
+										.html( $( this ).html() )
+								)
+						);
+						indent = true;
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="banner"></div>
+			<div class="title">The Coromantee Wars</div>
+			<div class="title sub">An Archipelago of Insurrection</div>
+			<div id="nav">
+				<div class="item"><a href="index.php">Home</a></div>
+				<div class="item active">Project</div>
+				<div class="item"><a href="/blog/">Blog</a></div>
+				<div class="item"><a href="/map/">Map</a></div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="toc">
+				<h4>Contents</h4>
+				<ul id="contents"></ul>
+			</div>
+			<h1>The Revolt</h1>
+			<img class="left" src="images/soulevement_des_negres_1759.jpg" />
+			<p>In 1760, some fifteen hundred enslaved black men and women - perhaps fewer but probably many more - took advantage of Britain's Seven Year's War against France and Spain, to stage a massive uprising in Jamaica, which began on April 7 in the windward parish of St. Mary's and continued in the leeward parishes until October of the next year.  Over the course of eighteen months the rebels killed as many as sixty whites and destroyed many thousands of pounds worth of property.  During the suppression of the revolt over five hundred black men and women were killed in battle, executed, or committed suicide.  Another 500 were transported from the island for life.  Colonists valued the total cost to the island at nearly a quarter of a million pounds. "Whether we consider the extent and secrecy of its plan, the multitude of the conspirators, and the difficulty of opposing its eruptions in such a variety of places at once," wrote planter-historian Edward Long in his 1774 History of Jamaica, this revolt was "more formidable than any hitherto known in the West Indies."1</p>
+			<p>Long was convinced that the rebellion was the culmination of an island-wide plot by Coromantee compatriots from the Gold Coast of West Africa who hoped to conquer the colony and create a series of principalities "in the African mode."  Yet his and subsequent historical accounts have left a number of important questions unanswered.  Was the revolt a unified and coordinated affair, or was it instead a series of opportunistic riots? What in fact did the rebels hope to achieve? Was there ever a real danger to the British Empire in America or was the threat blown out of proportion by panicked whites?  If the insurrection was as well planned as the colonists feared, why didn't it succeed?  These questions can be partially addressed by examining how the insurrection played out in space.</p>
+			<h1>What the Map Shows</h1>
+			<p>Mapping the revolt and its suppression illustrates something that is difficult to glean from simply reading the textual sources.  The colonists and imperial officials who produced the historical record were universally unsympathetic to the rebellion, and we have no documents produced by the rebels.  So the written record skews our understanding toward the insights, fears, hopes, and desires of slaveholders.  But we learn something else by plotting the combatants’ movements in space.  Tracing their locations over time, it is possible to discern some of their strategic aims and to observe the tactical dynamics of slave insurrection and counter-revolt.</p>
+			<p>The uprising encompassed three major phases of sustained action— discounting the various conspiracies discovered by the whites— alongside more dispersed and sporadic skirmishes.  The first was the revolt in St. Mary’s, generally named Tacky’s Revolt after one of its principal African leaders.  This was followed by a much bigger revolt in Westmoreland parish.  Finally, survivors of the Westmoreland insurrection trekked across two parishes, raiding estates along the way.  These campaigns adapted to geographical constraints.  On the windward side of the island— the north side— heavy rainfall and dense vegetation limited movement more than on the leeward side, where the drier climate allowed for greater mobility.  Still, within each phase of the rebellion, the routes traveled by the rebels through woods, mountains, hills, swamps, and rivers indicated strategic objectives.</p>
+			<h2>April 8, 1760</h2>
+			<img src="images/april8.gif" alt="april8" width="660" height="530" />
+			<h1>Government and Politics</h1>
+			<img class="right" src="images/sample2.jpg" />
+			<p>The study I have undertaken will situate slave insurrection within the rise and fall of African empires, demographic patterns of transatlantic slave trading, developments in American colonies, and European imperial policymaking. In this way this inquiry is ideally suited to enhance our understanding of the social geography of conflict in the Atlantic world.</p>
+			<p>The study I have undertaken will situate slave insurrection within the rise and fall of African empires, demographic patterns of transatlantic slave trading, developments in American colonies, and European imperial policymaking. In this way this inquiry is ideally suited to enhance our understanding of the social geography of conflict in the Atlantic world.</p>
+			<h2>Imperial</h2>
+			<p>The study I have undertaken will situate slave insurrection within the rise and fall of African empires, demographic patterns of transatlantic slave trading, developments in American colonies, and European imperial policymaking. In this way this inquiry is ideally suited to enhance our understanding of the social geography of conflict in the Atlantic world.</p>
+			<h2>African</h2>
+			<p>The study I have undertaken will situate slave insurrection within the rise and fall of African empires, demographic patterns of transatlantic slave trading, developments in American colonies, and European imperial policymaking. In this way this inquiry is ideally suited to enhance our understanding of the social geography of conflict in the Atlantic world.</p>
+			<h1>Test Section</h1>
+			<h2>Test Sub</h2>
+			<h2>Test Sub</h2>
+			<h1>Test Section</h1>
+		</div>
+		<div id="footer">&copy; 2012 Vincent Brown. All rights reserved. <br />The material on this site may not be reproduced, distributed, transmitted, or otherwise used, except with the prior permission of Vincent Brown.</div>
+		<div id="search">
+			<div id="cse-search-form" style="width: 100%;">Loading</div>
+			<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+			<script type="text/javascript"> 
+				google.load('search', '1', {language : 'en', style : google.loader.themes.ESPRESSO});
+				google.setOnLoadCallback(function() {
+					var customSearchOptions = {};
+					var customSearchControl = new google.search.CustomSearchControl(
+						'017592292597633553207:cevcvmtmivk', customSearchOptions);
+					customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+				    var options = new google.search.DrawOptions();
+					options.enableSearchboxOnly("http://revolt.axismaps.com/search.html");
+			    	customSearchControl.draw('cse-search-form', options);
+			  	}, true);
+			</script>
+		</div>
+	</body>
+</html>

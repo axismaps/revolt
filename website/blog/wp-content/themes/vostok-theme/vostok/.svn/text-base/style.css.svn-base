@@ -1,0 +1,33 @@
+/*  
+Theme Name: Vostok Theme
+Theme URI: http://www.vostoktheme.com/
+Description: A clean and elegant theme for Wordpress
+Version: 1.2
+Author: Javier Cañada and Rubén Lozano
+Author URI: http://www.vostoktheme.com/
+*/
+
+@import "css/reset.css";
+@import "css/layout.css";
+@import "css/type.css";
+@import "css/colors.css";
+@import "css/forms.css";
+
+/*
+Clearing Floats
+More info: http://www.positioniseverything.net/easyclearing.html
+*/
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */

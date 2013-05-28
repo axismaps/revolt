@@ -1,0 +1,148 @@
+/* @override http://www.axismaps.com/blog/wp-content/themes/vostok-theme/vostok/css/layout.css */
+
+/* layout.css */
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+}
+
+#header {
+	position: relative;
+	margin-top: 15px;
+}
+
+#header .description {
+	margin: .5em 0 0 0;
+}
+
+.string {
+	margin: 4.6em 0 0 0;
+}
+
+.error {
+	margin: 2.6em 0;
+	line-height: 1.2em;
+}
+
+.post {
+	margin: 4.6em 0;
+	padding: 2.7em 30px;
+	position: relative;
+}
+
+.post img,
+.post object,
+.post embed {
+	display: block;
+	margin: 2em auto;
+}
+
+.post .vvqbox {
+	margin: 2em auto;
+}
+
+.post .date {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
+.post h2 {
+	margin: 0 0 1em 0;
+}
+
+.post h3,
+.post h4,
+.post h5 {
+	margin: 2em 0 1em 0;
+}
+
+.post .number-of-comments {
+	bottom: 1em;
+	position: absolute;
+	right: 1em;
+}
+
+.post blockquote {
+	margin: 2em;
+	padding: .1em 1.5em;
+	position: relative;
+}
+
+.post blockquote cite {
+	display: block;
+	text-align: right;
+}
+
+
+.entry ul {
+	list-style: none inside;
+	padding: 0 1em;
+}
+
+.entry ol {
+	list-style: decimal outside;
+	padding: 0 2.5em;
+}
+
+.entry ul li {
+	background: url(../img/bullet.gif) 0 7px no-repeat;
+	margin: 1em 0;
+	padding: 0 0 0 15px;
+}
+
+.entry ol li {
+	margin: 1em 0;
+}
+
+.comment {
+	padding: 1.8em 1.6em;
+	position: relative;
+	overflow: hidden;
+}
+
+.comment .date {
+	bottom: 1em;
+	position: absolute;
+	right: 1em;
+}
+
+#commentform {
+	margin: 2.3em 0 4.6em 0;
+	padding: 2.7em;
+}
+
+.pagination {
+	margin: -2.6em 0 4.6em 0;
+}
+
+.pagination div {
+	float: left;
+	margin: 0 2em 0 0;
+}
+
+#sidebar {
+	padding: 0 0 7em 0;
+}
+
+#sb-1,
+#sb-2 {
+	float: left;
+	width: 50%;
+}
+
+#sidebar .email {
+	background: url(../img/ico-mail.gif) 0 4px no-repeat;
+	padding: 0 0 0 1.8em;
+}
+
+#sidebar #rss li {
+	background: url(../img/ico-rss.jpg) left center no-repeat;
+	padding: 0 0 0 1.8em;
+	margin: .5em 0;
+}
+
+#footer {
+	padding: 1em 0;
+}

@@ -1,0 +1,241 @@
+/* @override 
+	http://revolt.axismaps.com/main.css */
+
+
+html{
+	color: #f3efe9;
+	background-color: #bfbfbf;
+	font: 15px/24px 'PT Sans', sans-serif;
+}
+
+body{
+	background-color: #b3a99f;
+	width: 950px;
+	margin: auto;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+a{
+	color: #312c24;
+	text-decoration: none;
+}
+
+img{
+	-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+a img{
+	border: none;
+}
+
+h1{
+	color: #312c24;
+	font: 25px/40px 'IM Fell DW Pica', serif;
+	background-color: #c0b6ac;
+	margin: 25px 0 0;
+	text-indent: 10px;
+	border-bottom: 1px solid #8b7b73;
+}
+
+h2{
+	color: #312c24;
+	margin-bottom: -15px;
+	font-size: 18px;
+}
+
+h3{
+	color: #7a2210;
+	margin: 0 0 10px;
+	text-decoration: underline;
+}
+
+h4{
+	color: #312c24;
+	text-transform: uppercase;
+	font-size: 13px;
+	margin: 0;
+	line-height: 13px;
+}
+
+#header{
+	border-top: 8px solid #887c71;
+	background-color: #c0b6ac;
+}
+
+.banner{
+	background: url(images/header_full.png) no-repeat center bottom;
+	height: 95px;
+}
+
+.full.banner{
+	height: 265px;
+	background-position: center -7px;
+}
+
+.title{
+	font: 50px/40px 'IM Fell DW Pica', serif;
+	text-indent: 40px;
+	margin-top: -85px;
+	margin-bottom: 85px;
+}
+
+.sub.title{
+	font-size: 25px;
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+#nav{
+	height: 30px;
+	font-weight: bold;
+	margin-left: 11px;
+}
+
+#nav .item{
+	float: left;
+	padding: 0 20px;
+	font-weight: bold;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+#nav .item a:hover, #nav .item.active{
+	color: #7a2210;
+}
+
+#nav .item.active{
+	background-color: #b3a99f;
+}
+
+#content{
+	padding: 5px 25px 25px;
+}
+
+#intro p{
+	font-family: 'PT Serif', serif;
+}
+
+#contact{
+	float: right;
+	font-size: 14px;
+	line-height: 16px;
+	color: #312c24;
+	width: 350px;
+	margin: 5px 0 0 40px;
+}
+
+#contact img{
+	float: left;
+	margin-right: 15px;
+}
+
+.section{
+	margin-top: 60px;
+}
+
+.section h1{
+	font-size: 20px;
+	position: relative;
+	z-index: 0;
+	bottom: 15px;
+	text-indent: 0;
+}
+
+.section h1 img{
+	float: right;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin-top: 9px;
+	margin-left: 0;
+	margin-right: 9px;
+}
+
+.section img{
+	float: left;
+	z-index: 1;
+	position: relative;
+	margin: 0 15px 0 25px;
+}
+
+.section p{
+	margin: -10px 0 0;
+}
+
+img.left{
+	float: left;
+	margin: 20px 20px 0 0;
+	width: 200px;
+}
+
+img.right{
+	float: right;
+	margin: 20px 0 0 20px;
+}
+
+#toc{
+	background-color: #a99a92;
+	float: right;
+	padding: 10px 15px;
+	color: #7a2210;
+	font-size: 13px;
+	line-height: 20px;
+	margin-top: 25px;
+	border-left: 40px solid #b6a8a1;
+}
+
+#footer{
+	background-color: #635950;
+	padding: 15px 25px;
+	font-size: 13px;
+	line-height: 18px;
+	color: #c0b6ac;
+}
+
+#search{
+	position: absolute;
+	top: 0;
+	width: 205px;
+	margin-left: 716px;
+	background-color: #8b7b73;
+	height: 31px;
+	padding-left: 6px;
+}
+
+#search table.gsc-branding, #search td.gsc-clear-button{
+	display: none;
+}
+
+#search input{
+	margin-top: -4px;
+}
+
+#search input.gsc-input{
+	height: 13px !important;
+	width: 162px;
+}
+
+#search input.gsc-search-button{
+	background: url(images/search.png) no-repeat;
+	font-size: 0;
+	border: none;
+	width: 21px;
+	margin-left: -10px;
+}
+
+#cse img{
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;	
+}
+
+ul#contents { counter-reset:item; list-style: none; padding: 0; }
+ul > li { counter-increment:item; }
+ul > li:before {content: counter(item) ". "; }
+ul > li > ul { counter-reset:subitem; list-style: none; }
+ul > li > ul > li { counter-increment:subitem; }
+ul > li > ul > li:before { content: counter(item) "." counter(subitem) " "; }

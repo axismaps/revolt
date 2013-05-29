@@ -1,7 +1,8 @@
 build-dir =			Build/
+map-dir =			$(build-dir)/map/
 yui-jar =			tools/yuicompressor-2.4.8pre.jar
 
-html-replace =		$(build-dir)index.html
+html-replace =		$(map-dir)index.html
 html-prereq =		index.html \
 
 dir-prereq =		json \
@@ -11,7 +12,7 @@ dir-prereq =		json \
 					lib \
 
 css-path =			css/
-css-build-path = 	$(build-dir)css/
+css-build-path = 	$(map-dir)css/
 css-page-target =	$(css-build-path)revolt.min.css
 css-page-prereq =	$(css-path)layout.css \
 					$(css-path)leafletcustom.css \
@@ -22,7 +23,7 @@ css-page-prereq =	$(css-path)layout.css \
 					$(css-path)timeline.css \
 
 js-path =			js/
-js-build-path =		$(build-dir)js/
+js-build-path =		$(map-dir)js/
 js-page-target =	$(js-build-path)revolt.min.js
 js-page-prereq =	$(js-path)controls.js \
 					$(js-path)data.js \
@@ -41,7 +42,7 @@ clean:
 	
 install: js-build := `cat $(js-page-target) | /usr/bin/openssl sha1 | cut -c1-8`.js
 install: css-build := `cat $(css-page-target) | /usr/bin/openssl sha1 | cut -c1-8`.css
-install: copy-dir copy-html all
+install: copy-dir copy-html copy-site all
 	@cp $(css-page-target) $(css-build-path)$(css-build)
 	@cp $(js-page-target) $(js-build-path)$(js-build)
 	@echo "Linking to updated CSS and JavaScript…\t\c"
@@ -78,7 +79,13 @@ $(js-page-target): $(js-page-prereq)
 	@echo "[ Done ]"
 	@rm -f $(js-path)tmp.js
 
-copy-dir: ; $(foreach dir,$(dir-prereq),rsync -rupE --delete --exclude=".svn*" $(dir) $(build-dir) && ) :
+copy-dir: 
+	@mkdir -p $(map-dir)
+	$(foreach dir,$(dir-prereq),rsync -rupE --delete --exclude=".svn*" $(dir) $(map-dir) && ) :
+
 copy-html: 
 	@rm -f $(html-replace)
-	$(foreach html,$(html-prereq),rsync -rupE --delete --exclude=".svn*" $(html) $(build-dir) && ) :
+	$(foreach html,$(html-prereq),rsync -rupE --delete --exclude=".svn*" $(html) $(map-dir) && ) :
+	
+copy-site:
+	@cp -rv website/* $(build-dir)

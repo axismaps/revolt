@@ -9,8 +9,8 @@
 	<body>
 		<div id="header">
 			<div class="banner full"></div>
-			<div class="title">The Coromantee Wars</div>
-			<div class="title sub">An Archipelago of Insurrection</div>
+			<div class="title">Slave Revolt in Jamaica, 1760-1761</div>
+			<div class="title sub">A Cartographic Narrative</div>
 			<div id="nav">
 				<div class="item active">Home</div>
 				<div class="item"><a href="project.html">Project</a></div>
@@ -19,12 +19,11 @@
 			</div>
 		</div>
 		<div id="content">
-			<div id="intro">
+			<div>
 				<div id="contact">
 					<img src="images/v_brown.jpg" alt="Vincent Brown" />
-					<b>Creator, Producer, Editor-in-Cheif</b>
-					<br /><br />
 					<h3>Vincent Brown</h3>
+					<i>Creator, Producer, Editor-in-Chief</i>
 					<p>Professor of History and of African and African American Studies</p>
 					<p>Harvard University<br /><a href="mailto:brown8@fas.harvard.edu">brown8@fas.harvard.edu</a></p>
 				</div>
@@ -32,19 +31,19 @@
 			</div>
 			<div class="section">
 				<a href="project.html"><img src="images/project.jpg" /></a>
-				<h1><a href="project.html"><img src="images/arrow.png" />Project Description</a></h1>
-				<p>In 1760, some fifteen hundred enslaved black men and women— perhaps fewer but probably many more— took advantage of Britain’s Seven Year&rsquo;s War against France and Spain, to stage a massive uprising in Jamaica, which began on April 7 in the windward parish of St. Mary’s and continued in the leeward parishes until October of the next year...</p>
+				<h1><a href="project.html">Project Description</a><a href="project.html" class="arrow">Project Description</a></h1>
+				<p>In 1760, some fifteen hundred enslaved black men and women— perhaps fewer but probably many more— took advantage of  Britain’s Seven Year&rsquo;s War against France and Spain, to stage a massive uprising in Jamaica, which began on April 7 in the windward parish of St. Mary’s and continued in the leeward parishes until October of the next year...</p>
 			</div>
 			<div style="clear:both"></div>
 			<div class="section">
 				<a href="/map/"><img src="images/map.jpg" /></a>
-				<h1><a href="/map"><img src="images/arrow.png" />Multi-layered Interactive Map</a></h1>
+				<h1><a href="/map">Multi-layered Interactive Map</a><a href="/map" class="arrow">Multi-layered Interactive Map</a></h1>
 				<p>Mapping the great Jamaican insurrection of 1760-61 allows us to see how the island’s topography shaped the course of the revolt, how the rebellion included at least three major uprisings, and how its suppression required the sequenced collaboration of several distinct elements of British military power...</p>
 			</div>
 			<div style="clear:both"></div>
 			<div class="section">
 				<a href="/blog/"><img src="images/blog.jpg" /></a>
-				<h1><a href="/blog/"><img src="images/arrow.png" />Recent Blog Posts</a></h1>
+				<h1><a href="/blog/">Recent Blog Posts</a><a href="/blog/" class="arrow">Recent Blog Posts</a></h1>
 				<p>
 				<?php require('blog/wp-blog-header.php');?>
 				<?php query_posts('showposts=3'); ?>

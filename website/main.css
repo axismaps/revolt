@@ -3,13 +3,13 @@
 
 
 html{
-	color: #f3efe9;
+	color: #000;
 	background-color: #bfbfbf;
 	font: 15px/24px 'PT Sans', sans-serif;
 }
 
 body{
-	background-color: #b3a99f;
+	background-color: #d8d0c8;
 	width: 950px;
 	margin: auto;
 	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -18,7 +18,7 @@ body{
 }
 
 a{
-	color: #312c24;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -37,28 +37,28 @@ a img{
 }
 
 h1{
-	color: #312c24;
+	color: #000;
 	font: 25px/40px 'IM Fell DW Pica', serif;
-	background-color: #c0b6ac;
+	background-color: #e9e2da;
 	margin: 25px 0 0;
 	text-indent: 10px;
 	border-bottom: 1px solid #8b7b73;
 }
 
 h2{
-	color: #312c24;
+	color: #000;
+	font: 21px/40px 'IM Fell DW Pica', serif;
 	margin-bottom: -15px;
-	font-size: 18px;
 }
 
 h3{
-	color: #7a2210;
-	margin: 0 0 10px;
-	text-decoration: underline;
+	font: 21px 'IM Fell DW Pica', serif;
+	color: #000;
+	margin: 0 0 0px;
 }
 
 h4{
-	color: #312c24;
+	color: #000;
 	text-transform: uppercase;
 	font-size: 13px;
 	margin: 0;
@@ -67,7 +67,7 @@ h4{
 
 #header{
 	border-top: 8px solid #887c71;
-	background-color: #c0b6ac;
+	background-color: #e9e2da;
 }
 
 .banner{
@@ -81,7 +81,8 @@ h4{
 }
 
 .title{
-	font: 50px/40px 'IM Fell DW Pica', serif;
+	color: #f3efe9;
+	font: 45px/40px 'IM Fell DW Pica', serif;
 	text-indent: 40px;
 	margin-top: -85px;
 	margin-bottom: 85px;
@@ -108,28 +109,34 @@ h4{
 }
 
 #nav .item a:hover, #nav .item.active{
-	color: #7a2210;
+	color: #98191c;
 }
 
 #nav .item.active{
-	background-color: #b3a99f;
+	background-color: #d8d0c8;
 }
 
 #content{
 	padding: 5px 25px 25px;
 }
 
-#intro p{
-	font-family: 'PT Serif', serif;
-}
 
 #contact{
+    font: 15px/24px 'PT Serif', serif;
 	float: right;
 	font-size: 14px;
 	line-height: 16px;
-	color: #312c24;
+	color: #000;
 	width: 350px;
 	margin: 5px 0 0 40px;
+}
+
+#contact a{
+	color: #98191c;
+}
+
+#contact a:hover{
+	text-decoration: underline;
 }
 
 #contact img{
@@ -142,21 +149,33 @@ h4{
 }
 
 .section h1{
-	font-size: 20px;
+	font-size: 21px;
 	position: relative;
 	z-index: 0;
 	bottom: 15px;
 	text-indent: 0;
 }
 
-.section h1 img{
+.arrow {
+	height: 22px;
+	width: 22px;
+	background-image: url("images/arrow.png");
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	display:  inline-block;
+	background-position: top;
 	float: right;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
 	margin-top: 9px;
 	margin-left: 0;
 	margin-right: 9px;
+}
+
+.arrow:hover{
+	background-position: bottom;	
+}
+
+h1 a:hover{
+	color: #98191c;
 }
 
 .section img{
@@ -181,14 +200,14 @@ img.right{
 }
 
 #toc{
-	background-color: #a99a92;
+	background-color: #cfc6bc;
 	float: right;
 	padding: 10px 15px;
-	color: #7a2210;
+	color: #98191c;
 	font-size: 13px;
 	line-height: 20px;
 	margin-top: 25px;
-	border-left: 40px solid #b6a8a1;
+	border-left: 40px solid #d8d0c8;
 }
 
 #footer{
@@ -203,7 +222,7 @@ img.right{
 	position: absolute;
 	top: 0;
 	width: 205px;
-	margin-left: 716px;
+	margin-left: 728px;
 	background-color: #8b7b73;
 	height: 31px;
 	padding-left: 6px;
@@ -235,6 +254,8 @@ img.right{
 	-webkit-box-shadow: none;
 	box-shadow: none;	
 }
+
+
 
 ul#contents { counter-reset:item; list-style: none; padding: 0; }
 ul > li { counter-increment:item; }

@@ -210,6 +210,14 @@ img.right{
 	border-left: 40px solid #d8d0c8;
 }
 
+#toc a{
+	color: #98191c;	
+}
+
+#toc a:hover{
+	color: black;
+}
+
 #footer{
 	background-color: #635950;
 	padding: 15px 25px;

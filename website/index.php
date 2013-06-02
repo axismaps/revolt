@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<div id="header">
+			<a href="/map/" id="viewmap">viewmap</a>
 			<div class="banner full"></div>
 			<div class="title">Slave Revolt in Jamaica, 1760-1761</div>
 			<div class="title sub">A Cartographic Narrative</div>

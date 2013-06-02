@@ -80,6 +80,24 @@ h4{
 	background-position: center -7px;
 }
 
+#viewmap{
+	background-image: url("images/viewmap.png");
+	text-indent: -9999px;
+	float: left;
+	top: 50px;
+	left: 550px;
+	width: 186px;
+	height:  56px;
+	background-repeat: no-repeat;
+	margin-top: 10px;
+	margin-left: 30px;
+	background-position: left;
+}
+
+#viewmap:hover{
+	background-position: right ;
+}
+
 .title{
 	color: #f3efe9;
 	font: 45px/40px 'IM Fell DW Pica', serif;
@@ -215,7 +233,7 @@ img.right{
 }
 
 #toc a:hover{
-	color: black;
+	text-decoration: underline;
 }
 
 #footer{

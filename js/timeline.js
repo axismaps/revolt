@@ -58,7 +58,6 @@ function scrollTimeline( dir ){
 }
 
 function showTimelineProbe(e){
-	console.log(e);
 	var date = $(this).attr("id").substr(1),
 		d = new Date(parseInt(date)),
 		dateString = ( d.getMonth() + 1 ) + "/" + d.getDate() + "/" + d.getFullYear(),

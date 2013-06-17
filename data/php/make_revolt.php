@@ -1,6 +1,6 @@
 <?php
-	$mysqli = new mysqli( 'localhost', 'root', 'checkIt7', 'revolt' );
-	
+	$mysqli = new mysqli( '127.0.0.1', 'root', '', 'revolt' );
+
 	if ($mysqli->connect_errno)
 	{
 		printf("Connect failed: %s\n", $mysqli->connect_error);
@@ -17,7 +17,7 @@
 		{
 			$date[ $row[ 'DATE' ] ] = array();
 			$date[ $row[ 'DATE' ] ][ 'DATE' ] = $row[ 'DATE_TEXT' ];
-			$date[ $row[ 'DATE' ] ][ 'TEXT' ] = str_replace( array( "&gt;", "&lt;" ), array( ">", "<" ), htmlentities( $row[ 'TEXT' ] ) );
+			$date[ $row[ 'DATE' ] ][ 'TEXT' ] = str_replace( array( "&gt;", "&lt;" ), array( ">", "<" ), htmlentities( $row[ 'TEXT' ], ENT_QUOTES ) );
 			if( $row[ 'IMAGE' ] != "" )
 			{
 				$date[ $row[ 'DATE' ] ][ 'IMAGE' ] = $row[ 'IMAGE' ];
@@ -30,7 +30,7 @@
 			{
 				$date[ $row[ 'DATE' ] ][ 'STEPS' ] = array();
 			}
-			array_push( $date[ $row[ 'DATE' ] ][ 'STEPS' ], $row[ 'TEXT' ] );
+			array_push( $date[ $row[ 'DATE' ] ][ 'STEPS' ], str_replace( array( "&gt;", "&lt;" ), array( ">", "<" ), htmlentities( $row[ 'TEXT' ], ENT_QUOTES ) ) );
 		}
 	}
 	

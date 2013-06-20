@@ -54,23 +54,35 @@
 			$step = $row[ 'STEP' ] - 1;
 			unset( $row[ 'STEP' ] );
 			unset( $row[ 'UID' ] );
+			if ( isset( $row['Fixed'] ) ) unset( $row['Fixed'] );
+			if ( isset( $row['Places Notes'] ) ) unset( $row['Places Notes'] );
+			if ( isset( $row['Terrain Notes'] ) ) unset( $row['Terrain Notes'] );
+			if ( isset( $row['POSITION'] ) ) unset( $row['POSITION'] );
 			
 			$row[ 'ID' ] = intval( $row[ 'ID' ] );
 			$row[ 'CERTAINTY' ] = intval( $row[ 'CERTAINTY' ] );
 			$row[ 'VALUE' ] = intval( $row[ 'VALUE' ] );
-			
-			$loc = array();
-			array_push( $loc, array( floatval( $row[ 'LAT1' ] ), floatval( $row[ 'LON1' ] ) ) );
-			unset( $row[ 'LAT1' ] );
-			unset( $row[ 'LON1' ] );
-			
-			if( $row[ 'LAT2'] && $row[ 'LON2' ] )
-			{
-				array_push( $loc, array( floatval( $row[ 'LAT2' ] ), floatval( $row[ 'LON2' ] ) ) );
+
+			if ( isset( $row[ 'PATH' ] ) ){
+				$loc = json_decode( $row[ 'PATH' ] );
+				unset( $row[ 'LAT1' ] );
+				unset( $row[ 'LON1' ] );
 				unset( $row[ 'LAT2' ] );
 				unset( $row[ 'LON2' ] );
+				unset( $row[ 'PATH' ] );
+			} else {
+				$loc = array();
+				array_push( $loc, array( floatval( $row[ 'LAT1' ] ), floatval( $row[ 'LON1' ] ) ) );
+				unset( $row[ 'LAT1' ] );
+				unset( $row[ 'LON1' ] );
+				
+				if( $row[ 'LAT2'] && $row[ 'LON2' ] )
+				{
+					array_push( $loc, array( floatval( $row[ 'LAT2' ] ), floatval( $row[ 'LON2' ] ) ) );
+					unset( $row[ 'LAT2' ] );
+					unset( $row[ 'LON2' ] );
+				}
 			}
-			
 			$row[ "LOC" ] = $loc;
 			if ( $row[ 'TEXT' ] != "" )
 				$row[ 'INFO' ] = str_replace( array( "&gt;", "&lt;" ), array( ">", "<" ), htmlentities( $row[ 'TEXT' ] ) );

@@ -15,6 +15,8 @@
 			<div id="nav">
 				<div class="item active">Home</div>
 				<div class="item"><a href="project.html">Project</a></div>
+				<div class="item"><a href="sources.html">Sources</a></div>
+				<div class="item"><a href="acknowledgments.html">Acknowledgments</a></div>
 				<div class="item"><a href="/blog/">Blog</a></div>
 				<div class="item"><a href="/map/">Map</a></div>
 			</div>

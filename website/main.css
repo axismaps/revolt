@@ -126,7 +126,7 @@ h4{
 	cursor: pointer;
 }
 
-#nav a{
+#nav a, h1 a{
 	color: #000;
 }
 
@@ -163,7 +163,7 @@ a{
 
 #contact img{
 	float: left;
-	margin-right: 15px;
+	margin: 0 15px 30px 0;
 }
 
 .section{

@@ -26,8 +26,9 @@
 				<div id="contact">
 					<img src="images/v_brown.jpg" alt="Vincent Brown" />
 					<h3>Vincent Brown</h3>
-					<i>Creator, Producer, Editor-in-Chief</i>
-					<p>Professor of History and of African and African American Studies</p>
+					<i>Principal Investigator and Curator</i><br />
+					<p>Charles Warren Professor of History and Professor of African and African-American Studies</p>
+					<p>Director, History Design Studio</p>
 					<p>Harvard University<br /><a href="mailto:brown8@fas.harvard.edu">brown8@fas.harvard.edu</a></p>
 				</div>
 				<p>This animated thematic map narrates the spatial history of the greatest slave insurrection in the eighteenth century British Empire. &nbsp;To teachers and researchers, the presentation offers a carefully curated archive of key documentary evidence. &nbsp;To all viewers, the map suggests an argument about the strategies of the rebels and the tactics of counterinsurgency, about the importance of the landscape to the course of the uprising, and about the difficulty of representing such events cartographically with available sources. &nbsp;Although this cartographic narration cannot be taken as an exhaustive database—for instance, it does not examine major themes such as belonging and affiliation among the insurgents or the larger imperial context and interconnected Atlantic world— the map offers an illuminating interpretation of the military campaign’s spatial dynamics.</p>

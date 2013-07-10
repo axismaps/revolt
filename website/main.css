@@ -290,6 +290,10 @@ p.source{
 	text-indent: -30px;
 }
 
+.caption h2{
+	margin: 0;
+}
+
 ul#contents { counter-reset:item; list-style: none; padding: 0; }
 ul > li { counter-increment:item; }
 ul > li:before {content: counter(item) ". "; }

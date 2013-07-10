@@ -281,7 +281,10 @@ img.right{
 	box-shadow: none;	
 }
 
-
+p.source{
+	margin-left: 60px;
+	text-indent: -30px;
+}
 
 ul#contents { counter-reset:item; list-style: none; padding: 0; }
 ul > li { counter-increment:item; }

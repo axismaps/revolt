@@ -28,6 +28,7 @@ var colors = {
 }
 
 function createPopup(object){
+	if ( !object.step.NAME ) return;
 	var isLine = !object.getLatLng,
 		latLng = isLine ? L.latLng(0,0) : object.getLatLng(),
 		popup = L.revoltPopup({closeButton:false, className: object.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( latLng ).setContent( getPopupContent(object.step) );

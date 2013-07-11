@@ -28,7 +28,10 @@ var colors = {
 }
 
 function createPopup(object){
+	
+	if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	if ( !object.step.NAME ) return;
+
 	var isLine = !object.getLatLng,
 		latLng = isLine ? L.latLng(0,0) : object.getLatLng(),
 		popup = L.revoltPopup({closeButton:false, className: object.step.TYPE.toLowerCase().replace(" ","-")}).setLatLng( latLng ).setContent( getPopupContent(object.step) );
@@ -50,8 +53,6 @@ function createPopup(object){
 		popup.openOn(map);
 		expandPopup(object.step,popup,object);
 	}
-	
-	if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 }
 
 function getPopupContent( step ){

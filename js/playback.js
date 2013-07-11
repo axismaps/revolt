@@ -84,7 +84,7 @@ function nextStep(){
 		marker = L.animatedMarker( pts, {
 			icon: icon,
 			onEnd: function(){ createPopup(this) },	// mapcontent.js
-			maxDuration: 5000
+			maxDuration: 3000
 		} );
 		marker.step = step;
 		
@@ -98,7 +98,7 @@ function nextStep(){
 			color: colors[ step.TYPE ] || colors.Rebels,
 			weight: 15,
 			onEnd: function(){ createPopup(this) },
-			maxDuration: 5000
+			maxDuration: 3000
 			
 		} );
 		poly.step = step;

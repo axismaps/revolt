@@ -1,55 +1,91 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<meta charset="utf8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
-		<link href="main.css" rel="stylesheet" type="text/css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-	</head>
-	<body>
-		<div id="header">
-			<div class="banner"></div>
-			<div class="title">Slave Revolt in Jamaica, 1760-1761</div>
-			<div class="title sub">A Cartographic Narrative</div>
-			<div id="nav">
-				<div class="item"><a href="index.php">Home</a></div>
-				<div class="item"><a href="project.html">Project</a></div>
-				<div class="item"><a href="sources.html">Sources</a></div>
-				<div class="item active">Acknowledgments</div>
-				<div class="item"><a href="/blog/">Blog</a></div>
-				<div class="item"><a href="/map/">Map</a></div>
-			</div>
-		</div>
-		<div id="content">
-			<h1 id="a">Acknowledgments</h1>
-			<p class="c3">
-			<span class="c1">This project has benefitted from the generous support of the Mellon New Directions Fellowship, the National Humanities Center, Duke University, and Harvard University.</span>
-		</p>
-		<p class="c3 c5"></p>
-		<p class="c3">
-			<span class="c1">My own spatial reasoning derives from my association with some remarkable collectives, to whom I am deeply grateful: fellow participants in the Counter-Mapping Workshop at UNC, Chapel Hill, in 2011-12, especially Pavithra Vasudevan and Tim Stallman; the staff at the Harvard University</span> <span class="c0"><a class="c2" href="http://www.gis.harvard.edu/icb/icb.do">Center for Geographic Analysis</a></span><span class="c1">, especially Jeff Blossom, Peter Bol, and Kirk Goldsberry; Richard White and Zephyr Frank of Stanford University’s</span> <span class="c0"><a class="c2" href="http://www.stanford.edu/group/spatialhistory/cgi-bin/site/index.php">Spatial History Project</a></span><span class="c1">; Tim Watson, Ashli White, Kate Ramsey, and the other participants of the Atlantic Geographies Seminar held at University of Miami, 14-15 May 2012; and most importantly, David Heyman, Ben Sheesley, and Andy Woodruff at</span> <span class="c0"><a class="c2" href="http://www.axismaps.com">Axis Maps</a></span><span class="c1">.</span>
-		</p>
-		<p class="c3 c5"></p>
-		<p class="c3">
-			<span class="c1">I also thank the following individuals, who have inspired or aided this project in various and important ways: Trevor Burnard, Jeffrey Caldwell, Laurent Dubois, Katharine Gerbner, Steven Hahn, Rebecca Ladbury, Cory Paulsen, Marcus Rediker, Rachel St. John, Ajantha Subramanian, Scott Walker, Ben Weber, David Wells, and Jeremy Zallen.</span>
-		</p>
-		<div id="footer">&copy; 2012 Vincent Brown. All rights reserved.</div>
-		<div id="search">
-			<div id="cse-search-form" style="width: 100%;">Loading</div>
-			<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-			<script type="text/javascript"> 
-				google.load('search', '1', {language : 'en', style : google.loader.themes.ESPRESSO});
-				google.setOnLoadCallback(function() {
-					var customSearchOptions = {};
-					var customSearchControl = new google.search.CustomSearchControl(
-						'017592292597633553207:cevcvmtmivk', customSearchOptions);
-					customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-				    var options = new google.search.DrawOptions();
-					options.enableSearchboxOnly("http://revolt.axismaps.com/search.html");
-			    	customSearchControl.draw('cse-search-form', options);
-			  	}, true);
-			</script>
-		</div>
-	</body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript">
+</script>
+
+    <title></title>
+</head>
+
+<body>
+    <div id="header">
+        <div class="banner"></div>
+
+        <div class="title">
+            Slave Revolt in Jamaica, 1760-1761
+        </div>
+
+        <div class="title sub">
+            A Cartographic Narrative
+        </div>
+
+        <div id="nav">
+            <div class="item">
+                <a href="index.php">Home</a>
+            </div>
+
+            <div class="item">
+                <a href="project.html">Project</a>
+            </div>
+
+            <div class="item">
+                <a href="sources.html">Sources</a>
+            </div>
+
+            <div class="item active">
+                Acknowledgments
+            </div>
+
+            <div class="item">
+                <a href="/blog/">Blog</a>
+            </div>
+
+            <div class="item">
+                <a href="/map/">Map</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <h1 id="a">Acknowledgments</h1>
+
+        <p class="c3"><span class="c1">This project has benefitted from the generous support of the Mellon New Directions Fellowship, the National Humanities Center, Duke University, and Harvard University.</span></p>
+
+        <p class="c3 c5"></p>
+
+        <p class="c3"><span class="c1">My own spatial reasoning derives from my association with some remarkable collectives, to whom I am deeply grateful: fellow participants in the Counter-Mapping Workshop at UNC, Chapel Hill, in 2011-12, especially Pavithra Vasudevan and Tim Stallman; the staff at the Harvard University</span> <span class="c0"><a class="c2" href="http://www.gis.harvard.edu/icb/icb.do">Center for Geographic Analysis</a></span><span class="c1">, especially Jeff Blossom, Peter Bol, and Kirk Goldsberry; Richard White and Zephyr Frank of Stanford University’s</span> <span class="c0"><a class="c2" href="http://www.stanford.edu/group/spatialhistory/cgi-bin/site/index.php">Spatial History Project</a></span><span class="c1">; Tim Watson, Ashli White, Kate Ramsey, and the other participants of the Atlantic Geographies Seminar held at University of Miami, 14-15 May 2012; and most importantly, David Heyman, Ben Sheesley, and Andy Woodruff at</span> <span class="c0"><a class="c2" href="http://www.axismaps.com">Axis Maps</a></span><span class="c1">.</span></p>
+
+        <p class="c3 c5"></p>
+
+        <p class="c3"><span class="c1">I also thank the following individuals, who have inspired or aided this project in various and important ways: Trevor Burnard, Jeffrey Caldwell, Laurent Dubois, Katharine Gerbner, Steven Hahn, Rebecca Ladbury, Cory Paulsen, Marcus Rediker, Rachel St. John, Ajantha Subramanian, Scott Walker, Ben Weber, David Wells, and Jeremy Zallen.</span></p>
+    </div>
+
+    <div id="footer">
+        &copy; 2012 Vincent Brown. All rights reserved.
+    </div>
+
+    <div id="search">
+        <div id="cse-search-form" style="width: 100%;">
+            Loading
+        </div><script src="http://www.google.com/jsapi" type="text/javascript">
+</script> <script type="text/javascript">
+//<![CDATA[
+
+                google.load('search', '1', {language : 'en', style : google.loader.themes.ESPRESSO});
+                google.setOnLoadCallback(function() {
+                    var customSearchOptions = {};
+                    var customSearchControl = new google.search.CustomSearchControl(
+                        '017592292597633553207:cevcvmtmivk', customSearchOptions);
+                    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+                    var options = new google.search.DrawOptions();
+                    options.enableSearchboxOnly("http://revolt.axismaps.com/search.html");
+                    customSearchControl.draw('cse-search-form', options);
+                }, true);
+        //]]>
+        </script>
+    </div>
+</body>
 </html>

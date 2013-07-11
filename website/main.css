@@ -294,6 +294,14 @@ p.source{
 	margin: 0;
 }
 
+table{
+	margin-left: 30px;
+}
+
+td{
+	padding: 5px;
+}
+
 ul#contents { counter-reset:item; list-style: none; padding: 0; }
 ul > li { counter-increment:item; }
 ul > li:before {content: counter(item) ". "; }

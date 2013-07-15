@@ -3356,7 +3356,25 @@
             "my ab":"?",
             "ID":11,
             "TYPE":"Rebels",
-            "NAME":"Through the foothills of Westmoreland",
+            "CERTAINTY":0,
+            "VALUE":0,
+            "LOC":[
+               [
+                  18.3362,
+                  -78.2157
+               ],
+               [
+                  18.3066,
+                  -78.084
+               ]
+            ],
+            "TEXT":"Body of rebels begins a retreat from Westmoreland parish"
+         },
+         {
+            "my ab":"?",
+            "ID":11,
+            "TYPE":"Rebels",
+            "NAME":"Foothills to St. Elizabeth",
             "CERTAINTY":0,
             "VALUE":0,
             "LOC":[
@@ -3391,73 +3409,6 @@
                [
                   18.2708,
                   -77.9483
-               ],
-               [
-                  18.2831,
-                  -77.926
-               ],
-               [
-                  18.3017,
-                  -77.9065
-               ],
-               [
-                  18.3265,
-                  -77.8831
-               ],
-               [
-                  18.3419,
-                  -77.8551
-               ]
-            ],
-            "TEXT":"Body of rebels begins a retreat from Westmoreland parish"
-         },
-         {
-            "my ab":"?",
-            "ID":11,
-            "TYPE":"Rebels",
-            "NAME":"Foothills to St. Elizabeth",
-            "CERTAINTY":0,
-            "VALUE":0,
-            "LOC":[
-               [
-                  18.3419,
-                  -77.8551
-               ],
-               [
-                  18.334,
-                  -77.8666
-               ],
-               [
-                  18.3291,
-                  -77.8738
-               ],
-               [
-                  18.3141,
-                  -77.8841
-               ],
-               [
-                  18.2858,
-                  -77.8855
-               ],
-               [
-                  18.2753,
-                  -77.8762
-               ],
-               [
-                  18.26,
-                  -77.8683
-               ],
-               [
-                  18.2496,
-                  -77.8642
-               ],
-               [
-                  18.2385,
-                  -77.8563
-               ],
-               [
-                  18.2303,
-                  -77.844
                ],
                [
                   18.2241,

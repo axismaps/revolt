@@ -95,9 +95,11 @@ function expandPopup( step, popup, object ){
 	$(popup._container).children().click( function(event){
 		$(".probe-units",popup._container).show();
 	});
+	$(popup._container).mouseover( pauseAnimations );
 	$(popup._container).mouseleave( function(event){
 		map.closePopup();
 		resumeAnimations();
 		$(".probe-units",popup._container).hide();
+		resumeAnimations();
 	});
 }

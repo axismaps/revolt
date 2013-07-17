@@ -159,6 +159,7 @@ function pauseAnimations(){
 	for ( i in lines ){
 		if ( lines[i].stop ) lines[i].stop();
 	}
+	if ( playing ) clearTimeout(playTimer);
 }
 
 function resumeAnimations(){
@@ -168,6 +169,7 @@ function resumeAnimations(){
 	for ( i in lines ){
 		if ( lines[i].start && !lines[i].finished ) lines[i].start();
 	}
+	if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 }
 
 function finishAnimations(){

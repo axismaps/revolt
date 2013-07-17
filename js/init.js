@@ -6,4 +6,5 @@ function initialize() {
 	setupControls();
 	$( window ).resize( resize );
 	resize();
+	$('.fancybox').fancybox();
 }

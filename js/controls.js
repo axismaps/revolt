@@ -28,9 +28,11 @@ function setupControls(){
 		if ( this.innerHTML == "Places Map" && !map.hasLayer( placesMap ) ){
 			map.removeLayer( terrainMap );
 			map.addLayer( placesMap, true );
+			$( "#legend a.fancybox" ).show();
 		} else if ( this.innerHTML == "Terrain Map" && !map.hasLayer( terrainMap ) ){
 			map.removeLayer( placesMap );
 			map.addLayer( terrainMap, true );
+			$( "#legend a.fancybox" ).hide();
 		}
 		$( ".basemap-link.selected" ).removeClass("selected");
 		$(this).addClass("selected")
@@ -46,7 +48,7 @@ function setupControls(){
 			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25 );
 		} else {
 			$( "#legend" ).height("auto");
-			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).height() - 25);
+			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).outerHeight() - 25);
 		}
 		if ( $(this).prev().hasClass( "open" ) ) $(this).prev().removeClass( "open" );
 		else $(this).prev().addClass( "open" )

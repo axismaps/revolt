@@ -100,6 +100,5 @@ function expandPopup( step, popup, object ){
 		map.closePopup();
 		resumeAnimations();
 		$(".probe-units",popup._container).hide();
-		resumeAnimations();
 	});
 }

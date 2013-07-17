@@ -23,7 +23,7 @@ function gotoDay( date ){
 	var b = getDayBounds( currentDay );
 	if ( b && auto_pan( b ) ) {
 		playTimer = setTimeout( nextStep, 2500 );
-		console.log("time")
+		//console.log("time")
 	} else {
 		nextStep();
 	}
@@ -55,7 +55,7 @@ function nextStep(){
 	
 	if ( !currentDay.STEPS ){
 		if ( playing ) playTimer = setTimeout( nextDay, 3000 );
-		console.log("time")
+		//console.log("time")
 		return;
 	} else if ( !currentDay.STEPS[ currentStep ] ) {
 		nextDay();
@@ -123,7 +123,7 @@ function nextStep(){
 		createPopup(marker);
 		
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
-		console.log("time")
+		//console.log("time")
 	}
 }
 
@@ -131,7 +131,7 @@ function previousStep(){
 	if ( currentStep == 0 ){
 		previousDay();
 	} else {
-		console.log(currentStep);
+		//console.log(currentStep);
 		goToStep( currentStep - 1 );
 	}
 }
@@ -163,17 +163,23 @@ function pauseAnimations(){
 		if ( lines[i].stop ) lines[i].stop();
 	}
 	if ( playing ) clearTimeout(playTimer);
+	//console.log("clear time")
 }
 
 function resumeAnimations(){
+	var animating = false;
 	for ( var i in markers ){
-		if ( markers[i].start && !markers[i].finished ) markers[i].start();
+		if ( markers[i].start && !markers[i].finished ){
+			markers[i].start();
+			animating = true;
+		} 
 	}
 	for ( i in lines ){
 		if ( lines[i].start && !lines[i].finished ) lines[i].start();
 	}
-	if ( playing ) playTimer = setTimeout( nextStep, 3000 );
-	console.log("time")
+	//console.log(animating)
+	if ( playing && !animating ) playTimer = setTimeout( nextStep, 3000 );
+	//console.log("time")
 }
 
 function finishAnimations(){
@@ -184,4 +190,5 @@ function finishAnimations(){
 		if ( !lines[i].finished ) lines[i].finish();
 	}
 	clearTimeout(playTimer);	// prevent the onEnd callbacks from starting this timer
+	//console.log("clear time")
 }

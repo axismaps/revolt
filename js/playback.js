@@ -23,6 +23,7 @@ function gotoDay( date ){
 	var b = getDayBounds( currentDay );
 	if ( b && auto_pan( b ) ) {
 		playTimer = setTimeout( nextStep, 2500 );
+		console.log("time")
 	} else {
 		nextStep();
 	}
@@ -54,6 +55,7 @@ function nextStep(){
 	
 	if ( !currentDay.STEPS ){
 		if ( playing ) playTimer = setTimeout( nextDay, 3000 );
+		console.log("time")
 		return;
 	} else if ( !currentDay.STEPS[ currentStep ] ) {
 		nextDay();
@@ -83,7 +85,7 @@ function nextStep(){
 		}
 		marker = L.animatedMarker( pts, {
 			icon: icon,
-			onEnd: function(){ createPopup(this) },	// mapcontent.js
+			onEnd: function(){ createPopup(this); if ( playing ) playTimer = setTimeout( nextStep, 3000 ); },	// mapcontent.js
 			maxDuration: 5000
 		} );
 		marker.step = step;
@@ -121,6 +123,7 @@ function nextStep(){
 		createPopup(marker);
 		
 		if ( playing ) playTimer = setTimeout( nextStep, 3000 );
+		console.log("time")
 	}
 }
 
@@ -170,6 +173,7 @@ function resumeAnimations(){
 		if ( lines[i].start && !lines[i].finished ) lines[i].start();
 	}
 	if ( playing ) playTimer = setTimeout( nextStep, 3000 );
+	console.log("time")
 }
 
 function finishAnimations(){

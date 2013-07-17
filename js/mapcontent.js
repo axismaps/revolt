@@ -29,7 +29,6 @@ var colors = {
 
 function createPopup(object){
 	
-	if ( playing ) playTimer = setTimeout( nextStep, 3000 );
 	if ( !object.step.NAME ) return;
 
 	var isLine = !object.getLatLng,

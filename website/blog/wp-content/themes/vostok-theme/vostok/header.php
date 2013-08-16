@@ -37,12 +37,14 @@
 <div id="wrapper">
 	<div id="header">
 		<div class="banner"></div>
-		<div class="title">The Coromantee Wars</div>
-		<div class="title sub">An Archipelago of Insurrection</div>
+		<div class="title">Slave Revolt in Jamaica, 1760-1761</div>
+		<div class="title sub">A Cartographic Narrative</div>
 		<div id="nav">
-			<div class="item"><a href="../">Home</a></div>
+			<div class="item"><a href="../index.php">Home</a></div>
 			<div class="item"><a href="../project.html">Project</a></div>
+			<div class="item"><a href="../sources.html">Sources</a></div>
+			<div class="item"><a href="../acknowledgments.html">Acknowledgments</a></div>
 			<div class="item active">Blog</div>
-			<div class="item"><a href="../map/">Map</a></div>
+			<div class="item"><a href=",./map/">Map</a></div>
 		</div>
 	</div><!-- close:header -->

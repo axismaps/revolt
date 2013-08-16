@@ -14,17 +14,19 @@ Author URI: http://www.vostoktheme.com/
 
 
 html {
-	color: white;
+	color: #000;
 	background-color: #bfbfbf;
-	font: 16px/24px 'PT Sans', sans-serif !important;
-	margin: 0;
+	font: 15px/24px 'PT Sans', sans-serif;
 	text-shadow: none !important;
 }
 
 body{
+	background-color: #d8d0c8;
 	width: 950px;
-	background-color: #b3a99f;
-	margin: -15px auto 0;
+	margin: auto;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .entry a{
@@ -49,12 +51,13 @@ pre {
 }
 
 #wrapper {
+	background-color: #b3a99f;
+	background-color: #d8d0c8;
 	width: 950px;
-	background-color: #b3a99f;
-}
-
-#content{
-	background-color: #b3a99f;
+	margin: auto;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .back:link,
@@ -69,7 +72,7 @@ pre {
 }
 
 .post {
-	background-color: #b3a99f;
+	background-color: #d8d0c8;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -259,14 +262,11 @@ pre {
 
 /*AXIS MAPS CUSTOM*/
 .post h1{
-	line-height: 40px;
-	margin-left: -20px;
-	margin-right: -20px;
-	padding-left: 30px;
-	color: #222;
-	font-family: 'IM Fell DW Pica', serif;
-	background-color: #c0b6ac;
-	border-bottom: 1px solid #8b7b73;;
+	color: #000;
+	font: 25px/40px 'IM Fell DW Pica', serif;
+	background-color: #e9e2da;
+	text-indent: 10px;
+	border-bottom: 1px solid #8b7b73;
 }
 
 #comments{
@@ -288,7 +288,7 @@ pre {
 
 #header{
 	border-top: 8px solid #887c71;
-	background-color: #c0b6ac;
+	background-color: #e9e2da;
 }
 
 .banner{
@@ -329,12 +329,16 @@ pre {
 	cursor: pointer;
 }
 
+#nav a, h1 a{
+	color: #000;
+}
+
 #nav .item a:hover, #nav .item.active{
-	color: #7a2210;
+	color: #98191c;
 }
 
 #nav .item.active{
-	background-color: #b3a99f;
+	background-color: #d8d0c8;
 }
 
 #search{
@@ -379,5 +383,5 @@ pre {
 
 .entry{
 	font: 16px/24px 'PT Sans', sans-serif;
-	color: white;
+	color: black;
 }

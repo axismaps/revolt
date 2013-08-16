@@ -287,6 +287,7 @@ pre {
 }
 
 #header{
+	margin: 0;
 	border-top: 8px solid #887c71;
 	background-color: #e9e2da;
 }
@@ -302,7 +303,7 @@ pre {
 }
 
 .title{
-	font: 50px/40px 'IM Fell DW Pica', serif;
+	font: 48px/40px 'IM Fell DW Pica', serif;
 	text-indent: 40px;
 	margin-top: -85px;
 	margin-bottom: 85px;
@@ -345,7 +346,7 @@ pre {
 	position: absolute;
 	top: 0;
 	width: 205px;
-	margin-left: 716px;
+	margin-left: 728px;
 	background-color: #8b7b73;
 	height: 31px;
 	padding-left: 6px;

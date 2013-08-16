@@ -60,6 +60,15 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	var $inline_diff_renderer = 'WP_Text_Diff_Renderer_inline';
 
 	/**
+	 * Should we show the split view or not
+	 *
+	 * @var string
+	 * @access protected
+	 * @since 3.6.0
+	 */
+	var $_show_split_view = true;
+
+	/**
 	 * Constructor - Call parent constructor with params array.
 	 *
 	 * This will set class properties based on the key value pairs in the array.
@@ -70,6 +79,8 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 */
 	function __construct( $params = array() ) {
 		parent::__construct( $params );
+		if ( isset( $params[ 'show_split_view' ] ) )
+			$this->_show_split_view = $params[ 'show_split_view' ];
 	}
 
 	/**
@@ -98,7 +109,8 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @return string
 	 */
 	function addedLine( $line ) {
-		return "<td>+</td><td class='diff-addedline'>{$line}</td>";
+		return "<td class='diff-addedline'>{$line}</td>";
+
 	}
 
 	/**
@@ -108,7 +120,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @return string
 	 */
 	function deletedLine( $line ) {
-		return "<td>-</td><td class='diff-deletedline'>{$line}</td>";
+		return "<td class='diff-deletedline'>{$line}</td>";
 	}
 
 	/**
@@ -118,7 +130,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @return string
 	 */
 	function contextLine( $line ) {
-		return "<td> </td><td class='diff-context'>{$line}</td>";
+		return "<td class='diff-context'>{$line}</td>";
 	}
 
 	/**
@@ -127,7 +139,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @return string
 	 */
 	function emptyLine() {
-		return '<td colspan="2">&nbsp;</td>';
+		return '<td>&nbsp;</td>';
 	}
 
 	/**
@@ -143,7 +155,11 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		foreach ($lines as $line) {
 			if ( $encode )
 				$line = htmlspecialchars( $line );
-			$r .= '<tr>' . $this->emptyLine() . $this->addedLine( $line ) . "</tr>\n";
+			if ( $this->_show_split_view ) {
+				$r .= '<tr>' . $this->emptyLine() . $this->emptyLine() . $this->addedLine( $line ) . "</tr>\n";
+			} else {
+				$r .= '<tr>' . $this->addedLine( $line ) . "</tr>\n";
+			}
 		}
 		return $r;
 	}
@@ -161,7 +177,12 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		foreach ($lines as $line) {
 			if ( $encode )
 				$line = htmlspecialchars( $line );
-			$r .= '<tr>' . $this->deletedLine( $line ) . $this->emptyLine() . "</tr>\n";
+			if ( $this->_show_split_view ) {
+				$r .= '<tr>' . $this->deletedLine( $line ) . $this->emptyLine() . $this->emptyLine() . "</tr>\n";
+			} else {
+				$r .= '<tr>' . $this->deletedLine( $line ) . "</tr>\n";
+			}
+
 		}
 		return $r;
 	}
@@ -179,8 +200,11 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		foreach ($lines as $line) {
 			if ( $encode )
 				$line = htmlspecialchars( $line );
-			$r .= '<tr>' .
-				$this->contextLine( $line ) . $this->contextLine( $line ) . "</tr>\n";
+			if (  $this->_show_split_view ) {
+				$r .= '<tr>' . $this->contextLine( $line ) . $this->emptyLine() . $this->contextLine( $line )  . "</tr>\n";
+			} else {
+				$r .= '<tr>' . $this->contextLine( $line ) . "</tr>\n";
+			}
 		}
 		return $r;
 	}
@@ -202,14 +226,13 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		$r = '';
 
 		// Does the aforementioned additional processing
-		// *_matches tell what rows are "the same" in orig and final.  Those pairs will be diffed to get word changes
+		// *_matches tell what rows are "the same" in orig and final. Those pairs will be diffed to get word changes
 		//	match is numeric: an index in other column
-		//	match is 'X': no match.  It is a new row
+		//	match is 'X': no match. It is a new row
 		// *_rows are column vectors for the orig column and the final column.
 		//	row >= 0: an indix of the $orig or $final array
 		//	row  < 0: a blank row for that column
 		list($orig_matches, $final_matches, $orig_rows, $final_rows) = $this->interleave_changed_lines( $orig, $final );
-
 
 		// These will hold the word changes as determined by an inline diff
 		$orig_diffs  = array();
@@ -231,7 +254,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 					$stripped_diff = strlen(strip_tags( $diff )) * 2 - $stripped_matches;
 					$diff_ratio = $stripped_matches / $stripped_diff;
 					if ( $diff_ratio > $this->_diff_threshold )
-						continue; // Too different.  Don't save diffs.
+						continue; // Too different. Don't save diffs.
 				}
 
 				// Un-inline the diffs by removing del or ins
@@ -241,11 +264,11 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		}
 
 		foreach ( array_keys($orig_rows) as $row ) {
-			// Both columns have blanks.  Ignore them.
+			// Both columns have blanks. Ignore them.
 			if ( $orig_rows[$row] < 0 && $final_rows[$row] < 0 )
 				continue;
 
-			// If we have a word based diff, use it.  Otherwise, use the normal line.
+			// If we have a word based diff, use it. Otherwise, use the normal line.
 			if ( isset( $orig_diffs[$orig_rows[$row]] ) )
 				$orig_line = $orig_diffs[$orig_rows[$row]];
 			elseif ( isset( $orig[$orig_rows[$row]] ) )
@@ -260,12 +283,16 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 			else
 				$final_line = '';
 
-			if ( $orig_rows[$row] < 0 ) { // Orig is blank.  This is really an added row.
+			if ( $orig_rows[$row] < 0 ) { // Orig is blank. This is really an added row.
 				$r .= $this->_added( array($final_line), false );
-			} elseif ( $final_rows[$row] < 0 ) { // Final is blank.  This is really a deleted row.
+			} elseif ( $final_rows[$row] < 0 ) { // Final is blank. This is really a deleted row.
 				$r .= $this->_deleted( array($orig_line), false );
 			} else { // A true changed row.
-				$r .= '<tr>' . $this->deletedLine( $orig_line ) . $this->addedLine( $final_line ) . "</tr>\n";
+				if ( $this->_show_split_view ) {
+					$r .= '<tr>' . $this->deletedLine( $orig_line ) . $this->emptyLine() . $this->addedLine( $final_line ) . "</tr>\n";
+				} else {
+					$r .= '<tr>' . $this->deletedLine( $orig_line ) . "</tr><tr>" . $this->addedLine( $final_line ) . "</tr>\n";
+				}
 			}
 		}
 
@@ -288,7 +315,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 */
 	function interleave_changed_lines( $orig, $final ) {
 
-		// Contains all pairwise string comparisons.  Keys are such that this need only be a one dimensional array.
+		// Contains all pairwise string comparisons. Keys are such that this need only be a one dimensional array.
 		$matches = array();
 		foreach ( array_keys($orig) as $o ) {
 			foreach ( array_keys($final) as $f ) {
@@ -309,7 +336,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 			if ( isset($orig_matches[$o]) && isset($final_matches[$f]) )
 				continue;
 
-			// First match for these guys.  Must be best match
+			// First match for these guys. Must be best match
 			if ( !isset($orig_matches[$o]) && !isset($final_matches[$f]) ) {
 				$orig_matches[$o] = $f;
 				$final_matches[$f] = $o;
@@ -329,7 +356,6 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		ksort($orig_matches);
 		ksort($final_matches);
 
-
 		// Stores rows and blanks for each column.
 		$orig_rows = $orig_rows_copy = array_keys($orig_matches);
 		$final_rows = array_keys($final_matches);
@@ -342,17 +368,16 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 
 			if ( false === $final_pos ) { // This orig is paired with a blank final.
 				array_splice( $final_rows, $orig_pos, 0, -1 );
-			} elseif ( $final_pos < $orig_pos ) { // This orig's match is up a ways.  Pad final with blank rows.
+			} elseif ( $final_pos < $orig_pos ) { // This orig's match is up a ways. Pad final with blank rows.
 				$diff_pos = $final_pos - $orig_pos;
 				while ( $diff_pos < 0 )
 					array_splice( $final_rows, $orig_pos, 0, $diff_pos++ );
-			} elseif ( $final_pos > $orig_pos ) { // This orig's match is down a ways.  Pad orig with blank rows.
+			} elseif ( $final_pos > $orig_pos ) { // This orig's match is down a ways. Pad orig with blank rows.
 				$diff_pos = $orig_pos - $final_pos;
 				while ( $diff_pos < 0 )
 					array_splice( $orig_rows, $orig_pos, 0, $diff_pos++ );
 			}
 		}
-
 
 		// Pad the ends with blank rows if the columns aren't the same length
 		$diff_count = count($orig_rows) - count($final_rows);
@@ -425,9 +450,9 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 		$chars2 = count_chars($string2);
 
 		// L1-norm of difference vector.
-		$difference = array_sum( array_map( array(&$this, 'difference'), $chars1, $chars2 ) );
+		$difference = array_sum( array_map( array($this, 'difference'), $chars1, $chars2 ) );
 
-		// $string1 has zero length? Odd.  Give huge penalty by not dividing.
+		// $string1 has zero length? Odd. Give huge penalty by not dividing.
 		if ( !$string1 )
 			return $difference;
 
@@ -473,5 +498,3 @@ class WP_Text_Diff_Renderer_inline extends Text_Diff_Renderer_inline {
 	}
 
 }
-
-?>

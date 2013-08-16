@@ -71,13 +71,6 @@ class WP_Widget {
 	// Functions you'll need to call.
 
 	/**
-	 * PHP4 constructor
-	 */
-	function WP_Widget( $id_base = false, $name, $widget_options = array(), $control_options = array() ) {
-		WP_Widget::__construct( $id_base, $name, $widget_options, $control_options );
-	}
-
-	/**
 	 * PHP5 constructor
 	 *
 	 * @param string $id_base Optional Base ID for the widget, lower case,
@@ -90,12 +83,19 @@ class WP_Widget {
 	 *	 - width: required if more than 250px
 	 *	 - height: currently not used but may be needed in the future
 	 */
-	function __construct( $id_base = false, $name, $widget_options = array(), $control_options = array() ) {
+	function __construct( $id_base, $name, $widget_options = array(), $control_options = array() ) {
 		$this->id_base = empty($id_base) ? preg_replace( '/(wp_)?widget_/', '', strtolower(get_class($this)) ) : strtolower($id_base);
 		$this->name = $name;
 		$this->option_name = 'widget_' . $this->id_base;
 		$this->widget_options = wp_parse_args( $widget_options, array('classname' => $this->option_name) );
 		$this->control_options = wp_parse_args( $control_options, array('id_base' => $this->id_base) );
+	}
+
+	/**
+	 * PHP4 constructor
+	 */
+	function WP_Widget( $id_base, $name, $widget_options = array(), $control_options = array() ) {
+		WP_Widget::__construct( $id_base, $name, $widget_options, $control_options );
 	}
 
 	/**
@@ -152,15 +152,15 @@ class WP_Widget {
 	}
 
 	function _get_display_callback() {
-		return array(&$this, 'display_callback');
+		return array($this, 'display_callback');
 	}
 
 	function _get_update_callback() {
-		return array(&$this, 'update_callback');
+		return array($this, 'update_callback');
 	}
 
 	function _get_form_callback() {
-		return array(&$this, 'form_callback');
+		return array($this, 'form_callback');
 	}
 
 	/** Generate the actual widget content.
@@ -317,7 +317,7 @@ class WP_Widget_Factory {
 	var $widgets = array();
 
 	function WP_Widget_Factory() {
-		add_action( 'widgets_init', array( &$this, '_register_widgets' ), 100 );
+		add_action( 'widgets_init', array( $this, '_register_widgets' ), 100 );
 	}
 
 	function register($widget_class) {
@@ -509,34 +509,45 @@ function register_sidebars($number = 1, $args = array()) {
 /**
  * Builds the definition for a single sidebar and returns the ID.
  *
- * The $args parameter takes either a string or an array with 'name' and 'id'
- * contained in either usage. It will be noted that the values will be applied
- * to all sidebars, so if creating more than one, it will be advised to allow
- * for WordPress to create the defaults for you.
+ * Accepts either a string or an array and then parses that against a set
+ * of default arguments for the new sidebar. WordPress will automatically
+ * generate a sidebar ID and name based on the current number of registered
+ * sidebars if those arguments are not included.
  *
- * Example for string would be <code>'name=whatever;id=whatever1'</code> and for
- * the array it would be <code>array(
- *    'name' => 'whatever',
- *    'id' => 'whatever1')</code>.
+ * When allowing for automatic generation of the name and ID parameters, keep
+ * in mind that the incrementor for your sidebar can change over time depending
+ * on what other plugins and themes are installed.
  *
- * name - The name of the sidebar, which presumably the title which will be
- *     displayed.
- * id - The unique identifier by which the sidebar will be called by.
- * before_widget - The content that will prepended to the widgets when they are
- *     displayed.
- * after_widget - The content that will be appended to the widgets when they are
- *     displayed.
- * before_title - The content that will be prepended to the title when displayed.
- * after_title - the content that will be appended to the title when displayed.
+ * If theme support for 'widgets' has not yet been added when this function is
+ * called, it will be automatically enabled through the use of add_theme_support()
  *
- * <em>Content</em> is assumed to be HTML and should be formatted as such, but
- * doesn't have to be.
+ * Arguments passed as a string should be separated by '&':
+ *
+ *     e.g. 'name=Sidebar&id=my_prefix_sidebar'
+ *
+ * The same arguments passed as an array:
+ *
+ *     array(
+ *         'name' => 'Sidebar',
+ *         'id'   => 'my_prefix_sidebar',
+ *     )
+ *
+ * Arguments:
+ *     name          - The name or title of the sidebar displayed in the admin dashboard.
+ *     id            - The unique identifier by which the sidebar will be called.
+ *     before_widget - HTML content that will be prepended to each widget's HTML output
+ *                     when assigned to this sidebar.
+ *     after_widget  - HTML content that will be appended to each widget's HTML output
+ *                     when assigned to this sidebar.
+ *     before_title  - HTML content that will be prepended to the sidebar title when displayed.
+ *     after_title   - HTML content that will be appended to the sidebar title when displayed.
  *
  * @since 2.2.0
  * @uses $wp_registered_sidebars Stores the new sidebar in this array by sidebar ID.
+ * @uses add_theme_support() to ensure widget support has been added.
  *
- * @param string|array $args Builds Sidebar based off of 'name' and 'id' values
- * @return string The sidebar id that was added.
+ * @param string|array $args Arguments for the sidebar being registered.
+ * @return string Sidebar ID added to $wp_registered_sidebars global.
  */
 function register_sidebar($args = array()) {
 	global $wp_registered_sidebars;
@@ -680,7 +691,6 @@ function wp_sidebar_description( $id ) {
 	if ( isset($wp_registered_sidebars[$id]['description']) )
 		return esc_html( $wp_registered_sidebars[$id]['description'] );
 }
-
 
 /**
  * Remove widget from sidebar.
@@ -1149,7 +1159,7 @@ function _get_widget_id_base($id) {
  * Handle sidebars config after theme change
  *
  * @access private
- * @since 3.3
+ * @since 3.3.0
  */
 function _wp_sidebars_changed() {
 	global $sidebars_widgets;

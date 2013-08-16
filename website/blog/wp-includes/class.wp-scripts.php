@@ -31,15 +31,20 @@ class WP_Scripts extends WP_Dependencies {
 	var $default_dirs;
 
 	function __construct() {
+		$this->init();
+		add_action( 'init', array( $this, 'init' ), 0 );
+	}
+
+	function init() {
 		do_action_ref_array( 'wp_default_scripts', array(&$this) );
 	}
 
 	/**
 	 * Prints scripts
 	 *
-	 * Prints the scripts passed to it or the print queue.  Also prints all necessary dependencies.
+	 * Prints the scripts passed to it or the print queue. Also prints all necessary dependencies.
 	 *
-	 * @param mixed $handles (optional) Scripts to be printed.  (void) prints queue, (string) prints that script, (array of strings) prints those scripts.
+	 * @param mixed $handles (optional) Scripts to be printed. (void) prints queue, (string) prints that script, (array of strings) prints those scripts.
 	 * @param int $group (optional) If scripts were queued in groups prints this group number.
 	 * @return array Scripts that have been printed
 	 */
@@ -105,7 +110,7 @@ class WP_Scripts extends WP_Dependencies {
 		}
 
 		$this->print_extra_script( $handle );
-		if ( !preg_match('|^https?://|', $src) && ! ( $this->content_url && 0 === strpos($src, $this->content_url) ) ) {
+		if ( !preg_match('|^(https?:)?//|', $src) && ! ( $this->content_url && 0 === strpos($src, $this->content_url) ) ) {
 			$src = $this->base_url . $src;
 		}
 
@@ -128,6 +133,9 @@ class WP_Scripts extends WP_Dependencies {
 	 * Localizes only if the script has already been added
 	 */
 	function localize( $handle, $object_name, $l10n ) {
+		if ( $handle === 'jquery' )
+			$handle = 'jquery-core';
+
 		if ( is_array($l10n) && isset($l10n['l10n_print_after']) ) { // back compat, preserve the code in 'l10n_print_after' if present
 			$after = $l10n['l10n_print_after'];
 			unset($l10n['l10n_print_after']);
@@ -143,12 +151,12 @@ class WP_Scripts extends WP_Dependencies {
 		$script = "var $object_name = " . json_encode($l10n) . ';';
 
 		if ( !empty($after) )
-			$script .= "\n$after";
+			$script .= "\n$after;";
 
 		$data = $this->get_data( $handle, 'data' );
 
 		if ( !empty( $data ) )
-			$script = "$data;\n$script";
+			$script = "$data\n$script";
 
 		return $this->add_data( $handle, 'data', $script );
 	}

@@ -50,7 +50,7 @@ class WP_Styles extends WP_Dependencies {
 				$this->concat .= "$handle,";
 				$this->concat_version .= "$handle$ver";
 
-				$this->print_code .= $this->get_data( $handle, 'after' );
+				$this->print_code .= $this->print_inline_style( $handle, false );
 
 				return true;
 			}
@@ -135,7 +135,7 @@ class WP_Styles extends WP_Dependencies {
 	}
 
 	function _css_href( $src, $ver, $handle ) {
-		if ( !is_bool($src) && !preg_match('|^https?://|', $src) && ! ( $this->content_url && 0 === strpos($src, $this->content_url) ) ) {
+		if ( !is_bool($src) && !preg_match('|^(https?:)?//|', $src) && ! ( $this->content_url && 0 === strpos($src, $this->content_url) ) ) {
 			$src = $this->base_url . $src;
 		}
 
@@ -168,4 +168,3 @@ class WP_Styles extends WP_Dependencies {
 		$this->print_html = '';
 	}
 }
-

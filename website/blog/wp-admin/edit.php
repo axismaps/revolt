@@ -48,7 +48,7 @@ $doaction = $wp_list_table->current_action();
 if ( $doaction ) {
 	check_admin_referer('bulk-posts');
 
-	$sendback = remove_query_arg( array('trashed', 'untrashed', 'deleted', 'ids'), wp_get_referer() );
+	$sendback = remove_query_arg( array('trashed', 'untrashed', 'deleted', 'locked', 'ids'), wp_get_referer() );
 	if ( ! $sendback )
 		$sendback = admin_url( $parent_file );
 	$sendback = add_query_arg( 'paged', $pagenum, $sendback );
@@ -75,22 +75,29 @@ if ( $doaction ) {
 
 	switch ( $doaction ) {
 		case 'trash':
-			$trashed = 0;
+			$trashed = $locked = 0;
+
 			foreach( (array) $post_ids as $post_id ) {
-				if ( !current_user_can($post_type_object->cap->delete_post, $post_id) )
+				if ( !current_user_can( 'delete_post', $post_id) )
 					wp_die( __('You are not allowed to move this item to the Trash.') );
+
+				if ( wp_check_post_lock( $post_id ) ) {
+					$locked++;
+					continue;
+				}
 
 				if ( !wp_trash_post($post_id) )
 					wp_die( __('Error in moving to Trash.') );
 
 				$trashed++;
 			}
-			$sendback = add_query_arg( array('trashed' => $trashed, 'ids' => join(',', $post_ids) ), $sendback );
+
+			$sendback = add_query_arg( array('trashed' => $trashed, 'ids' => join(',', $post_ids), 'locked' => $locked ), $sendback );
 			break;
 		case 'untrash':
 			$untrashed = 0;
 			foreach( (array) $post_ids as $post_id ) {
-				if ( !current_user_can($post_type_object->cap->delete_post, $post_id) )
+				if ( !current_user_can( 'delete_post', $post_id) )
 					wp_die( __('You are not allowed to restore this item from the Trash.') );
 
 				if ( !wp_untrash_post($post_id) )
@@ -103,17 +110,17 @@ if ( $doaction ) {
 		case 'delete':
 			$deleted = 0;
 			foreach( (array) $post_ids as $post_id ) {
-				$post_del = & get_post($post_id);
+				$post_del = get_post($post_id);
 
-				if ( !current_user_can($post_type_object->cap->delete_post, $post_id) )
+				if ( !current_user_can( 'delete_post', $post_id ) )
 					wp_die( __('You are not allowed to delete this item.') );
 
 				if ( $post_del->post_type == 'attachment' ) {
 					if ( ! wp_delete_attachment($post_id) )
-						wp_die( __('Error in deleting...') );
+						wp_die( __('Error in deleting.') );
 				} else {
 					if ( !wp_delete_post($post_id) )
-						wp_die( __('Error in deleting...') );
+						wp_die( __('Error in deleting.') );
 				}
 				$deleted++;
 			}
@@ -133,12 +140,12 @@ if ( $doaction ) {
 			break;
 	}
 
-	$sendback = remove_query_arg( array('action', 'action2', 'tags_input', 'post_author', 'comment_status', 'ping_status', '_status',  'post', 'bulk_edit', 'post_view'), $sendback );
+	$sendback = remove_query_arg( array('action', 'action2', 'tags_input', 'post_author', 'comment_status', 'ping_status', '_status', 'post', 'bulk_edit', 'post_view'), $sendback );
 
 	wp_redirect($sendback);
 	exit();
 } elseif ( ! empty($_REQUEST['_wp_http_referer']) ) {
-	 wp_redirect( remove_query_arg( array('_wp_http_referer', '_wpnonce'), stripslashes($_SERVER['REQUEST_URI']) ) );
+	 wp_redirect( remove_query_arg( array('_wp_http_referer', '_wpnonce'), wp_unslash($_SERVER['REQUEST_URI']) ) );
 	 exit;
 }
 
@@ -215,56 +222,51 @@ if ( 'post' == $post_type ) {
 	);
 }
 
-add_screen_option( 'per_page', array('label' => $title, 'default' => 20) );
+add_screen_option( 'per_page', array( 'label' => $title, 'default' => 20, 'option' => 'edit_' . $post_type . '_per_page' ) );
 
 require_once('./admin-header.php');
 ?>
 <div class="wrap">
 <?php screen_icon(); ?>
-<h2><?php echo esc_html( $post_type_object->labels->name ); ?> <a href="<?php echo $post_new_file ?>" class="add-new-h2"><?php echo esc_html($post_type_object->labels->add_new); ?></a> <?php
-if ( isset($_REQUEST['s']) && $_REQUEST['s'] )
-	printf( '<span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', get_search_query() ); ?>
-</h2>
+<h2><?php
+echo esc_html( $post_type_object->labels->name );
+if ( current_user_can( $post_type_object->cap->create_posts ) )
+	echo ' <a href="' . esc_url( $post_new_file ) . '" class="add-new-h2">' . esc_html( $post_type_object->labels->add_new ) . '</a>';
+if ( ! empty( $_REQUEST['s'] ) )
+	printf( ' <span class="subtitle">' . __('Search results for &#8220;%s&#8221;') . '</span>', get_search_query() );
+?></h2>
 
-<?php if ( isset($_REQUEST['locked']) || isset($_REQUEST['skipped']) || isset($_REQUEST['updated']) || isset($_REQUEST['deleted']) || isset($_REQUEST['trashed']) || isset($_REQUEST['untrashed']) ) {
+<?php if ( isset( $_REQUEST['locked'] ) || isset( $_REQUEST['updated'] ) || isset( $_REQUEST['deleted'] ) || isset( $_REQUEST['trashed'] ) || isset( $_REQUEST['untrashed'] ) ) {
 	$messages = array();
 ?>
 <div id="message" class="updated"><p>
-<?php if ( isset($_REQUEST['updated']) && (int) $_REQUEST['updated'] ) {
-	$messages[] = sprintf( _n( '%s post updated.', '%s posts updated.', $_REQUEST['updated'] ), number_format_i18n( $_REQUEST['updated'] ) );
-	unset($_REQUEST['updated']);
+<?php if ( isset( $_REQUEST['updated'] ) && $updated = absint( $_REQUEST['updated'] ) ) {
+	$messages[] = sprintf( _n( '%s post updated.', '%s posts updated.', $updated ), number_format_i18n( $updated ) );
 }
 
-if ( isset($_REQUEST['skipped']) && (int) $_REQUEST['skipped'] )
-	unset($_REQUEST['skipped']);
-
-if ( isset($_REQUEST['locked']) && (int) $_REQUEST['locked'] ) {
-	$messages[] = sprintf( _n( '%s item not updated, somebody is editing it.', '%s items not updated, somebody is editing them.', $_REQUEST['locked'] ), number_format_i18n( $_REQUEST['locked'] ) );
-	unset($_REQUEST['locked']);
+if ( isset( $_REQUEST['locked'] ) && $locked = absint( $_REQUEST['locked'] ) ) {
+	$messages[] = sprintf( _n( '%s item not updated, somebody is editing it.', '%s items not updated, somebody is editing them.', $locked ), number_format_i18n( $locked ) );
 }
 
-if ( isset($_REQUEST['deleted']) && (int) $_REQUEST['deleted'] ) {
-	$messages[] = sprintf( _n( 'Item permanently deleted.', '%s items permanently deleted.', $_REQUEST['deleted'] ), number_format_i18n( $_REQUEST['deleted'] ) );
-	unset($_REQUEST['deleted']);
+if ( isset( $_REQUEST['deleted'] ) && $deleted = absint( $_REQUEST['deleted'] ) ) {
+	$messages[] = sprintf( _n( 'Item permanently deleted.', '%s items permanently deleted.', $deleted ), number_format_i18n( $deleted ) );
 }
 
-if ( isset($_REQUEST['trashed']) && (int) $_REQUEST['trashed'] ) {
-	$messages[] = sprintf( _n( 'Item moved to the Trash.', '%s items moved to the Trash.', $_REQUEST['trashed'] ), number_format_i18n( $_REQUEST['trashed'] ) );
+if ( isset( $_REQUEST['trashed'] ) && $trashed = absint( $_REQUEST['trashed'] ) ) {
+	$messages[] = sprintf( _n( 'Item moved to the Trash.', '%s items moved to the Trash.', $trashed ), number_format_i18n( $trashed ) );
 	$ids = isset($_REQUEST['ids']) ? $_REQUEST['ids'] : 0;
 	$messages[] = '<a href="' . esc_url( wp_nonce_url( "edit.php?post_type=$post_type&doaction=undo&action=untrash&ids=$ids", "bulk-posts" ) ) . '">' . __('Undo') . '</a>';
-	unset($_REQUEST['trashed']);
 }
 
-if ( isset($_REQUEST['untrashed']) && (int) $_REQUEST['untrashed'] ) {
-	$messages[] = sprintf( _n( 'Item restored from the Trash.', '%s items restored from the Trash.', $_REQUEST['untrashed'] ), number_format_i18n( $_REQUEST['untrashed'] ) );
-	unset($_REQUEST['undeleted']);
+if ( isset( $_REQUEST['untrashed'] ) && $untrashed = absint( $_REQUEST['untrashed'] ) ) {
+	$messages[] = sprintf( _n( 'Item restored from the Trash.', '%s items restored from the Trash.', $untrashed ), number_format_i18n( $untrashed ) );
 }
 
 if ( $messages )
 	echo join( ' ', $messages );
 unset( $messages );
 
-$_SERVER['REQUEST_URI'] = remove_query_arg( array('locked', 'skipped', 'updated', 'deleted', 'trashed', 'untrashed'), $_SERVER['REQUEST_URI'] );
+$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'locked', 'skipped', 'updated', 'deleted', 'trashed', 'untrashed' ), $_SERVER['REQUEST_URI'] );
 ?>
 </p></div>
 <?php } ?>

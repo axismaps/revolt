@@ -12,6 +12,11 @@ if ( is_array( get_site_option( 'illegal_names' )) && isset( $_GET[ 'new' ] ) &&
 	die();
 }
 
+/**
+ * Prints signup_header via wp_head
+ *
+ * @since MU
+ */
 function do_signup_header() {
 	do_action( 'signup_header' );
 }
@@ -23,13 +28,18 @@ if ( !is_multisite() ) {
 }
 
 if ( !is_main_site() ) {
-	wp_redirect( network_home_url( 'wp-signup.php' ) );
+	wp_redirect( network_site_url( 'wp-signup.php' ) );
 	die();
 }
 
 // Fix for page title
 $wp_query->is_404 = false;
 
+/**
+ * Prints styles for front-end Multisite signup pages
+ *
+ * @since MU
+ */
 function wpmu_signup_stylesheet() {
 	?>
 	<style type="text/css">
@@ -58,6 +68,15 @@ do_action( 'before_signup_form' );
 <div id="content" class="widecolumn">
 <div class="mu_register">
 <?php
+/**
+ * Generates and displays the Signup and Create Site forms
+ *
+ * @since MU
+ *
+ * @param string $blogname The new site name
+ * @param string $blog_title The new site title
+ * @param array $errors
+ */
 function show_blog_form($blogname = '', $blog_title = '', $errors = '') {
 	global $current_site;
 	// Blog name
@@ -95,7 +114,7 @@ function show_blog_form($blogname = '', $blog_title = '', $errors = '') {
 	<div id="privacy">
         <p class="privacy-intro">
             <label for="blog_public_on"><?php _e('Privacy:') ?></label>
-            <?php _e('Allow my site to appear in search engines like Google, Technorati, and in public listings around this network.'); ?>
+            <?php _e( 'Allow search engines to index this site.' ); ?>
             <br style="clear:both" />
             <label class="checkbox" for="blog_public_on">
                 <input type="radio" id="blog_public_on" name="blog_public" value="1" <?php if ( !isset( $_POST['blog_public'] ) || $_POST['blog_public'] == '1' ) { ?>checked="checked"<?php } ?> />
@@ -112,6 +131,15 @@ function show_blog_form($blogname = '', $blog_title = '', $errors = '') {
 	do_action('signup_blogform', $errors);
 }
 
+/**
+ * Validate the new site signup
+ *
+ * @since MU
+ *
+ * @uses wp_get_current_user() to retrieve the current user
+ * @uses wpmu_validate_blog_signup() to validate new site signup for the current user
+ * @return array Contains the new site data and error messages.
+ */
 function validate_blog_form() {
 	$user = '';
 	if ( is_user_logged_in() )
@@ -120,6 +148,15 @@ function validate_blog_form() {
 	return wpmu_validate_blog_signup($_POST['blogname'], $_POST['blog_title'], $user);
 }
 
+/**
+ * Display user registration form
+ *
+ * @since MU
+ *
+ * @param string $user_name The entered username
+ * @param string $user_email The entered email address
+ * @param array $errors
+ */
 function show_user_form($user_name = '', $user_email = '', $errors = '') {
 	// User name
 	echo '<label for="user_name">' . __('Username:') . '</label>';
@@ -142,10 +179,28 @@ function show_user_form($user_name = '', $user_email = '', $errors = '') {
 	do_action( 'signup_extra_fields', $errors );
 }
 
+/**
+ * Validate user signup name and email
+ *
+ * @since MU
+ *
+ * @uses wpmu_validate_user_signup() to retrieve an array of user data
+ * @return array Contains username, email, and error messages.
+ */
 function validate_user_form() {
 	return wpmu_validate_user_signup($_POST['user_name'], $_POST['user_email']);
 }
 
+/**
+ * Allow returning users to sign up for another site
+ *
+ * @since MU
+ *
+ * @uses wp_get_current_user() to get the current user
+ * @param string $blogname The new site name
+ * @param string $blog_title The new blog title
+ * @param array $errors
+ */
 function signup_another_blog($blogname = '', $blog_title = '', $errors = '') {
 	global $current_site;
 	$current_user = wp_get_current_user();
@@ -191,6 +246,16 @@ function signup_another_blog($blogname = '', $blog_title = '', $errors = '') {
 	<?php
 }
 
+/**
+ * Validate a new blog signup
+ *
+ * @since MU
+ *
+ * @uses wp_get_current_user() to retrieve the current user
+ * @uses wpmu_create_blog() to add a new site
+ * @uses confirm_another_blog_signup() to confirm the user's new site signup
+ * @return bool True if blog signup was validated, false if error
+ */
 function validate_another_blog_signup() {
 	global $wpdb, $blogname, $blog_title, $errors, $domain, $path;
 	$current_user = wp_get_current_user();
@@ -214,28 +279,45 @@ function validate_another_blog_signup() {
 	return true;
 }
 
-function confirm_another_blog_signup($domain, $path, $blog_title, $user_name, $user_email = '', $meta = '') {
+/**
+ * Confirm a new site signup
+ *
+ * @since MU
+ *
+ * @param string $domain The domain URL
+ * @param string $path The site root path
+ * @param string $user_name The username
+ * @param string $user_email The user's email address
+ * @param array $meta Any additional meta from the 'add_signup_meta' filter in validate_blog_signup()
+ */
+function confirm_another_blog_signup( $domain, $path, $blog_title, $user_name, $user_email = '', $meta = array() ) {
 	?>
 	<h2><?php printf( __( 'The site %s is yours.' ), "<a href='http://{$domain}{$path}'>{$blog_title}</a>" ) ?></h2>
 	<p>
-		<?php printf( __( '<a href="http://%1$s">http://%2$s</a> is your new site.  <a href="%3$s">Log in</a> as &#8220;%4$s&#8221; using your existing password.' ), $domain.$path, $domain.$path, "http://" . $domain.$path . "wp-login.php", $user_name ) ?>
+		<?php printf( __( '<a href="http://%1$s">http://%2$s</a> is your new site. <a href="%3$s">Log in</a> as &#8220;%4$s&#8221; using your existing password.' ), $domain.$path, $domain.$path, "http://" . $domain.$path . "wp-login.php", $user_name ) ?>
 	</p>
 	<?php
 	do_action( 'signup_finished' );
 }
 
+/**
+ * Setup the new user signup process
+ *
+ * @since MU
+ *
+ * @uses apply_filters() filter $filtered_results
+ * @uses show_user_form() to display the user registration form
+ * @param string $user_name The username
+ * @param string $user_email The user's email
+ * @param array $errors
+ */
 function signup_user($user_name = '', $user_email = '', $errors = '') {
 	global $current_site, $active_signup;
 
 	if ( !is_wp_error($errors) )
 		$errors = new WP_Error();
-	if ( isset( $_POST[ 'signup_for' ] ) )
-		$signup[ esc_html( $_POST[ 'signup_for' ] ) ] = 'checked="checked"';
-	else
-		$signup[ 'blog' ] = 'checked="checked"';
 
-	//TODO - This doesn't seem to do anything do we really need it?
-	$signup['user'] = isset( $signup['user'] ) ? $signup['user'] : '';
+	$signup_for = isset( $_POST[ 'signup_for' ] ) ? esc_html( $_POST[ 'signup_for' ] ) : 'blog';
 
 	// allow definition of default variables
 	$filtered_results = apply_filters('signup_user_init', array('user_name' => $user_name, 'user_email' => $user_email, 'errors' => $errors ));
@@ -257,10 +339,10 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 		<?php } elseif ( $active_signup == 'user' ) { ?>
 			<input id="signupblog" type="hidden" name="signup_for" value="user" />
 		<?php } else { ?>
-			<input id="signupblog" type="radio" name="signup_for" value="blog" <?php echo $signup['blog'] ?> />
+			<input id="signupblog" type="radio" name="signup_for" value="blog" <?php checked( $signup_for, 'blog' ); ?> />
 			<label class="checkbox" for="signupblog"><?php _e('Gimme a site!') ?></label>
 			<br />
-			<input id="signupuser" type="radio" name="signup_for" value="user" <?php echo $signup['user'] ?> />
+			<input id="signupuser" type="radio" name="signup_for" value="user" <?php checked( $signup_for, 'user' ); ?> />
 			<label class="checkbox" for="signupuser"><?php _e('Just a username, please.') ?></label>
 		<?php } ?>
 		</p>
@@ -270,6 +352,16 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 	<?php
 }
 
+/**
+ * Validate the new user signup
+ *
+ * @since MU
+ *
+ * @uses validate_user_form() to retrieve an array of the user data
+ * @uses wpmu_signup_user() to signup the new user
+ * @uses confirm_user_signup() to confirm the new user signup
+ * @return bool True if new user signup was validated, false if error
+ */
 function validate_user_signup() {
 	$result = validate_user_form();
 	extract($result);
@@ -290,16 +382,37 @@ function validate_user_signup() {
 	return true;
 }
 
+/**
+ * New user signup confirmation
+ *
+ * @since MU
+ *
+ * @param string $user_name The username
+ * @param string $user_email The user's email address
+ */
 function confirm_user_signup($user_name, $user_email) {
 	?>
 	<h2><?php printf( __( '%s is your new username' ), $user_name) ?></h2>
 	<p><?php _e( 'But, before you can start using your new username, <strong>you must activate it</strong>.' ) ?></p>
-	<p><?php printf(__( 'Check your inbox at <strong>%1$s</strong> and click the link given.' ),  $user_email) ?></p>
+	<p><?php printf( __( 'Check your inbox at <strong>%s</strong> and click the link given.' ), $user_email ); ?></p>
 	<p><?php _e( 'If you do not activate your username within two days, you will have to sign up again.' ); ?></p>
 	<?php
 	do_action( 'signup_finished' );
 }
 
+/**
+ * Setup the new site signup
+ *
+ * @since MU
+ *
+ * @uses apply_filters() to filter $filtered_results
+ * @uses show_blog_form() to display the blog signup form
+ * @param string $user_name The username
+ * @param string $user_email The user's email address
+ * @param string $blogname The site name
+ * @param string $blog_title The site title
+ * @param array $errors
+ */
 function signup_blog($user_name = '', $user_email = '', $blogname = '', $blog_title = '', $errors = '') {
 	if ( !is_wp_error($errors) )
 		$errors = new WP_Error();
@@ -326,6 +439,18 @@ function signup_blog($user_name = '', $user_email = '', $blogname = '', $blog_ti
 	<?php
 }
 
+/**
+ * Validate new site signup
+ *
+ * @since MU
+ *
+ * @uses wpmu_validate_user_signup() to retrieve an array of the new user data and errors
+ * @uses wpmu_validate_blog_signup() to retrieve an array of the new site data and errors
+ * @uses apply_filters() to make signup $meta filterable
+ * @uses signup_user() to signup a new user
+ * @uses signup_blog() to signup a the new user to a new site
+ * @return bool True if the site signup was validated, false if error
+ */
 function validate_blog_signup() {
 	// Re-validate user info.
 	$result = wpmu_validate_user_signup($_POST['user_name'], $_POST['user_email']);
@@ -353,7 +478,19 @@ function validate_blog_signup() {
 	return true;
 }
 
-function confirm_blog_signup($domain, $path, $blog_title, $user_name = '', $user_email = '', $meta) {
+/**
+ * New site signup confirmation
+ *
+ * @since MU
+ *
+ * @param string $domain The domain URL
+ * @param string $path The site root path
+ * @param string $blog_title The new site title
+ * @param string $user_name The user's username
+ * @param string $user_email The user's email address
+ * @param array $meta Any additional meta from the 'add_signup_meta' filter in validate_blog_signup()
+ */
+function confirm_blog_signup( $domain, $path, $blog_title, $user_name = '', $user_email = '', $meta = array() ) {
 	?>
 	<h2><?php printf( __( 'Congratulations! Your new site, %s, is almost ready.' ), "<a href='http://{$domain}{$path}'>{$blog_title}</a>" ) ?></h2>
 
@@ -366,7 +503,7 @@ function confirm_blog_signup($domain, $path, $blog_title, $user_name = '', $user
 		<ul id="noemail-tips">
 			<li><p><strong><?php _e( 'Wait a little longer. Sometimes delivery of email can be delayed by processes outside of our control.' ) ?></strong></p></li>
 			<li><p><?php _e( 'Check the junk or spam folder of your email client. Sometime emails wind up there by mistake.' ) ?></p></li>
-			<li><?php printf( __( 'Have you entered your email correctly?  You have entered %s, if it&#8217;s incorrect, you will not receive your email.' ), $user_email ) ?></li>
+			<li><?php printf( __( 'Have you entered your email correctly? You have entered %s, if it&#8217;s incorrect, you will not receive your email.' ), $user_email ) ?></li>
 		</ul>
 	</p>
 	<?php
@@ -395,11 +532,7 @@ $current_user = wp_get_current_user();
 if ( $active_signup == 'none' ) {
 	_e( 'Registration has been disabled.' );
 } elseif ( $active_signup == 'blog' && !is_user_logged_in() ) {
-	if ( is_ssl() )
-		$proto = 'https://';
-	else
-		$proto = 'http://';
-	$login_url = site_url( 'wp-login.php?redirect_to=' . urlencode($proto . $_SERVER['HTTP_HOST'] . '/wp-signup.php' ));
+	$login_url = site_url( 'wp-login.php?redirect_to=' . urlencode( network_site_url( 'wp-signup.php' ) ) );
 	echo sprintf( __( 'You must first <a href="%s">log in</a>, and then you can create a new site.' ), $login_url );
 } else {
 	$stage = isset( $_POST['stage'] ) ?  $_POST['stage'] : 'default';
@@ -436,9 +569,9 @@ if ( $active_signup == 'none' ) {
 				$newblog = get_blogaddress_by_name( $newblogname );
 
 				if ( $active_signup == 'blog' || $active_signup == 'all' )
-					printf( __( '<p><em>The site you were looking for, <strong>%s</strong> does not exist, but you can create it now!</em></p>' ), $newblog );
+					printf( '<p><em>' . __( 'The site you were looking for, <strong>%s</strong>, does not exist, but you can create it now!' ) . '</em></p>', $newblog );
 				else
-					printf( __( '<p><em>The site you were looking for, <strong>%s</strong>, does not exist.</em></p>' ), $newblog );
+					printf( '<p><em>' . __( 'The site you were looking for, <strong>%s</strong>, does not exist.' ) . '</em></p>', $newblog );
 			}
 			break;
 	}

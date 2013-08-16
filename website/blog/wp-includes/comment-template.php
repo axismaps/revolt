@@ -55,7 +55,7 @@ function comment_author( $comment_ID = 0 ) {
  * @uses apply_filters() Calls the 'get_comment_author_email' hook on the comment author email
  * @uses $comment
  *
- * @param int $comment_ID The ID of the comment for which to get the author's email.  Optional.
+ * @param int $comment_ID The ID of the comment for which to get the author's email. Optional.
  * @return string The current comment author's email
  */
 function get_comment_author_email( $comment_ID = 0 ) {
@@ -141,7 +141,7 @@ function get_comment_author_email_link($linktext='', $before='', $after='') {
  * @since 1.5.0
  * @uses apply_filters() Calls 'get_comment_author_link' hook on the complete link HTML or author
  *
- * @param int $comment_ID The ID of the comment for which to get the author's link.  Optional.
+ * @param int $comment_ID The ID of the comment for which to get the author's link. Optional.
  * @return string Comment Author name or HTML link for author's URL
  */
 function get_comment_author_link( $comment_ID = 0 ) {
@@ -189,7 +189,7 @@ function get_comment_author_IP( $comment_ID = 0 ) {
  * @since 0.71
  * @see get_comment_author_IP() Echoes Result
  *
- * @param int $comment_ID The ID of the comment for which to print the author's IP address.  Optional.
+ * @param int $comment_ID The ID of the comment for which to print the author's IP address. Optional.
  */
 function comment_author_IP( $comment_ID = 0 ) {
 	echo get_comment_author_IP( $comment_ID );
@@ -201,7 +201,7 @@ function comment_author_IP( $comment_ID = 0 ) {
  * @since 1.5.0
  * @uses apply_filters() Calls 'get_comment_author_url' hook on the comment author's URL
  *
- * @param int $comment_ID The ID of the comment for which to get the author's URL.  Optional.
+ * @param int $comment_ID The ID of the comment for which to get the author's URL. Optional.
  * @return string
  */
 function get_comment_author_url( $comment_ID = 0 ) {
@@ -384,7 +384,7 @@ function get_comment_date( $d = '', $comment_ID = 0 ) {
  * @since 0.71
  *
  * @param string $d The format of the date (defaults to user's config)
- * @param int $comment_ID The ID of the comment for which to print the date.  Optional.
+ * @param int $comment_ID The ID of the comment for which to print the date. Optional.
  */
 function comment_date( $d = '', $comment_ID = 0 ) {
 	echo get_comment_date( $d, $comment_ID );
@@ -393,8 +393,8 @@ function comment_date( $d = '', $comment_ID = 0 ) {
 /**
  * Retrieve the excerpt of the current comment.
  *
- * Will cut each word and only output the first 20 words with '...' at the end.
- * If the word count is less than 20, then no truncating is done and no '...'
+ * Will cut each word and only output the first 20 words with '&hellip;' at the end.
+ * If the word count is less than 20, then no truncating is done and no '&hellip;'
  * will appear.
  *
  * @since 1.5.0
@@ -419,7 +419,7 @@ function get_comment_excerpt( $comment_ID = 0 ) {
 	for ($i=0; $i<$k; $i++) {
 		$excerpt .= $blah[$i] . ' ';
 	}
-	$excerpt .= ($use_dotdotdot) ? '...' : '';
+	$excerpt .= ($use_dotdotdot) ? '&hellip;' : '';
 	return apply_filters('get_comment_excerpt', $excerpt);
 }
 
@@ -516,7 +516,7 @@ function get_comment_link( $comment = null, $args = array() ) {
  * @return string The link to the comments
  */
 function get_comments_link($post_id = 0) {
-	return get_permalink($post_id) . '#comments';
+	return apply_filters( 'get_comments_link', get_permalink( $post_id ) . '#comments', $post_id );
 }
 
 /**
@@ -532,7 +532,7 @@ function comments_link( $deprecated = '', $deprecated_2 = '' ) {
 		_deprecated_argument( __FUNCTION__, '0.72' );
 	if ( !empty( $deprecated_2 ) )
 		_deprecated_argument( __FUNCTION__, '1.3' );
-	echo get_comments_link();
+	echo esc_url( get_comments_link() );
 }
 
 /**
@@ -769,7 +769,7 @@ function trackback_rdf( $deprecated = '' ) {
  * @param int $post_id An optional post ID to check instead of the current post.
  * @return bool True if the comments are open
  */
-function comments_open( $post_id=NULL ) {
+function comments_open( $post_id = null ) {
 
 	$_post = get_post($post_id);
 
@@ -786,7 +786,7 @@ function comments_open( $post_id=NULL ) {
  * @param int $post_id An optional post ID to check instead of the current post.
  * @return bool True if pings are accepted
  */
-function pings_open( $post_id = NULL ) {
+function pings_open( $post_id = null ) {
 
 	$_post = get_post($post_id);
 
@@ -810,14 +810,13 @@ function pings_open( $post_id = NULL ) {
  * @uses $post Gets the ID of the current post for the token
  */
 function wp_comment_form_unfiltered_html_nonce() {
-	global $post;
+	$post = get_post();
+	$post_id = $post ? $post->ID : 0;
 
-	$post_id = 0;
-	if ( !empty($post) )
-		$post_id = $post->ID;
-
-	if ( current_user_can('unfiltered_html') )
-		wp_nonce_field('unfiltered-html-comment_' . $post_id, '_wp_unfiltered_html_comment', false);
+	if ( current_user_can( 'unfiltered_html' ) ) {
+		wp_nonce_field( 'unfiltered-html-comment_' . $post_id, '_wp_unfiltered_html_comment_disabled', false );
+		echo "<script>(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>\n";
+	}
 }
 
 /**
@@ -895,24 +894,24 @@ function comments_template( $file = '/comments.php', $separate_comments = false 
 	update_comment_cache($wp_query->comments);
 
 	if ( $separate_comments ) {
-		$wp_query->comments_by_type = &separate_comments($comments);
+		$wp_query->comments_by_type = separate_comments($comments);
 		$comments_by_type = &$wp_query->comments_by_type;
 	}
 
-	$overridden_cpage = FALSE;
+	$overridden_cpage = false;
 	if ( '' == get_query_var('cpage') && get_option('page_comments') ) {
 		set_query_var( 'cpage', 'newest' == get_option('default_comments_page') ? get_comment_pages_count() : 1 );
-		$overridden_cpage = TRUE;
+		$overridden_cpage = true;
 	}
 
-	if ( !defined('COMMENTS_TEMPLATE') || !COMMENTS_TEMPLATE)
+	if ( !defined('COMMENTS_TEMPLATE') )
 		define('COMMENTS_TEMPLATE', true);
 
 	$include = apply_filters('comments_template', STYLESHEETPATH . $file );
 	if ( file_exists( $include ) )
 		require( $include );
 	elseif ( file_exists( TEMPLATEPATH . $file ) )
-		require( TEMPLATEPATH .  $file );
+		require( TEMPLATEPATH . $file );
 	else // Backward compat code will be removed in a future release
 		require( ABSPATH . WPINC . '/theme-compat/comments.php');
 }
@@ -1091,7 +1090,7 @@ function comment_reply_link($args = array(), $comment = null, $post = null) {
  * @since 2.7.0
  *
  * @param array $args Optional. Override default options.
- * @param int|object $post Optional. Post that the comment is going to be displayed on.  Defaults to current post.
+ * @param int|object $post Optional. Post that the comment is going to be displayed on. Defaults to current post.
  * @return string|bool|null Link to show comment form, if successful. False, if comments are closed.
  */
 function get_post_reply_link($args = array(), $post = null) {
@@ -1191,7 +1190,7 @@ function comment_id_fields( $id = 0 ) {
  * @param string $replytext Optional. Text to display when replying to a comment. Accepts "%s" for the author of the comment being replied to.
  * @param string $linktoparent Optional. Boolean to control making the author's name a link to their comment.
  */
-function comment_form_title( $noreplytext = false, $replytext = false, $linktoparent = TRUE ) {
+function comment_form_title( $noreplytext = false, $replytext = false, $linktoparent = true ) {
 	global $comment;
 
 	if ( false === $noreplytext ) $noreplytext = __( 'Leave a Reply' );
@@ -1238,18 +1237,18 @@ class Walker_Comment extends Walker {
 	 * @param int $depth Depth of comment.
 	 * @param array $args Uses 'style' argument for type of HTML list.
 	 */
-	function start_lvl(&$output, $depth, $args) {
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$GLOBALS['comment_depth'] = $depth + 1;
 
 		switch ( $args['style'] ) {
 			case 'div':
 				break;
 			case 'ol':
-				echo "<ol class='children'>\n";
+				echo '<ol class="children">' . "\n";
 				break;
 			default:
 			case 'ul':
-				echo "<ul class='children'>\n";
+				echo '<ul class="children">' . "\n";
 				break;
 		}
 	}
@@ -1262,18 +1261,18 @@ class Walker_Comment extends Walker {
 	 * @param int $depth Depth of comment.
 	 * @param array $args Will only append content if style argument value is 'ol' or 'ul'.
 	 */
-	function end_lvl(&$output, $depth, $args) {
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$GLOBALS['comment_depth'] = $depth + 1;
 
 		switch ( $args['style'] ) {
 			case 'div':
 				break;
 			case 'ol':
-				echo "</ol>\n";
+				echo "</ol><!-- .children -->\n";
 				break;
 			default:
 			case 'ul':
-				echo "</ul>\n";
+				echo "</ul><!-- .children -->\n";
 				break;
 		}
 	}
@@ -1296,7 +1295,7 @@ class Walker_Comment extends Walker {
 	 *  2.2
 	 *
 	 */
-	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 
 		if ( !$element )
 			return;
@@ -1326,55 +1325,23 @@ class Walker_Comment extends Walker {
 	 * @param int $depth Depth of comment in reference to parents.
 	 * @param array $args
 	 */
-	function start_el(&$output, $comment, $depth, $args) {
+	function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
 		$depth++;
 		$GLOBALS['comment_depth'] = $depth;
+		$GLOBALS['comment'] = $comment;
 
-		if ( !empty($args['callback']) ) {
-			call_user_func($args['callback'], $comment, $args, $depth);
+		if ( !empty( $args['callback'] ) ) {
+			call_user_func( $args['callback'], $comment, $args, $depth );
 			return;
 		}
 
-		$GLOBALS['comment'] = $comment;
-		extract($args, EXTR_SKIP);
-
-		if ( 'div' == $args['style'] ) {
-			$tag = 'div';
-			$add_below = 'comment';
+		if ( ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) && $args['short_ping'] ) {
+			$this->ping( $comment, $depth, $args );
+		} elseif ( 'html5' === $args['format'] ) {
+			$this->html5_comment( $comment, $depth, $args );
 		} else {
-			$tag = 'li';
-			$add_below = 'div-comment';
+			$this->comment( $comment, $depth, $args );
 		}
-?>
-		<<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
-		<?php if ( 'div' != $args['style'] ) : ?>
-		<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-		<?php endif; ?>
-		<div class="comment-author vcard">
-		<?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-		<?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-		</div>
-<?php if ($comment->comment_approved == '0') : ?>
-		<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
-		<br />
-<?php endif; ?>
-
-		<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-			<?php
-				/* translators: 1: date, 2: time */
-				printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'&nbsp;&nbsp;','' );
-			?>
-		</div>
-
-		<?php comment_text() ?>
-
-		<div class="reply">
-		<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-		</div>
-		<?php if ( 'div' != $args['style'] ) : ?>
-		</div>
-		<?php endif; ?>
-<?php
 	}
 
 	/**
@@ -1386,17 +1353,126 @@ class Walker_Comment extends Walker {
 	 * @param int $depth Depth of comment.
 	 * @param array $args
 	 */
-	function end_el(&$output, $comment, $depth, $args) {
-		if ( !empty($args['end-callback']) ) {
-			call_user_func($args['end-callback'], $comment, $args, $depth);
+	function end_el( &$output, $comment, $depth = 0, $args = array() ) {
+		if ( !empty( $args['end-callback'] ) ) {
+			call_user_func( $args['end-callback'], $comment, $args, $depth );
 			return;
 		}
 		if ( 'div' == $args['style'] )
-			echo "</div>\n";
+			echo "</div><!-- #comment-## -->\n";
 		else
-			echo "</li>\n";
+			echo "</li><!-- #comment-## -->\n";
 	}
 
+	/**
+	 * @since 3.6
+	 * @access protected
+	 *
+	 * @param object $comment
+	 * @param int $depth Depth of comment.
+	 * @param array $args
+	 */
+	protected function ping( $comment, $depth, $args ) {
+		$tag = ( 'div' == $args['style'] ) ? 'div' : 'li';
+?>
+		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+			<div class="comment-body">
+				<?php _e( 'Pingback:' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+			</div>
+<?php
+	}
+
+	/**
+	 * @since 3.6
+	 * @access protected
+	 *
+	 * @param object $comment Comment to display.
+	 * @param int $depth Depth of comment.
+	 * @param array $args Optional args.
+	 */
+	protected function comment( $comment, $depth, $args ) {
+		if ( 'div' == $args['style'] ) {
+			$tag = 'div';
+			$add_below = 'comment';
+		} else {
+			$tag = 'li';
+			$add_below = 'div-comment';
+		}
+?>
+		<<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
+		<?php if ( 'div' != $args['style'] ) : ?>
+		<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+		<?php endif; ?>
+		<div class="comment-author vcard">
+			<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+			<?php printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
+		</div>
+		<?php if ( '0' == $comment->comment_approved ) : ?>
+		<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ) ?></em>
+		<br />
+		<?php endif; ?>
+
+		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+			<?php
+				/* translators: 1: date, 2: time */
+				printf( __( '%1$s at %2$s' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '&nbsp;&nbsp;', '' );
+			?>
+		</div>
+
+		<?php comment_text() ?>
+
+		<div class="reply">
+			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		</div>
+		<?php if ( 'div' != $args['style'] ) : ?>
+		</div>
+		<?php endif; ?>
+<?php
+	}
+
+	/**
+	 * @since 3.6
+	 * @access protected
+	 *
+	 * @param object $comment Comment to display.
+	 * @param int $depth Depth of comment.
+	 * @param array $args Optional args.
+	 */
+	protected function html5_comment( $comment, $depth, $args ) {
+		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+?>
+		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+						<?php printf( __( '%s <span class="says">says:</span>' ), sprintf( '<b class="fn">%s</b>', get_comment_author_link() ) ); ?>
+					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+							<time datetime="<?php comment_time( 'c' ); ?>">
+								<?php printf( _x( '%1$s at %2$s', '1: date, 2: time' ), get_comment_date(), get_comment_time() ); ?>
+							</time>
+						</a>
+						<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+					</div><!-- .comment-metadata -->
+
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+					<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
+					<?php endif; ?>
+				</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<?php comment_text(); ?>
+				</div><!-- .comment-content -->
+
+				<div class="reply">
+					<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+				</div><!-- .reply -->
+			</article><!-- .comment-body -->
+<?php
+	}
 }
 
 /**
@@ -1408,7 +1484,7 @@ class Walker_Comment extends Walker {
  * @uses Walker_Comment
  *
  * @param string|array $args Formatting options
- * @param array $comments Optional array of comment objects.  Defaults to $wp_query->comments
+ * @param array $comments Optional array of comment objects. Defaults to $wp_query->comments
  */
 function wp_list_comments($args = array(), $comments = null ) {
 	global $wp_query, $comment_alt, $comment_depth, $comment_thread_alt, $overridden_cpage, $in_comment_loop;
@@ -1418,8 +1494,21 @@ function wp_list_comments($args = array(), $comments = null ) {
 	$comment_alt = $comment_thread_alt = 0;
 	$comment_depth = 1;
 
-	$defaults = array('walker' => null, 'max_depth' => '', 'style' => 'ul', 'callback' => null, 'end-callback' => null, 'type' => 'all',
-		'page' => '', 'per_page' => '', 'avatar_size' => 32, 'reverse_top_level' => null, 'reverse_children' => '');
+	$defaults = array(
+		'walker'            => null,
+		'max_depth'         => '',
+		'style'             => 'ul',
+		'callback'          => null,
+		'end-callback'      => null,
+		'type'              => 'all',
+		'page'              => '',
+		'per_page'          => '',
+		'avatar_size'       => 32,
+		'reverse_top_level' => null,
+		'reverse_children'  => '',
+		'format'            => current_theme_supports( 'html5', 'comment-list' ) ? 'html5' : 'xhtml',
+		'short_ping'        => false,
+	);
 
 	$r = wp_parse_args( $args, $defaults );
 
@@ -1429,7 +1518,7 @@ function wp_list_comments($args = array(), $comments = null ) {
 		if ( empty($comments) )
 			return;
 		if ( 'all' != $r['type'] ) {
-			$comments_by_type = &separate_comments($comments);
+			$comments_by_type = separate_comments($comments);
 			if ( empty($comments_by_type[$r['type']]) )
 				return;
 			$_comments = $comments_by_type[$r['type']];
@@ -1441,7 +1530,7 @@ function wp_list_comments($args = array(), $comments = null ) {
 			return;
 		if ( 'all' != $r['type'] ) {
 			if ( empty($wp_query->comments_by_type) )
-				$wp_query->comments_by_type = &separate_comments($wp_query->comments);
+				$wp_query->comments_by_type = separate_comments($wp_query->comments);
 			if ( empty($wp_query->comments_by_type[$r['type']]) )
 				return;
 			$_comments = $wp_query->comments_by_type[$r['type']];
@@ -1508,34 +1597,36 @@ function wp_list_comments($args = array(), $comments = null ) {
  * @return void
  */
 function comment_form( $args = array(), $post_id = null ) {
-	global $id;
-
 	if ( null === $post_id )
-		$post_id = $id;
+		$post_id = get_the_ID();
 	else
 		$id = $post_id;
 
 	$commenter = wp_get_current_commenter();
 	$user = wp_get_current_user();
-	$user_identity = ! empty( $user->ID ) ? $user->display_name : '';
+	$user_identity = $user->exists() ? $user->display_name : '';
 
-	$req = get_option( 'require_name_email' );
+	if ( ! isset( $args['format'] ) )
+		$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
+
+	$req      = get_option( 'require_name_email' );
 	$aria_req = ( $req ? " aria-required='true'" : '' );
-	$fields =  array(
-		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
+	$html5    = 'html5' === $args['format'];
+	$fields   =  array(
+		'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 		            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
-		            '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'url'    => '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' .
-		            '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+		            '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'url'    => '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label> ' .
+		            '<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
 	);
 
 	$required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );
 	$defaults = array(
 		'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
-		'comment_field'        => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-		'must_log_in'          => '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-		'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+		'comment_field'        => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+		'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+		'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
 		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
 		'comment_notes_after'  => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
 		'id_form'              => 'commentform',
@@ -1544,20 +1635,21 @@ function comment_form( $args = array(), $post_id = null ) {
 		'title_reply_to'       => __( 'Leave a Reply to %s' ),
 		'cancel_reply_link'    => __( 'Cancel reply' ),
 		'label_submit'         => __( 'Post Comment' ),
+		'format'               => 'xhtml',
 	);
 
 	$args = wp_parse_args( $args, apply_filters( 'comment_form_defaults', $defaults ) );
 
 	?>
-		<?php if ( comments_open() ) : ?>
+		<?php if ( comments_open( $post_id ) ) : ?>
 			<?php do_action( 'comment_form_before' ); ?>
-			<div id="respond">
-				<h3 id="reply-title"><?php comment_form_title( $args['title_reply'], $args['title_reply_to'] ); ?> <small><?php cancel_comment_reply_link( $args['cancel_reply_link'] ); ?></small></h3>
+			<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title"><?php comment_form_title( $args['title_reply'], $args['title_reply_to'] ); ?> <small><?php cancel_comment_reply_link( $args['cancel_reply_link'] ); ?></small></h3>
 				<?php if ( get_option( 'comment_registration' ) && !is_user_logged_in() ) : ?>
 					<?php echo $args['must_log_in']; ?>
 					<?php do_action( 'comment_form_must_log_in_after' ); ?>
 				<?php else : ?>
-					<form action="<?php echo site_url( '/wp-comments-post.php' ); ?>" method="post" id="<?php echo esc_attr( $args['id_form'] ); ?>">
+					<form action="<?php echo site_url( '/wp-comments-post.php' ); ?>" method="post" id="<?php echo esc_attr( $args['id_form'] ); ?>" class="comment-form"<?php echo $html5 ? ' novalidate' : ''; ?>>
 						<?php do_action( 'comment_form_top' ); ?>
 						<?php if ( is_user_logged_in() ) : ?>
 							<?php echo apply_filters( 'comment_form_logged_in', $args['logged_in_as'], $commenter, $user_identity ); ?>
@@ -1588,5 +1680,3 @@ function comment_form( $args = array(), $post_id = null ) {
 		<?php endif; ?>
 	<?php
 }
-
-?>

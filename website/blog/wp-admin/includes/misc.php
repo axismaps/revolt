@@ -192,25 +192,24 @@ function update_recently_edited( $file ) {
 }
 
 /**
- * If siteurl or home changed, flush rewrite rules.
+ * If siteurl, home or page_on_front changed, flush rewrite rules.
  *
  * @since 2.1.0
  *
- * @param unknown_type $old_value
- * @param unknown_type $value
+ * @param string $old_value
+ * @param string $value
  */
 function update_home_siteurl( $old_value, $value ) {
-	global $wp_rewrite;
-
 	if ( defined( "WP_INSTALLING" ) )
 		return;
 
 	// If home changed, write rewrite rules to new location.
-	$wp_rewrite->flush_rules();
+	flush_rewrite_rules();
 }
 
 add_action( 'update_option_home', 'update_home_siteurl', 10, 2 );
 add_action( 'update_option_siteurl', 'update_home_siteurl', 10, 2 );
+add_action( 'update_option_page_on_front', 'update_home_siteurl', 10, 2 );
 
 /**
  * Shorten an URL, to be used as link text
@@ -221,11 +220,10 @@ add_action( 'update_option_siteurl', 'update_home_siteurl', 10, 2 );
  * @return string
  */
 function url_shorten( $url ) {
-	$short_url = str_replace( 'http://', '', stripslashes( $url ));
-	$short_url = str_replace( 'www.', '', $short_url );
+	$short_url = str_replace( array( 'http://', 'www.' ), '', $url );
 	$short_url = untrailingslashit( $short_url );
 	if ( strlen( $short_url ) > 35 )
-		$short_url = substr( $short_url, 0, 32 ) . '...';
+		$short_url = substr( $short_url, 0, 32 ) . '&hellip;';
 	return $short_url;
 }
 
@@ -327,19 +325,18 @@ function set_screen_options() {
 		$option = $_POST['wp_screen_options']['option'];
 		$value = $_POST['wp_screen_options']['value'];
 
-		if ( !preg_match( '/^[a-z_-]+$/', $option ) )
+		if ( $option != sanitize_key( $option ) )
 			return;
-
-		$option = str_replace('-', '_', $option);
 
 		$map_option = $option;
 		$type = str_replace('edit_', '', $map_option);
 		$type = str_replace('_per_page', '', $type);
-		if ( in_array($type, get_post_types()) )
-			$map_option = 'edit_per_page';
-		if ( in_array( $type, get_taxonomies()) )
+		if ( in_array( $type, get_taxonomies() ) )
 			$map_option = 'edit_tags_per_page';
-
+		elseif ( in_array( $type, get_post_types() ) )
+			$map_option = 'edit_per_page';
+		else
+			$option = str_replace('-', '_', $option);
 
 		switch ( $map_option ) {
 			case 'edit_per_page':
@@ -373,7 +370,7 @@ function set_screen_options() {
 }
 
 /**
- * Check if rewrite rule for WordPress already exists in the IIS 7 configuration file
+ * Check if rewrite rule for WordPress already exists in the IIS 7+ configuration file
  *
  * @since 2.8.0
  *
@@ -431,7 +428,7 @@ function iis7_delete_rewrite_rule($filename) {
 }
 
 /**
- * Add WordPress rewrite rule to the IIS 7 configuration file.
+ * Add WordPress rewrite rule to the IIS 7+ configuration file.
  *
  * @since 2.8.0
  *
@@ -527,36 +524,6 @@ function saveDomDocument($doc, $filename) {
 }
 
 /**
- * Workaround for Windows bug in is_writable() function
- *
- * @since 2.8.0
- *
- * @param string $path
- * @return bool
- */
-function win_is_writable( $path ) {
-	/* will work in despite of Windows ACLs bug
-	 * NOTE: use a trailing slash for folders!!!
-	 * see http://bugs.php.net/bug.php?id=27609
-	 * see http://bugs.php.net/bug.php?id=30931
-	 */
-
-	if ( $path[strlen( $path ) - 1] == '/' ) // recursively return a temporary file path
-		return win_is_writable( $path . uniqid( mt_rand() ) . '.tmp');
-	else if ( is_dir( $path ) )
-		return win_is_writable( $path . '/' . uniqid( mt_rand() ) . '.tmp' );
-	// check tmp file for read/write capabilities
-	$should_delete_tmp_file = !file_exists( $path );
-	$f = @fopen( $path, 'a' );
-	if ( $f === false )
-		return false;
-	fclose( $f );
-	if ( $should_delete_tmp_file )
-		unlink( $path );
-	return true;
-}
-
-/**
  * Display the default admin color scheme picker (Used in user-edit.php)
  *
  * @since 3.0.0
@@ -569,16 +536,16 @@ $current_color = get_user_option('admin_color', $user_id);
 if ( empty($current_color) )
 	$current_color = 'fresh';
 foreach ( $_wp_admin_css_colors as $color => $color_info ): ?>
-<div class="color-option"><input name="admin_color" id="admin_color_<?php echo $color; ?>" type="radio" value="<?php echo esc_attr($color) ?>" class="tog" <?php checked($color, $current_color); ?> />
+<div class="color-option"><input name="admin_color" id="admin_color_<?php echo esc_attr( $color ); ?>" type="radio" value="<?php echo esc_attr( $color ); ?>" class="tog" <?php checked($color, $current_color); ?> />
 	<table class="color-palette">
 	<tr>
 	<?php foreach ( $color_info->colors as $html_color ): ?>
-	<td style="background-color: <?php echo $html_color ?>" title="<?php echo $color ?>">&nbsp;</td>
+	<td style="background-color: <?php echo esc_attr( $html_color ); ?>" title="<?php echo esc_attr( $color ); ?>">&nbsp;</td>
 	<?php endforeach; ?>
 	</tr>
 	</table>
 
-	<label for="admin_color_<?php echo $color; ?>"><?php echo $color_info->name ?></label>
+	<label for="admin_color_<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $color_info->name ); ?></label>
 </div>
 	<?php endforeach; ?>
 </fieldset>
@@ -586,10 +553,115 @@ foreach ( $_wp_admin_css_colors as $color => $color_info ): ?>
 }
 
 function _ipad_meta() {
-	if ( strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') !== false ) { ?>
-		<meta name="viewport" id="ipad-viewportmeta" content="width=device-width, initial-scale=1">
-	<?php
+	if ( wp_is_mobile() ) {
+		?>
+		<meta name="viewport" id="viewport-meta" content="width=device-width, initial-scale=1">
+		<?php
 	}
 }
 add_action('admin_head', '_ipad_meta');
 
+/**
+ * Check lock status for posts displayed on the Posts screen
+ *
+ * @since 3.6
+ */
+function wp_check_locked_posts( $response, $data, $screen_id ) {
+	$checked = array();
+
+	if ( array_key_exists( 'wp-check-locked-posts', $data ) && is_array( $data['wp-check-locked-posts'] ) ) {
+		foreach ( $data['wp-check-locked-posts'] as $key ) {
+			if ( ! $post_id = absint( substr( $key, 5 ) ) )
+				continue;
+
+			if ( ( $user_id = wp_check_post_lock( $post_id ) ) && ( $user = get_userdata( $user_id ) ) && current_user_can( 'edit_post', $post_id ) ) {
+				$send = array( 'text' => sprintf( __( '%s is currently editing' ), $user->display_name ) );
+
+				if ( ( $avatar = get_avatar( $user->ID, 18 ) ) && preg_match( "|src='([^']+)'|", $avatar, $matches ) )
+					$send['avatar_src'] = $matches[1];
+
+				$checked[$key] = $send;
+			}
+		}
+	}
+
+	if ( ! empty( $checked ) )
+		$response['wp-check-locked-posts'] = $checked;
+
+	return $response;
+}
+add_filter( 'heartbeat_received', 'wp_check_locked_posts', 10, 3 );
+
+/**
+ * Check lock status on the New/Edit Post screen and refresh the lock
+ *
+ * @since 3.6
+ */
+function wp_refresh_post_lock( $response, $data, $screen_id ) {
+	if ( array_key_exists( 'wp-refresh-post-lock', $data ) ) {
+		$received = $data['wp-refresh-post-lock'];
+		$send = array();
+
+		if ( ! $post_id = absint( $received['post_id'] ) )
+			return $response;
+
+		if ( ! current_user_can('edit_post', $post_id) )
+			return $response;
+
+		if ( ( $user_id = wp_check_post_lock( $post_id ) ) && ( $user = get_userdata( $user_id ) ) ) {
+			$error = array(
+				'text' => sprintf( __( '%s has taken over and is currently editing.' ), $user->display_name )
+			);
+
+			if ( $avatar = get_avatar( $user->ID, 64 ) ) {
+				if ( preg_match( "|src='([^']+)'|", $avatar, $matches ) )
+					$error['avatar_src'] = $matches[1];
+			}
+
+			$send['lock_error'] = $error;
+		} else {
+			if ( $new_lock = wp_set_post_lock( $post_id ) )
+				$send['new_lock'] = implode( ':', $new_lock );
+		}
+
+		$response['wp-refresh-post-lock'] = $send;
+	}
+
+	return $response;
+}
+add_filter( 'heartbeat_received', 'wp_refresh_post_lock', 10, 3 );
+
+/**
+ * Check nonce expiration on the New/Edit Post screen and refresh if needed
+ *
+ * @since 3.6
+ */
+function wp_refresh_post_nonces( $response, $data, $screen_id ) {
+	if ( array_key_exists( 'wp-refresh-post-nonces', $data ) ) {
+		$received = $data['wp-refresh-post-nonces'];
+		$response['wp-refresh-post-nonces'] = array( 'check' => 1 );
+
+		if ( ! $post_id = absint( $received['post_id'] ) )
+			return $response;
+
+		if ( ! current_user_can( 'edit_post', $post_id ) || empty( $received['post_nonce'] ) )
+			return $response;
+
+		if ( 2 === wp_verify_nonce( $received['post_nonce'], 'update-post_' . $post_id ) ) {
+			$response['wp-refresh-post-nonces'] = array(
+				'replace' => array(
+					'autosavenonce' => wp_create_nonce('autosave'),
+					'getpermalinknonce' => wp_create_nonce('getpermalink'),
+					'samplepermalinknonce' => wp_create_nonce('samplepermalink'),
+					'closedpostboxesnonce' => wp_create_nonce('closedpostboxes'),
+					'_ajax_linking_nonce' => wp_create_nonce( 'internal-linking' ),
+					'_wpnonce' => wp_create_nonce( 'update-post_' . $post_id ),
+				),
+				'heartbeatNonce' => wp_create_nonce( 'heartbeat-nonce' ),
+			);
+		}
+	}
+
+	return $response;
+}
+add_filter( 'heartbeat_received', 'wp_refresh_post_nonces', 10, 3 );

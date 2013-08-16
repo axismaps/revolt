@@ -9,7 +9,7 @@
 /** WordPress Administration Bootstrap */
 require_once('./admin.php');
 
-wp_reset_vars(array('action', 'redirect', 'profile', 'user_id', 'wp_http_referer'));
+wp_reset_vars( array( 'action', 'user_id', 'wp_http_referer' ) );
 
 $user_id = (int) $user_id;
 $current_user = wp_get_current_user();
@@ -36,7 +36,6 @@ if ( current_user_can('edit_users') && !is_user_admin() )
 else
 	$parent_file = 'profile.php';
 
-
 $profile_help = '<p>' . __('Your profile contains information about you (your &#8220;account&#8221;) as well as some personal options related to using WordPress.') . '</p>' .
 	'<p>' . __('You can change your password, turn on keyboard shortcuts, change the color scheme of your WordPress administration screens, and turn off the WYSIWYG (Visual) editor, among other things. You can hide the Toolbar (formerly called the Admin Bar) from the front end of your site, however it cannot be disabled on the admin screens.') . '</p>' .
 	'<p>' . __('Your username cannot be changed, but you can use other fields to enter your real name or a nickname, and change which name to display on your posts.') . '</p>' .
@@ -55,7 +54,7 @@ get_current_screen()->set_help_sidebar(
     '<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
 );
 
-$wp_http_referer = remove_query_arg(array('update', 'delete_count'), stripslashes($wp_http_referer));
+$wp_http_referer = remove_query_arg(array('update', 'delete_count'), $wp_http_referer );
 
 $user_can_edit = current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' );
 
@@ -75,7 +74,6 @@ function use_ssl_preference($user) {
 <?php
 }
 
-
 // Only allow super admins on multisite to edit every user.
 if ( is_multisite() && ! current_user_can( 'manage_network_users' ) && $user_id != $current_user->ID && ! apply_filters( 'enable_edit_any_user_configuration', true ) )
 	wp_die( __( 'You do not have permission to edit this user.' ) );
@@ -84,11 +82,12 @@ if ( is_multisite() && ! current_user_can( 'manage_network_users' ) && $user_id 
 if ( is_multisite() && IS_PROFILE_PAGE && isset( $_GET[ 'newuseremail' ] ) && $current_user->ID ) {
 	$new_email = get_option( $current_user->ID . '_new_email' );
 	if ( $new_email[ 'hash' ] == $_GET[ 'newuseremail' ] ) {
+		$user = new stdClass;
 		$user->ID = $current_user->ID;
 		$user->user_email = esc_html( trim( $new_email[ 'newemail' ] ) );
 		if ( $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM {$wpdb->signups} WHERE user_login = %s", $current_user->user_login ) ) )
 			$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->signups} SET user_email = %s WHERE user_login = %s", $user->user_email, $current_user->user_login ) );
-		wp_update_user( get_object_vars( $user ) );
+		wp_update_user( $user );
 		delete_option( $current_user->ID . '_new_email' );
 		wp_redirect( add_query_arg( array('updated' => 'true'), self_admin_url( 'profile.php' ) ) );
 		die();
@@ -141,7 +140,7 @@ if ( !is_multisite() ) {
 }
 
 if ( !is_wp_error( $errors ) ) {
-	$redirect = (IS_PROFILE_PAGE ? "profile.php?" : "user-edit.php?user_id=$user_id&"). "updated=true";
+	$redirect = add_query_arg( 'updated', true, get_edit_user_link( $user_id ) );
 	if ( $wp_http_referer )
 		$redirect = add_query_arg('wp_http_referer', urlencode($wp_http_referer), $redirect);
 	wp_redirect($redirect);
@@ -247,13 +246,12 @@ if ( !( IS_PROFILE_PAGE && !$user_can_edit ) ) : ?>
 	</tr>
 
 <?php if ( !IS_PROFILE_PAGE && !is_network_admin() ) : ?>
-<tr><th><label for="role"><?php _e('Role:') ?></label></th>
+<tr><th><label for="role"><?php _e('Role') ?></label></th>
 <td><select name="role" id="role">
 <?php
-// Get the highest/primary role for this user
-// TODO: create a function that does this: wp_get_user_role()
-$user_roles = $profileuser->roles;
-$user_role = array_shift($user_roles);
+// Compare user role against currently editable roles
+$user_roles = array_intersect( array_values( $profileuser->roles ), array_keys( get_editable_roles() ) );
+$user_role  = array_shift( $user_roles );
 
 // print the full list of roles with the primary one selected.
 wp_dropdown_roles($user_role);
@@ -268,9 +266,9 @@ else
 <?php endif; //!IS_PROFILE_PAGE
 
 if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_can( 'manage_network_options' ) && !isset($super_admins) ) { ?>
-<tr><th><label for="role"><?php _e('Super Admin'); ?></label></th>
+<tr><th><?php _e('Super Admin'); ?></th>
 <td>
-<?php if ( $profileuser->user_email != get_site_option( 'admin_email' ) ) : ?>
+<?php if ( $profileuser->user_email != get_site_option( 'admin_email' ) || ! is_super_admin( $profileuser->ID ) ) : ?>
 <p><label><input type="checkbox" id="super_admin" name="super_admin"<?php checked( is_super_admin( $profileuser->ID ) ); ?> /> <?php _e( 'Grant this user super admin privileges for the Network.' ); ?></label></p>
 <?php else : ?>
 <p><?php _e( 'Super admin privileges cannot be removed because this user has the network admin email.' ); ?></p>
@@ -321,7 +319,7 @@ if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_c
 
 			foreach ( $public_display as $id => $item ) {
 		?>
-			<option id="<?php echo $id; ?>"<?php selected( $profileuser->display_name, $item ); ?>><?php echo $item; ?></option>
+			<option <?php selected( $profileuser->display_name, $item ); ?>><?php echo $item; ?></option>
 		<?php
 			}
 		?>
@@ -338,7 +336,7 @@ if ( is_multisite() && is_network_admin() && ! IS_PROFILE_PAGE && current_user_c
 	<td><input type="text" name="email" id="email" value="<?php echo esc_attr($profileuser->user_email) ?>" class="regular-text" />
 	<?php
 	$new_email = get_option( $current_user->ID . '_new_email' );
-	if ( $new_email && $new_email != $current_user->user_email ) : ?>
+	if ( $new_email && $new_email['newemail'] != $current_user->user_email && $profileuser->ID == $current_user->ID ) : ?>
 	<div class="updated inline">
 	<p><?php printf( __('There is a pending change of your e-mail to <code>%1$s</code>. <a href="%2$s">Cancel</a>'), $new_email['newemail'], esc_url( self_admin_url( 'profile.php?dismiss=' . $current_user->ID . '_new_email' ) ) ); ?></p>
 	</div>
@@ -378,10 +376,18 @@ if ( $show_password_fields ) :
 ?>
 <tr id="password">
 	<th><label for="pass1"><?php _e('New Password'); ?></label></th>
-	<td><input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" /> <span class="description"><?php _e("If you would like to change the password type a new one. Otherwise leave this blank."); ?></span><br />
-		<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" /> <span class="description"><?php _e("Type your new password again."); ?></span><br />
-		<div id="pass-strength-result"><?php _e('Strength indicator'); ?></div>
-		<p class="description indicator-hint"><?php _e('Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).'); ?></p>
+	<td>
+		<input class="hidden" value=" " /><!-- #24364 workaround -->
+		<input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" /> <span class="description"><?php _e("If you would like to change the password type a new one. Otherwise leave this blank."); ?></span>
+	</td>
+</tr>
+<tr>
+	<th scope="row"><label for="pass2"><?php _e('Repeat New Password'); ?></label></th>
+	<td>
+	<input name="pass2" type="password" id="pass2" size="16" value="" autocomplete="off" /> <span class="description" for="pass2"><?php _e("Type your new password again."); ?></span>
+	<br />
+	<div id="pass-strength-result"><?php _e('Strength indicator'); ?></div>
+	<p class="description indicator-hint"><?php _e('Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).'); ?></p>
 	</td>
 </tr>
 <?php endif; ?>
@@ -394,25 +400,27 @@ if ( $show_password_fields ) :
 		do_action( 'edit_user_profile', $profileuser );
 ?>
 
-<?php if ( count($profileuser->caps) > count($profileuser->roles) && apply_filters('additional_capabilities_display', true, $profileuser) ) { ?>
-<br class="clear" />
-	<table width="99%" style="border: none;" cellspacing="2" cellpadding="3" class="editform">
-		<tr>
-			<th scope="row"><?php _e('Additional Capabilities') ?></th>
-			<td><?php
-			$output = '';
-			foreach ( $profileuser->caps as $cap => $value ) {
-				if ( !$wp_roles->is_role($cap) ) {
-					if ( $output != '' )
-						$output .= ', ';
-					$output .= $value ? $cap : "Denied: {$cap}";
-				}
-			}
-			echo $output;
-			?></td>
-		</tr>
-	</table>
-<?php } ?>
+<?php if ( count( $profileuser->caps ) > count( $profileuser->roles ) && apply_filters( 'additional_capabilities_display', true, $profileuser ) ) : ?>
+<h3><?php _e( 'Additional Capabilities' ); ?></h3>
+<table class="form-table">
+<tr>
+	<th scope="row"><?php _e( 'Capabilities' ); ?></th>
+	<td>
+<?php
+	$output = '';
+	foreach ( $profileuser->caps as $cap => $value ) {
+		if ( ! $wp_roles->is_role( $cap ) ) {
+			if ( '' != $output )
+				$output .= ', ';
+			$output .= $value ? $cap : sprintf( __( 'Denied: %s' ), $cap );
+		}
+	}
+	echo $output;
+?>
+	</td>
+</tr>
+</table>
+<?php endif; ?>
 
 <input type="hidden" name="action" value="update" />
 <input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr($user_id); ?>" />
@@ -425,11 +433,10 @@ if ( $show_password_fields ) :
 break;
 }
 ?>
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
 	if (window.location.hash == '#password') {
 		document.getElementById('pass1').focus();
 	}
 </script>
 <?php
 include( ABSPATH . 'wp-admin/admin-footer.php');
-?>

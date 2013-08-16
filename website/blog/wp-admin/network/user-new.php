@@ -1,6 +1,6 @@
 <?php
 /**
- * Add Site Administration Screen
+ * Add New User network administration panel.
  *
  * @package WordPress
  * @subpackage Multisite
@@ -15,7 +15,6 @@ if ( ! is_multisite() )
 
 if ( ! current_user_can('create_users') )
 	wp_die(__('You do not have sufficient permissions to add users to this network.'));
-
 
 get_current_screen()->add_help_tab( array(
 	'id'      => 'overview',
@@ -106,4 +105,3 @@ if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) { ?>
 </div>
 <?php
 require('../admin-footer.php');
-?>

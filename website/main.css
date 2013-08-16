@@ -258,12 +258,16 @@ img.right{
 	padding-left: 6px;
 }
 
+#search table{
+	margin: -5px;
+}
+
 #search table.gsc-branding, #search td.gsc-clear-button{
 	display: none;
 }
 
 #search input{
-	margin-top: -4px;
+	margin-top: -5px;
 }
 
 #search input.gsc-input{
@@ -276,7 +280,7 @@ img.right{
 	font-size: 0;
 	border: none;
 	width: 21px;
-	margin-left: -10px;
+	margin-left: -15px;
 }
 
 #cse img{

@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
+		<title>Slave Revolt in Jamaica, 1760-1761</title>
 		<meta charset="utf8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic|PT+Sans:400,700,400italic,700italic|PT+Serif' rel='stylesheet' type='text/css' />

@@ -38,13 +38,21 @@ function buildTimeline(){
 			timeline.append(label);
 		}
 	}
-	
-	$( "#scroll-left" ).mousedown( function(){
-		scrollInterval = setInterval( function(){ scrollTimeline( "left" ); }, 50 );
-	});
-	$( "#scroll-right" ).mousedown( function(){
-		scrollInterval = setInterval( function(){ scrollTimeline( "right" ); }, 50 );
-	});
+
+	$( "#scroll-left" )
+		.click( function() {
+			scrollTimeline( "left" );
+		})
+		.mousedown( function(){
+			scrollInterval = setInterval( function(){ scrollTimeline( "left" ); }, 50 );
+		});
+	$( "#scroll-right" )
+		.click( function() {
+			scrollTimeline( "right" );
+		})
+		.mousedown( function(){
+			scrollInterval = setInterval( function(){ scrollTimeline( "right" ); }, 50 );
+		});
 	$( "#scroll-left, #scroll-right" ).mouseup( function(){ clearInterval( scrollInterval ) } );
 }
 

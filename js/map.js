@@ -16,7 +16,7 @@ function setupMap(){
 
 function auto_pan( bounds ){
 	//extend bounds eastward by 50 pixels to account for popup
-	var ne = map.latLngToLayerPoint(bounds._northEast);
+	var ne = map.latLngToLayerPoint( bounds._northEast );
 	ne.x += 50;
 	bounds._northEast = map.layerPointToLatLng( ne );
 	if( !map.getBounds().intersects( bounds ) && map.getZoom() > 10 ){

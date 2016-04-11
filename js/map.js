@@ -15,6 +15,10 @@ function setupMap(){
 }
 
 function auto_pan( bounds ){
+	//extend bounds eastward by 50 pixels to account for popup
+	var ne = map.latLngToLayerPoint(bounds._northEast);
+	ne.x += 50;
+	bounds._northEast = map.layerPointToLatLng( ne );
 	if( !map.getBounds().intersects( bounds ) && map.getZoom() > 10 ){
 		map.fitBounds( L.latLngBounds( L.latLng(17.644, -78.409), L.latLng(18.589, -76.190) ) );
 		window.setTimeout( function(){ map.fitBounds( bounds ) }, 1500 );

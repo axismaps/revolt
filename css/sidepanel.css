@@ -79,6 +79,7 @@ div#side {
 }
 
 #text{
+	-webkit-overflow-scrolling: touch;
 	overflow-y: auto;
 	padding: 0 0 0 35px;
 	margin-bottom: 10px;
@@ -98,7 +99,9 @@ div#side {
 #legend {
 	margin-left: 35px;
 	height: 0;
-	overflow: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: hidden;
 	padding-bottom: 10px;
 }
 

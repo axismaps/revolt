@@ -43,12 +43,13 @@ function setupControls(){
 	});
 	
 	$( "#legend-title" ).click( function(){
+		var freeSpace = $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25;
 		if ( $( "#legend" ).height() ){
 			$( "#legend" ).height(0);
-			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - 25 );
+			$( "#text" ).height( freeSpace );
 		} else {
-			$( "#legend" ).height("auto");
-			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - $( "#legend" ).outerHeight() - 25);
+			$( "#legend" ).height( Math.min(606, freeSpace) );
+			$( "#text" ).height( $( window ).height() - $( "#controls" ).outerHeight() - $( "#date" ).outerHeight() - $( "#legend-title" ).outerHeight() - Math.min(606, freeSpace) - 25);
 		}
 		if ( $(this).prev().hasClass( "open" ) ) $(this).prev().removeClass( "open" );
 		else $(this).prev().addClass( "open" )

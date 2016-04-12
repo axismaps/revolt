@@ -37,6 +37,7 @@ function nextDay(){
 	var index = $( "#t" + currentDay.ms ).index( ".timeline-event" ),
 		next = $( ".timeline-event" ).eq( index + 1 );
 	if ( next ) next.trigger("click");
+	if ( next.not(':visible') ) $( "#timeline-container" ).animate({ scrollLeft: next[0].offsetLeft - ($( "#timeline-container" ).width() * 0.75 ) }, 500);
 }
 
 function previousDay(){

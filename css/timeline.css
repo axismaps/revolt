@@ -4,6 +4,13 @@ div#timeline-container {
 	overflow-x: hidden;
 }
 
+@media (pointer: coarse) {
+	div#timeline-container {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+	}
+}
+
 div#timeline {
 	height: 100%;
 	position: relative;

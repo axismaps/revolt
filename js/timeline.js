@@ -2,7 +2,11 @@ var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov",
 var scrollInterval;
 function buildTimeline(){
 	$( "#bottom" ).append( "<div id='scroll-left'/>" ).append( "<div id='scroll-right'/>" )
-	var timeline = $( "<div id='timeline'></div>" ).width( 10 + 9*(dateRange[1] - dateRange[0])/86400000 ),
+
+	var pointerCoarse = window.matchMedia("(pointer: coarse)");
+	var dayWidth = pointerCoarse.matches ? 20 : 9;
+
+	var timeline = $( "<div id='timeline'></div>" ).width( 10 + dayWidth*(dateRange[1] - dateRange[0])/86400000 ),
 		track = $( "<div id='track'></div>" ).css( "width", "100%" ),
 		month;
 	$( "#bottom" ).append( $( "<div id='timeline-container'>" ).append( timeline.append(track) ) );

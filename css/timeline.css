@@ -2,12 +2,14 @@ div#timeline-container {
 	margin-left: 25px;
 	height: 100%;
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 @media (pointer: coarse) {
 	div#timeline-container {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
+		overflow-y: hidden;
 	}
 }
 
@@ -39,6 +41,22 @@ div.timeline-day:hover > div, div.timeline-day.selected > div {
 	width: 7px;
 	height: 7px;
 	background-color: #faf7f2;
+}
+
+@media (pointer: coarse) {
+	div.timeline-day {
+		width: 20px;
+	}
+
+	div.timeline-event > div {
+		height: 11px;
+		width: 11px;
+	}
+
+	div.timeline-day:hover > div, div.timeline-day.selected > div {
+		width: 13px;
+		height: 13px;
+	}
 }
 
 .month-label {

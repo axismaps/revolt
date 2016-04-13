@@ -37,7 +37,11 @@ function nextDay(){
 	var index = $( "#t" + currentDay.ms ).index( ".timeline-event" ),
 		next = $( ".timeline-event" ).eq( index + 1 );
 	if ( next ) next.trigger("click");
-	if ( next.not(':visible') ) $( "#timeline-container" ).animate({ scrollLeft: next[0].offsetLeft - ($( "#timeline-container" ).width() * 0.75 ) }, 500);
+	if ( next.position().left > $('#timeline-container').width() ) {
+		$( "#timeline-container" ).animate({ scrollLeft: next[0].offsetLeft - ($( "#timeline-container" ).width() * 0.75 ) }, 500);
+	} else if ( next.position().left < $('#timeline-container').scrollLeft() ) {
+		$( "#timeline-container" ).animate({ scrollLeft: next[0].offsetLeft - ($( "#timeline-container" ).width() * 0.25 ) }, 500);
+	}
 }
 
 function previousDay(){
@@ -46,6 +50,11 @@ function previousDay(){
 	if ( index == 0 ) return;
 	var	prev = $( ".timeline-event" ).eq( index - 1 );
 	if ( prev ) prev.trigger("click");
+	if ( prev.position().left > $('#timeline-container').width() ) {
+		$( "#timeline-container" ).animate({ scrollLeft: prev[0].offsetLeft - ($( "#timeline-container" ).width() * 0.75 ) }, 500);
+	} else if ( prev.position().left < $('#timeline-container').scrollLeft() ) {
+		$( "#timeline-container" ).animate({ scrollLeft: prev[0].offsetLeft - ($( "#timeline-container" ).width() * 0.25 ) }, 500);
+	}
 }
 
 function nextStep(){

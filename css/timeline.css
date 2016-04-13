@@ -10,6 +10,7 @@ div#timeline-container {
 
 div#timeline {
 	height: 100%;
+	padding-right: 30px;
 	position: relative;
 }
 
@@ -39,6 +40,10 @@ div.timeline-day:hover > div, div.timeline-day.selected > div {
 }
 
 @media (pointer: coarse) {
+	div#timeline {
+		padding-right: 100px;
+	}
+
 	div.timeline-day {
 		width: 20px;
 	}

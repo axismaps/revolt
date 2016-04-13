@@ -1,16 +1,11 @@
 div#timeline-container {
-	margin-left: 25px;
+	box-sizing: border-box;
 	height: 100%;
-	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: auto;
 	overflow-y: hidden;
-}
-
-@media (pointer: coarse) {
-	div#timeline-container {
-		-webkit-overflow-scrolling: touch;
-		overflow-x: auto;
-		overflow-y: hidden;
-	}
+	padding: 0 10px;
+	width: 100%;
 }
 
 div#timeline {
